@@ -4,6 +4,7 @@ import { CustomerPetsComponent } from './customer-pets/customer-pets.component';
 import { CustomerAppointmentsComponent } from './customer-appointments/customer-appointments.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { CustomerSettingsComponent } from './customer-settings/customer-settings.component';
+import { CustomerRoutingModule } from './customer-routing.module';
 
 
 
@@ -15,7 +16,8 @@ import { CustomerSettingsComponent } from './customer-settings/customer-settings
     CustomerSettingsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    CustomerRoutingModule
   ]
 })
 export class CustomerModule { }
