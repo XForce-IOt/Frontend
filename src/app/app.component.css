@@ -40,23 +40,43 @@ mat-sidenav {
   padding: 4rem;
   text-align: center;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
   mat-nav-list {
     a {
       color: #2BBCC5;
       text-decoration: none;
+      cursor: pointer;
+
       mat-icon {
         width: 100%;
         height: auto;
         margin-bottom: 8px;
         margin-top: 2rem;
       }
+
       span {
         font-weight: 500;
         font-size: 14px;
       }
-      &:hover{
+
+      &:hover {
         color: #042440;
       }
     }
   }
+}
+
+mat-sidenav-content{
+  height: calc(100vh - 90px);
+}
+
+.content {
+  color: #042440;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  height: calc(100vh - 130px);
+  border-radius: 20px;
+  margin: 16px;
+  margin-left: 32px;
+  display: flex;
+  font-size: 2rem;
 }
