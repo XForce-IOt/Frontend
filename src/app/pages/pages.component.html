@@ -26,32 +26,32 @@
 <mat-sidenav-container class="example-container">
     <mat-sidenav #sidenav="matSidenav" mode="side" opened>
         <mat-nav-list>
-            <a>
+            <a [routerLink]="['customer/customers']">
                 <mat-icon>pets</mat-icon>
                 <span>Mascotas</span>
             </a>
 
             <mat-divider></mat-divider>
-            <a>
+            <a [routerLink]="['customer/customerAppointments']">
                 <mat-icon>event_note</mat-icon>
                 <span>Citas</span>
             </a>
 
             <mat-divider></mat-divider>
-            <a>
+            <a [routerLink]="['customer/customerProfile']">
                 <mat-icon>account_circle</mat-icon>
                 <span>Perfil</span>
             </a>
 
             <mat-divider></mat-divider>
-            <a>
+            <a [routerLink]="['customer/customerSettings']">
                 <mat-icon>settings</mat-icon>
                 <span>Ajustes</span>
             </a>
 
             <mat-divider></mat-divider>
 
-            <a>
+            <a [routerLink]="['/']">
                 <mat-icon>exit_to_app</mat-icon>
                 <span>Salir</span>
             </a>

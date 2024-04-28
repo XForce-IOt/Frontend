@@ -9,8 +9,8 @@ import { CustomerSettingsComponent } from './customer-settings/customer-settings
 const routes: Routes = [
   { path: 'customers', component: CustomerPetsComponent },
   { path: 'customerAppointments', component: CustomerAppointmentsComponent },
-  { path: 'customerProfile/id', component: CustomerProfileComponent },
-  { path: 'customerSettings/:id', component: CustomerSettingsComponent }
+  { path: 'customerProfile', component: CustomerProfileComponent },
+  { path: 'customerSettings', component: CustomerSettingsComponent }
 ];
 
 
