@@ -7,7 +7,7 @@ import { CustomerProfileComponent } from './customer-profile/customer-profile.co
 import { CustomerSettingsComponent } from './customer-settings/customer-settings.component';
 
 const routes: Routes = [
-  { path: 'customer', component: CustomerPetsComponent },
+  { path: 'customers', component: CustomerPetsComponent },
   { path: 'customerAppointments', component: CustomerAppointmentsComponent },
   { path: 'customerProfile/id', component: CustomerProfileComponent },
   { path: 'customerSettings/:id', component: CustomerSettingsComponent }
