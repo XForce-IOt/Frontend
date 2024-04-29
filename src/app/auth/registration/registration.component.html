@@ -1,1 +1,72 @@
-<p>registration works!</p>
+<div class="auth-container">
+    <img src="../assets/images/patitas.jpeg" alt="patitas" class="patitas">
+    <div class="content-auth">
+        <mat-card>
+            <mat-card-header class="login-header">
+                <mat-card-title>Registrate</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+                <mat-form-field appearance="outline" class="custom-mat-form-field">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput type="text" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="custom-mat-form-field">
+                    <mat-label>Apellidos</mat-label>
+                    <input matInput type="text" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="custom-mat-form-field">
+                    <mat-label>Correo electrónico</mat-label>
+                    <input matInput type="email" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="custom-mat-form-field">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput type="password" required>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="custom-mat-form-field">
+                    <mat-label>Celular</mat-label>
+                    <input matInput type="number" required>
+                </mat-form-field>
+
+                <p>Elige el tipo de usuario con el que te identificas</p>
+
+                <div class="button-center button-form">
+                    <div mat-raised-button class="form-button">
+                        <div>
+                            <img src="../assets/images/duenio-mascota.jpeg" alt="Dueño de mascota" class="form-image">
+                        </div>
+                        <div>
+                            <p>
+                                Dueño de mascota
+                            </p>
+                        </div>
+                    </div>
+                    <div mat-raised-button class="form-button">
+                        <img src="../assets/images/veterinario.jpeg" alt="Veterinario" class="form-image">
+                        <p>
+                            Veterinario
+                        </p>
+                    </div>
+                </div>
+
+                <div class="button-center">
+                    <button mat-raised-button class="submit-button">Crear Cuenta</button>
+                </div>
+
+                <div class="line"></div>
+
+                <div class="register-prompt">
+                    ¿Ya tienes cuenta? <a (click)="login()">Inicia sesión</a>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <div class="image-section">
+            <img src="../assets/images/logo.png" alt="PETHEALTH" class="logo">
+        </div>
+    </div>
+</div>
