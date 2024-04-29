@@ -43,23 +43,6 @@ mat-card {
     }
 
     mat-card-content {
-
-        /*
-        mdc-notched-outline__leading
-        mdc-notched-outline__notch
-        mdc-notched-outline__trailing
-        mdc-text-field--outlined
-        */
-
-        .mdc-text-field--outlined .mdc-notched-outline__leading,
-        .mdc-text-field--outlined .mdc-notched-outline__notch,
-        .mdc-text-field--outlined .mdc-notched-outline__trailing {
-            border-color: #22BBBB !important;
-            color: #042440 !important;
-        }
-
-
-
         .custom-mat-form-field {
             width: 100%;
             border-radius: 4px;
@@ -75,6 +58,13 @@ mat-card {
 
             input {
                 padding: 0;
+            }
+
+            .mdc-text-field--outlined .mdc-notched-outline__leading,
+            .mdc-text-field--outlined .mdc-notched-outline__notch,
+            .mdc-text-field--outlined .mdc-notched-outline__trailing {
+                border-color: #22BBBB !important;
+                color: #042440 !important;
             }
         }
 
