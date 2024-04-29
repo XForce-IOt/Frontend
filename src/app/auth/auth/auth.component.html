@@ -18,7 +18,7 @@
                 </mat-form-field>
 
                 <div class="button-center">
-                    <button mat-raised-button class="submit-button">Ingresar</button>
+                    <button mat-raised-button class="submit-button" (click)="login()">Ingresar</button>
                 </div>
 
                 <p>o inicia sesión con</p>
@@ -34,7 +34,7 @@
                 <div class="line"></div>
 
                 <div class="register-prompt">
-                    ¿No tienes cuenta? <a href="#">Regístrate</a>
+                    ¿No tienes cuenta? <a (click)="register()">Regístrate</a>
                 </div>
             </mat-card-content>
         </mat-card>

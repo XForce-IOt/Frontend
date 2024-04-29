@@ -112,6 +112,7 @@ mat-card {
                 color: #22BBBB;
                 text-decoration: none;
                 font-weight: bold;
+                cursor: pointer;
             }
         }
     }
