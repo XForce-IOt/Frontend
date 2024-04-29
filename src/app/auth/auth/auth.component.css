@@ -43,22 +43,37 @@ mat-card {
     }
 
     mat-card-content {
+
+        /*
+        mdc-notched-outline__leading
+        mdc-notched-outline__notch
+        mdc-notched-outline__trailing
+        mdc-text-field--outlined
+        */
+
+        .mdc-text-field--outlined .mdc-notched-outline__leading,
+        .mdc-text-field--outlined .mdc-notched-outline__notch,
+        .mdc-text-field--outlined .mdc-notched-outline__trailing {
+            border-color: #22BBBB !important;
+            color: #042440 !important;
+        }
+
+
+
         .custom-mat-form-field {
             width: 100%;
             border-radius: 4px;
             margin-bottom: 1.5rem;
-            background: white;
             padding: 1rem 0 0 0;
             height: 55px;
 
             mat-label {
-                color: #042440;
+                color: white;
                 padding: 0 8px;
                 font-size: large;
             }
 
             input {
-                color: #042440;
                 padding: 0;
             }
         }
