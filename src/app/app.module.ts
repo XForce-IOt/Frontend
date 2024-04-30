@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PagesModule } from './pages/pages.module';
 import { CustomerModule } from './customer/customer.module';
 import { AuthModule } from './auth/auth.module';
+import {CalendarModule, DateAdapter} from 'angular-calendar';
+import {adapterFactory} from "angular-calendar/date-adapters/date-fns";
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { AuthModule } from './auth/auth.module';
     BrowserAnimationsModule,
     PagesModule,
     CustomerModule,
-    AuthModule
+    AuthModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,78 @@
-<p>customer-appointments works!</p>
+<div class="appointment-content">
+  <mat-card class="appointment-set column1">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-form-field class="mat-form-field">
+          <input matInput placeholder="Fecha o nombre de mascota" value = "Vaguito">
+          <mat-label>
+            <mat-icon matSuffix>search</mat-icon>
+            Fecha o nombre de mascota
+          </mat-label>
+        </mat-form-field>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <h3>Clinic 1</h3>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p>
+      <h3>Clinic 1</h3>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p>
+      <h3>Clinic 1</h3>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="alert alert-info column">
+
+    <app-calendar-header [(view)]="view" [(viewDate)]="viewDate"></app-calendar-header>
+
+    <div class="alert alert-info">
+      <div [ngSwitch]="view">
+        <span *ngSwitchCase="'month'">Click on a month label to change the view to that month.</span>
+        <span *ngSwitchCase="'week'">Click on a day header to change the view to that day.</span>
+        <span *ngSwitchCase="'day'">There is no other view to navigate to.</span>
+      </div>
+    </div>
+
+    <div [ngSwitch]="view">
+      <mwl-calendar-month-view
+        *ngSwitchCase="'month'"
+        [viewDate]="viewDate"
+        [events]="events"
+        (dayClicked)="changeDay($event.day.date)"
+      >
+      </mwl-calendar-month-view>
+      <mwl-calendar-week-view
+        *ngSwitchCase="'week'"
+        [viewDate]="viewDate"
+        [events]="events"
+        (dayHeaderClicked)="changeDay($event.day.date)"
+      >
+      </mwl-calendar-week-view>
+      <mwl-calendar-day-view
+        *ngSwitchCase="'day'"
+        [viewDate]="viewDate"
+        [events]="events"
+      >
+      </mwl-calendar-day-view>
+    </div>
+
+
+
+  </div>
+
+
+</div>
+
