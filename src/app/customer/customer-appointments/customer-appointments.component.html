@@ -13,13 +13,14 @@
     </mat-card-header>
 
     <mat-card-content>
-      <div class="clean-card" *ngFor="let appointment of appointments">
+      <section class="clean-card" *ngFor="let appointment of appointments">
         <h3>{{appointment.title}}</h3>
-        <p>
-          {{appointment.date}}<br>
-          {{appointment.hour}}<br>
-          {{appointment.description}}<br>
-      </div>
+        <label class="dec-text">Fecha:</label><label>{{appointment.date}}</label><br>
+        <label class="dec-text">Hora:</label><label>{{appointment.hour}}</label><br>
+        <label class="dec-text">Motivo:</label><label>{{appointment.description}}</label><br>
+        <hr class="solid">
+      </section>
+
     </mat-card-content>
   </mat-card>
 

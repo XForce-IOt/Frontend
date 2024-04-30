@@ -11,7 +11,7 @@ import {CommonModule} from "@angular/common";
 import {MatButtonModule} from '@angular/material/button';
 import {Appointment} from "./model/appointment.entity";
 import {AppointmentsService} from "./service/appointments.service";
-
+import { MatSort} from "@angular/material/sort";
 
 @Component({
   selector: 'app-customer-appointments',
