@@ -3,7 +3,7 @@
     <mat-card-header>
       <mat-card-title>
         <mat-form-field class="mat-form-field">
-          <input matInput placeholder="Fecha o nombre de mascota" value = "Vaguito">
+          <input matInput placeholder="Fecha o nombre de mascota">
           <mat-label>
             <mat-icon matSuffix>search</mat-icon>
             Fecha o nombre de mascota
@@ -13,32 +13,27 @@
     </mat-card-header>
 
     <mat-card-content>
-      <h3>Clinic 1</h3>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-      <h3>Clinic 1</h3>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-      <h3>Clinic 1</h3>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
+      <div class="clean-card" *ngFor="let appointment of appointments">
+        <h3>{{appointment.title}}</h3>
+        <p>
+          {{appointment.date}}<br>
+          {{appointment.hour}}<br>
+          {{appointment.description}}<br>
+      </div>
     </mat-card-content>
   </mat-card>
 
-  <div class="alert alert-info column">
+  <div class="alert-info column1">
+    <div class="label-button">
+      <button mat-fab color="primary" aria-label="Example icon button with a delete icon" class="btn">
+        <mat-icon>add</mat-icon>
+      </button>
+      <h1>Añadir Cita</h1>
 
+    </div>
     <app-calendar-header [(view)]="view" [(viewDate)]="viewDate"></app-calendar-header>
 
-    <div class="alert alert-info">
+    <div class="nav-calendar">
       <div [ngSwitch]="view">
         <span *ngSwitchCase="'month'">Click on a month label to change the view to that month.</span>
         <span *ngSwitchCase="'week'">Click on a day header to change the view to that day.</span>
@@ -46,7 +41,7 @@
       </div>
     </div>
 
-    <div [ngSwitch]="view">
+    <div [ngSwitch]="view" class="calendar-show">
       <mwl-calendar-month-view
         *ngSwitchCase="'month'"
         [viewDate]="viewDate"

@@ -1,11 +1,27 @@
 {
   "appointments": [
-    { "id": "1", "title": "Appointment 1", "views": 100 },
-    { "id": "2", "title": "another title", "views": 200 }
+    { "id": 1,
+      "title": "Appointment 1",
+      "date": "02-05-2024",
+      "hour": "14:00",
+      "description": "Lorem ipsum"
+    },
+    { "id": 2,
+      "title": "Appointment 3",
+      "date": "01-05-2024",
+      "hour": "16:00",
+      "description": "Lorem ipsum"
+    },
+    { "id": 3,
+      "title": "Appointment 4",
+      "date": "30-04-2024",
+      "hour": "18:00",
+      "description": "Lorem ipsum"
+    }
   ],
   "comments": [
-    { "id": "1", "text": "a comment about post 1", "postId": "1" },
-    { "id": "2", "text": "another comment about post 1", "postId": "1" }
+    { "id": 1, "text": "a comment about post 1", "postId": "1" },
+    { "id": 2, "text": "another comment about post 1", "postId": "1" }
   ],
   "profile": {
     "name": "Default User"
