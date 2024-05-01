@@ -5,7 +5,10 @@ import { CustomerAppointmentsComponent } from './customer-appointments/customer-
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { CustomerSettingsComponent } from './customer-settings/customer-settings.component';
 import { CustomerRoutingModule } from './customer-routing.module';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -17,7 +20,11 @@ import { CustomerRoutingModule } from './customer-routing.module';
   ],
   imports: [
     CommonModule,
-    CustomerRoutingModule
+    CustomerRoutingModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCardModule, 
+    MatSlideToggleModule
   ]
 })
 export class CustomerModule { }
