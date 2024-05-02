@@ -1,85 +1,84 @@
 .settings-container {
-    top: -10px;
-    left: 120px;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  top: -10px;
+  left: 120px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .settings-container {
+    width: 50%;
+    max-width: none;
   }
-  
-  @media screen and (max-width: 768px) {
-    .settings-container {
-      width: 50%;
-      max-width: none;
+}
+
+.header {
+  margin-bottom: 1px;
+  text-align: center;
+}
+
+.form {
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.form-settings {
+  position: relative;
+  flex: 1;
+  max-width: 65%;
+  height: 590px;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  padding: 0.1rem 4rem;
+  border-radius: 1px 1px;
+
+  & mat-card-content {
+    .custom-mat-form-field {
+      width: 100%;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      padding: 1rem 0 0 0;
+      height: 55px;
+
+
+      & mat-label {
+        color: rgb(0, 0, 0);
+        padding: 0 1px;
+        font-size: large;
+      }
+
+      & input {
+        padding: 0;
+      }
+
+      .mdc-text-field--outlined .mdc-notched-outline__leading,
+      .mdc-text-field--outlined .mdc-notched-outline__notch,
+      .mdc-text-field--outlined .mdc-notched-outline__trailing {
+        border-color: #E3E6EC !important;
+
+        color: #042440 !important;
+      }
+    }
+
+    .button-center {
+      display: flex;
+      justify-content: center;
+      margin-top: 0.1rem;
+
+      .submit-button {
+        width: 100px;
+        height: 30px;
+        border-color: #22BBBB !important;
+        background: #22BBBB;
+        border-radius: 6px;
+      }
     }
   }
 
-  .header {
-    margin-bottom: 1px;
-    text-align: center;
-  }
-  
-  .form {
-    width: 1000px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 0;
-  }
-  
-  
-  mat-card {
-    position: relative;
-    flex: 1;
-    max-width: 65%;
-    height:590px;
-    display: flex;
-    flex-direction: column;
-    background: #ffffff;
-    padding: 0.1rem 4rem;
-    border-radius: 1px 1px;
-  
-    mat-card-content {
-        .custom-mat-form-field {
-            width: 100%;
-            border-radius: 4px;
-            margin-bottom: 10px;
-            padding: 1rem 0 0 0;
-            height: 55px;
-        
-  
-            mat-label {
-                color: rgb(0, 0, 0);
-                padding: 0 1px;
-                font-size: large;
-            }
-  
-            input {
-                padding: 0;
-            }
-  
-            .mdc-text-field--outlined .mdc-notched-outline__leading,
-            .mdc-text-field--outlined .mdc-notched-outline__notch,
-            .mdc-text-field--outlined .mdc-notched-outline__trailing {
-                border-color: #E3E6EC !important;
-                
-                color: #042440 !important;
-            }
-        }
-  
-        .button-center {
-            display: flex;
-            justify-content: center;
-            margin-top: 0.1rem;
-  
-            .submit-button {
-                width: 100px;
-                height: 30px;
-                border-color: #22BBBB !important;
-                background: #22BBBB;
-                border-radius: 6px;
-            }
-        }
-    }
-      
-  }
+}

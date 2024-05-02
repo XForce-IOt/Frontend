@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar class="sidevar-menu">
     <!--Pantalla responsive-->
     <button mat-icon-button *ngIf="sidenav.mode ==='over'" (click)="sidenav.toggle()">
         <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
@@ -24,7 +24,7 @@
 
 
 <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav="matSidenav" mode="side" opened>
+    <mat-sidenav class="menu-items" #sidenav="matSidenav" mode="side" opened>
         <mat-nav-list>
             <a [routerLink]="['customer/customers']">
                 <mat-icon>pets</mat-icon>
@@ -57,7 +57,7 @@
             </a>
         </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content>
+    <mat-sidenav-content class="content">
         <div class="content mat-elevation-z8">
             <router-outlet></router-outlet>
         </div>

@@ -16,10 +16,11 @@
   margin-bottom: 1.5rem;
   height: 55px;
 
-  mat-label {
+  & mat-label {
     color: #042440;
     font-size: large;
   }
+
   .mdc-text-field--outlined .mdc-notched-outline__leading,
   .mdc-text-field--outlined .mdc-notched-outline__notch,
   .mdc-text-field--outlined .mdc-notched-outline__trailing {
@@ -36,7 +37,7 @@
     background: #2BBCC5;
   }
 
-  h1 {
+  & h1 {
     margin: 0.5rem;
   }
 }
@@ -45,18 +46,14 @@
   display: flex;
 }
 
-p label {
-  font-size: 1rem;
-}
+
 
 
 .clean-card {
   .dec-text {
     color: #2BBCC5;
     font-weight: bold;
-  }
-
-  label {
+    font-size: 1rem;
     margin: 0.5rem;
     font-size: 1rem;
   }

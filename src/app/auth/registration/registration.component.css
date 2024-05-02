@@ -22,7 +22,7 @@
     padding: 2rem 0;
 }
 
-mat-card {
+.form-registration {
     flex: 1;
     max-width: 40%;
     display: flex;
@@ -32,17 +32,17 @@ mat-card {
     padding: 2rem 4rem;
     border-radius: 15px 0 0 15px;
 
-    mat-card-header {
+    & mat-card-header {
         margin-bottom: 2rem;
 
-        mat-card-title {
+        & mat-card-title {
             font-weight: 600;
             font-size: 40px;
             line-height: 62px;
         }
     }
 
-    mat-card-content {
+    & mat-card-content {
         .custom-mat-form-field {
             width: 100%;
             border-radius: 4px;
@@ -50,13 +50,13 @@ mat-card {
             padding: 1rem 0 0 0;
             height: 55px;
 
-            mat-label {
+            & mat-label {
                 color: white;
                 padding: 0 8px;
                 font-size: large;
             }
 
-            input {
+            & input {
                 padding: 0;
             }
 
@@ -94,7 +94,8 @@ mat-card {
                     height: 55px;
                     border-radius: 50%;
                 }
-                p{
+
+                & p {
                     font-size: 14px;
                     font-weight: 600;
                 }
@@ -112,7 +113,7 @@ mat-card {
             }
         }
 
-        p {
+        & p {
             text-align: center;
             margin: 2rem 0;
         }
@@ -130,7 +131,7 @@ mat-card {
             text-align: center;
             margin-top: auto;
 
-            a {
+            & a {
                 color: #22BBBB;
                 text-decoration: none;
                 font-weight: bold;
