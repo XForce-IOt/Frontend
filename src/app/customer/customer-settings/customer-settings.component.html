@@ -1,1 +1,35 @@
-<p>customer-settings works!</p>
+<div class="settings-container">
+    <div class="form">
+      <mat-card>
+        <div class="header">
+            <mat-card-title>Ajustes</mat-card-title>
+        </div>
+        <mat-card-content>
+            <mat-card-subtitle style="color: black;">Cambiar contraseña</mat-card-subtitle>
+          <mat-form-field appearance="outline" class="custom-mat-form-field">
+              <mat-label>Contraseña Actual</mat-label>
+              <input matInput type="password" required style="color: black;">
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="custom-mat-form-field">
+              <mat-label>Contraseña Nueva</mat-label>
+              <input matInput type="password" required style="color: black;">
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="custom-mat-form-field">
+              <mat-label>Confirmar la Nueva Contraseña</mat-label>
+              <input matInput type="password" required style="color: black;">
+          </mat-form-field>
+  
+          <div class="button-center">
+            <button mat-raised-button class="submit-button" style="color: rgb(255, 255, 255);">Guardar</button>
+          </div>
+
+          <div style="display: flex; align-items: center;">
+              <p style="color: black; margin-top: 50px; font-size: 15px;">Notificaciones</p>
+              <mat-slide-toggle color="accent" style="margin-left: 310px; margin-top: 32px;"></mat-slide-toggle>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
