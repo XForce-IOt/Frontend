@@ -15,6 +15,8 @@ import { CalendarCommonModule } from "angular-calendar";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
+
 
 
 
@@ -41,7 +43,8 @@ import { MatInputModule } from '@angular/material/input';
     CalendarHeaderComponent,
     MatFormFieldModule,
     MatInputModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatTabsModule
   ]
 })
 export class CustomerModule { }

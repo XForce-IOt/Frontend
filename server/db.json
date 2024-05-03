@@ -1,6 +1,7 @@
 {
   "appointments": [
-    { "id": 1,
+    {
+      "id": 1,
       "title": "Appointment 1",
       "date": "02-05-2024",
       "hour": "14:00",
@@ -8,7 +9,8 @@
       "vet": 1,
       "pet": 1
     },
-    { "id": 2,
+    {
+      "id": 2,
       "title": "Appointment 2",
       "date": "01-05-2024",
       "hour": "16:00",
@@ -16,7 +18,8 @@
       "vet": 1,
       "pet": 1
     },
-    { "id": 3,
+    {
+      "id": 3,
       "title": "Appointment 3",
       "date": "30-04-2024",
       "hour": "18:00",
@@ -26,22 +29,30 @@
     }
   ],
   "comments": [
-    { "id": 1, "text": "a comment about post 1", "postId": "1" },
-    { "id": 2, "text": "another comment about post 1", "postId": "1" }
+    {
+      "id": 1,
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": 2,
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
   ],
   "profile": {
     "name": "Default User"
   },
-  "pets":[
+  "pets": [
     {
-    "id": 1,
-    "name": "vaguito",
-    "specie": "criollo",
-    "age": "36",
-    "sex": "male",
-    "size": "medium",
-    "perimeter": 50,
-    "image": "https://latinanoticias.pe/wp-content/uploads/2024/04/vaguito.jpg"
+      "id": 1,
+      "name": "vaguito",
+      "specie": "criollo",
+      "age": "36",
+      "sex": "male",
+      "size": "medium",
+      "perimeter": 50,
+      "image": "https://latinanoticias.pe/wp-content/uploads/2024/04/vaguito.jpg"
     },
     {
       "id": 2,
@@ -52,6 +63,26 @@
       "size": "medium",
       "perimeter": 40,
       "image": "https://www.purina.es/sites/default/files/styles/square_medium_440x440/public/2024-02/sitesdefaultfilesstylessquare_medium_440x440public2022-07Dobermann.jpg?itok=ORram7mF"
-      }
+    },
+    {
+      "id": 3,
+      "name": "chato",
+      "specie": "criollo",
+      "age": "12",
+      "sex": "male",
+      "size": "large",
+      "perimeter": 55,
+      "image": "https://www.aon.es/personales/seguro-perro-gato/wp-content/uploads/sites/2/2021/04/bichon-maltes.jpg"
+    },
+    {
+      "id": 4,
+      "name": "luna",
+      "specie": "criollo",
+      "age": "24",
+      "sex": "female",
+      "size": "small",
+      "perimeter": 45,
+      "image": "https://content.cuerpomente.com/medio/2023/06/08/perro-en-un-prado_bc5b1a31_230608141116_1280x720.jpg"
+    }
   ]
 }
