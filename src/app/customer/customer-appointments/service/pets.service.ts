@@ -23,8 +23,4 @@ export class PetsService {
   getPets(): Observable<Pet[]> {
     return this.http.get<Pet[]>(`${this.baseUrl}/pets`);
   }
-
-  getAppointmentsForPet(petId: number): Observable<Appointment[]> {
-    return this.http.get<Appointment[]>(`${this.baseUrl}/pets/${petId}/appointments`);
-  }
 }
