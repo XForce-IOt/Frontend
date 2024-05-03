@@ -1,0 +1,56 @@
+
+.container {
+    /*position: relative;*/
+    width: 100%;
+  }
+  .EditPet {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+  }
+  .edit-pet-content {
+    display: flex;
+    align-items: center;
+  }
+  .textEdit {
+    margin-right: 10px;
+    padding-top: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .buttonEdit {
+    background-color: #2BBCC5; /* Cambiar color de fondo del botón */
+    color: white;
+  }
+  .data-card {
+    max-width: 250px;
+    margin: 20px;
+    background-color: #F5FFFF;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
+  }
+  .imagePet{
+    width: 100px; /* Ajusta el tamaño del contenedor */
+    height: 100px; /* Ajusta el tamaño del contenedor */
+    border-radius: 50%; /* Hace que el contenedor sea un círculo */
+    overflow: hidden; /* Oculta las partes de la imagen que excedan el círculo */
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.50);
+    border-color: #F5FFFF;
+    margin: 0px 0px 15px 10px;
+  }
+  
+  .circle-image {
+    width: 100%; /* Ajusta el tamaño de la imagen */
+    height: 100px; /* Ajusta el tamaño de la imagen */
+  }
+  .namePet {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .textCard {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500px;
+    font-size: 16px;
+    margin-left: 10px;
+  }
