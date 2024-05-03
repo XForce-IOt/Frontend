@@ -6,7 +6,7 @@
           <input matInput placeholder="Fecha o nombre de mascota">
           <mat-label>
             <mat-icon matSuffix>search</mat-icon>
-            Fecha o nombre de mascota
+            Date or name of pet
           </mat-label>
         </mat-form-field>
       </mat-card-title>
@@ -15,9 +15,9 @@
     <mat-card-content>
       <section class="clean-card" *ngFor="let appointment of appointments">
         <h3>{{appointment.title}}</h3>
-        <label class="dec-text">Fecha:</label><label>{{appointment.date}}</label><br>
-        <label class="dec-text">Hora:</label><label>{{appointment.hour}}</label><br>
-        <label class="dec-text">Motivo:</label><label>{{appointment.description}}</label><br>
+        <label class="dec-text">Date:</label><label>{{appointment.date}}</label><br>
+        <label class="dec-text">Time:</label><label>{{appointment.hour}}</label><br>
+        <label class="dec-text">Reason:</label><label>{{appointment.description}}</label><br>
         <hr class="solid">
       </section>
 
@@ -29,7 +29,7 @@
       <button mat-fab color="primary" aria-label="Example icon button with a delete icon" class="btn">
         <mat-icon>add</mat-icon>
       </button>
-      <h1>Añadir Cita</h1>
+      <h1>Add Appointment</h1>
 
     </div>
     <app-calendar-header [(view)]="view" [(viewDate)]="viewDate"></app-calendar-header>
