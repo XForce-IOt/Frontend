@@ -137,3 +137,17 @@
         margin-bottom: 1rem;
     }
 }
+
+
+@media (max-width: 920px) {
+    .image-section {
+        display: none;
+    }
+
+    .form-login {
+        max-width: 90%;
+        flex: none;
+        margin: 20px auto;
+        border-radius: 15px;
+    }
+}
