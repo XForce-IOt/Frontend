@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Pet } from '../customer-appointments/model/pet.entity';
 import { PetsService } from '../customer-appointments/service/pets.service';
-import { AppointmentsService } from '../customer-appointments/service/appointments.service';
 import { Appointment } from '../customer-appointments/model/appointment.entity';
+import { forkJoin } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-customer-pets',
@@ -11,33 +12,30 @@ import { Appointment } from '../customer-appointments/model/appointment.entity';
 })
 
 
-export class CustomerPetsComponent implements OnInit{
-  pets: Pet[]=[];
-  public appointments: Appointment[];
+export class CustomerPetsComponent implements OnInit {
+  pets: Pet[] = [];
 
-  constructor(private PetsService: PetsService, private appointmentService: AppointmentsService){
-    this.appointments = [];
-  }
-
+  constructor(private petsService: PetsService) { }
 
   ngOnInit(): void {
-    this.getPets();
-    this.getAllAppointments;
+    this.getPetsWithAppointments();
   }
 
-  getPets(){
-    this.PetsService.getPets().subscribe(
-      (pets)=>{
-        this.pets=pets;
-        console.log(this.pets)
-      }
-    )
-  }
+  getPetsWithAppointments() {
+    this.petsService.getPets().subscribe(pets => {
+      const petsWithAppointments$ = pets.map(pet =>
+        this.petsService.getAppointmentsForPet(pet.id).pipe(
+          map(appointments => {
+            pet.appointments = appointments;
+            return pet;
+          })
+        )
+      );
 
-  getAllAppointments(){
-    this.appointmentService.getAll().subscribe((response: any)=>{
-      this.appointments = response;
-      console.log(this.appointments )
-    })
+      forkJoin(petsWithAppointments$).subscribe(completePets => {
+        this.pets = completePets;
+        console.log(this.pets);
+      });
+    });
   }
 }

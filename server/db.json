@@ -5,7 +5,7 @@
       "title": "Appointment 1",
       "date": "02-05-2024",
       "hour": "14:00",
-      "description": "Lorem ipsum",
+      "description": "Perrito con fiebre",
       "vet": 1,
       "pet": 1
     },
@@ -14,7 +14,7 @@
       "title": "Appointment 2",
       "date": "01-05-2024",
       "hour": "16:00",
-      "description": "Lorem ipsum",
+      "description": "Perrito con infección",
       "vet": 1,
       "pet": 1
     },
@@ -23,7 +23,16 @@
       "title": "Appointment 3",
       "date": "30-04-2024",
       "hour": "18:00",
-      "description": "Lorem ipsum",
+      "description": "Perrito con inflamación",
+      "vet": 1,
+      "pet": 1
+    },
+    {
+      "id": 4,
+      "title": "Appointment 4",
+      "date": "29-04-2024",
+      "hour": "20:00",
+      "description": "Perrito con dolor",
       "vet": 1,
       "pet": 1
     }

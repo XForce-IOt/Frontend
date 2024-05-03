@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Observable, catchError, retry, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { Pet } from '../model/pet.entity';
+import { Appointment } from '../model/appointment.entity';
 
 @Injectable({
     providedIn: 'root'
@@ -19,7 +20,11 @@ export class PetsService {
     })
   }
 
-  getPets():Observable<Pet[]>{
-    return this.http.get<Pet[]>(`${this.baseUrl}/pets`)
+  getPets(): Observable<Pet[]> {
+    return this.http.get<Pet[]>(`${this.baseUrl}/pets`);
+  }
+
+  getAppointmentsForPet(petId: number): Observable<Appointment[]> {
+    return this.http.get<Appointment[]>(`${this.baseUrl}/pets/${petId}/appointments`);
   }
 }
