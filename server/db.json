@@ -4,19 +4,25 @@
       "title": "Appointment 1",
       "date": "02-05-2024",
       "hour": "14:00",
-      "description": "Lorem ipsum"
+      "description": "Lorem ipsum",
+      "vet": 1,
+      "pet": 1
     },
     { "id": 2,
       "title": "Appointment 2",
       "date": "01-05-2024",
       "hour": "16:00",
-      "description": "Lorem ipsum"
+      "description": "Lorem ipsum",
+      "vet": 1,
+      "pet": 1
     },
     { "id": 3,
       "title": "Appointment 3",
       "date": "30-04-2024",
       "hour": "18:00",
-      "description": "Lorem ipsum"
+      "description": "Lorem ipsum",
+      "vet": 1,
+      "pet": 1
     }
   ],
   "comments": [
@@ -25,5 +31,27 @@
   ],
   "profile": {
     "name": "Default User"
-  }
+  },
+  "pets":[
+    {
+    "id": 1,
+    "name": "vaguito",
+    "specie": "criollo",
+    "age": "36",
+    "sex": "male",
+    "size": "medium",
+    "perimeter": 50,
+    "image": "https://latinanoticias.pe/wp-content/uploads/2024/04/vaguito.jpg"
+    },
+    {
+      "id": 2,
+      "name": "marilyn",
+      "specie": "doberman",
+      "age": "18",
+      "sex": "female",
+      "size": "medium",
+      "perimeter": 40,
+      "image": "https://www.purina.es/sites/default/files/styles/square_medium_440x440/public/2024-02/sitesdefaultfilesstylessquare_medium_440x440public2022-07Dobermann.jpg?itok=ORram7mF"
+      }
+  ]
 }
