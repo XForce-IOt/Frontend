@@ -26,34 +26,34 @@
 <mat-sidenav-container class="example-container">
     <mat-sidenav class="menu-items" #sidenav="matSidenav" mode="side" opened>
         <mat-nav-list>
-            <a [routerLink]="['customer/customers']">
+            <a [routerLink]="['customer/customers']" routerLinkActive="active-link">
                 <mat-icon>pets</mat-icon>
                 <span>Pets</span>
             </a>
 
             <mat-divider></mat-divider>
-            <a [routerLink]="['customer/customerAppointments']">
+            <a [routerLink]="['customer/customerAppointments']" routerLinkActive="active-link">
                 <mat-icon>event_note</mat-icon>
-                <span>Citas</span>
+                <span>Dating</span>
             </a>
 
             <mat-divider></mat-divider>
-            <a [routerLink]="['customer/customerProfile']">
+            <a [routerLink]="['customer/customerProfile']" routerLinkActive="active-link">
                 <mat-icon>account_circle</mat-icon>
-                <span>Perfil</span>
+                <span>Profile</span>
             </a>
 
             <mat-divider></mat-divider>
-            <a [routerLink]="['customer/customerSettings']">
+            <a [routerLink]="['customer/customerSettings']" routerLinkActive="active-link">
                 <mat-icon>settings</mat-icon>
-                <span>Ajustes</span>
+                <span>Settings</span>
             </a>
 
             <mat-divider></mat-divider>
 
             <a [routerLink]="['/']">
                 <mat-icon>exit_to_app</mat-icon>
-                <span>Salir</span>
+                <span>Logout</span>
             </a>
         </mat-nav-list>
     </mat-sidenav>
