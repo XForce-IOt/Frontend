@@ -4,25 +4,22 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-
-    .patitas {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        object-fit: cover;
-    }
-}
-
-.content-auth {
+  }
+  .auth-container .patitas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+  }
+  .content-auth {
     display: flex;
     justify-content: center;
     align-items: stretch;
-}
-
-.form-login {
+  }
+  .form-login {
     flex: 1;
     max-width: 40%;
     display: flex;
@@ -31,94 +28,75 @@
     color: white;
     padding: 2rem 4rem;
     border-radius: 15px 0 0 15px;
-
-    & mat-card-header {
-        margin-bottom: 2rem;
-
-        & mat-card-title {
-            font-weight: 600;
-            font-size: 40px;
-            line-height: 62px;
-        }
-    }
-
-    & mat-card-content {
-        .custom-mat-form-field {
-            width: 100%;
-            border-radius: 4px;
-            margin-bottom: 1.5rem;
-            padding: 1rem 0 0 0;
-            height: 55px;
-
-            & mat-label {
-                color: white;
-                padding: 0 8px;
-                font-size: large;
-            }
-
-            & input {
-                padding: 0;
-            }
-
-            .mdc-text-field--outlined .mdc-notched-outline__leading,
-            .mdc-text-field--outlined .mdc-notched-outline__notch,
-            .mdc-text-field--outlined .mdc-notched-outline__trailing {
-                border-color: #22BBBB !important;
-                color: #042440 !important;
-            }
-        }
-
-        .button-center {
-            display: flex;
-            justify-content: center;
-
-            .submit-button {
-                background: #22BBBB;
-                border-radius: 5px;
-            }
-
-            .google-button {
-                width: 80%;
-                background: #fff;
-                color: #000;
-                border-radius: 5px;
-
-                .google-icon {
-                    width: 20px;
-                    height: 20px;
-                }
-            }
-        }
-
-        & p {
-            text-align: center;
-            margin: 2rem 0;
-        }
-
-        .line {
-            border: 0;
-            height: 1px;
-            background: white;
-            width: 100%;
-            margin-top: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .register-prompt {
-            text-align: center;
-            margin-top: auto;
-
-            & a {
-                color: #22BBBB;
-                text-decoration: none;
-                font-weight: bold;
-                cursor: pointer;
-            }
-        }
-    }
-}
-
-.image-section {
+  }
+  .form-login mat-card-header {
+    margin-bottom: 2rem;
+  }
+  .form-login mat-card-header mat-card-title {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 62px;
+  }
+  .form-login mat-card-content .custom-mat-form-field {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    padding: 1rem 0 0 0;
+    height: 55px;
+  }
+  .form-login mat-card-content .custom-mat-form-field mat-label {
+    color: white;
+    padding: 0 8px;
+    font-size: large;
+  }
+  .form-login mat-card-content .custom-mat-form-field input {
+    padding: 0;
+  }
+  .form-login mat-card-content .custom-mat-form-field .mdc-text-field--outlined .mdc-notched-outline__leading, .form-login mat-card-content .custom-mat-form-field .mdc-text-field--outlined .mdc-notched-outline__notch, .form-login mat-card-content .custom-mat-form-field .mdc-text-field--outlined .mdc-notched-outline__trailing {
+    border-color: #22BBBB !important;
+    color: #042440 !important;
+  }
+  .form-login mat-card-content .button-center {
+    display: flex;
+    justify-content: center;
+  }
+  .form-login mat-card-content .button-center .submit-button {
+    background: #22BBBB;
+    border-radius: 5px;
+  }
+  .form-login mat-card-content .button-center .google-button {
+    width: 80%;
+    background: #fff;
+    color: #000;
+    border-radius: 5px;
+  }
+  .form-login mat-card-content .button-center .google-button .google-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .form-login mat-card-content p {
+    text-align: center;
+    margin: 2rem 0;
+  }
+  .form-login mat-card-content .line {
+    border: 0;
+    height: 1px;
+    background: white;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+  .form-login mat-card-content .register-prompt {
+    text-align: center;
+    margin-top: auto;
+  }
+  .form-login mat-card-content .register-prompt a {
+    color: #22BBBB;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .image-section {
     flex: 1;
     max-width: 40%;
     text-align: center;
@@ -128,26 +106,22 @@
     background: #fff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 0 15px 15px 0;
-
     background: #ECF8F9;
-
-    .logo {
-        max-width: 80%;
-        height: 100%;
-        margin-bottom: 1rem;
-    }
-}
-
-
-@media (max-width: 920px) {
+  }
+  .image-section .logo {
+    max-width: 80%;
+    height: 100%;
+    margin-bottom: 1rem;
+  }
+  @media (max-width: 920px) {
     .image-section {
-        display: none;
+      display: none;
     }
-
     .form-login {
-        max-width: 90%;
-        flex: none;
-        margin: 20px auto;
-        border-radius: 15px;
+      max-width: 90%;
+      flex: none;
+      margin: 20px auto;
+      border-radius: 15px;
     }
-}
+  }
+  

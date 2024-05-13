@@ -1,4 +1,4 @@
 export const environment = {
-  serverBasePath: undefined
+  baseURL: undefined
 };
 

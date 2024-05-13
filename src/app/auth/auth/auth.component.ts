@@ -11,7 +11,7 @@ export class AuthComponent {
   constructor(private router: Router) { }
 
   login(){
-    this.router.navigateByUrl('/dashboard/customer/customers');
+    this.router.navigateByUrl('/home/pets');
   }
 
   register(){

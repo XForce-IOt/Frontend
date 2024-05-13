@@ -1,0 +1,48 @@
+<mat-toolbar>
+  <button class="button-content" mat-icon-button *ngIf="!(isScreenLarge | async)" (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  
+  <img src="../../../favicon.ico" alt="PetHealth" class="logo" style="width: 50px; height: 45px">
+  
+  <span class="name">PetHealth</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon" aria-label="icon-button notification">
+    <mat-icon>notifications</mat-icon>
+  </button>
+  <span>Luis Miguel</span>
+  <button mat-icon-button class="example-icon" aria-label="icon-button user">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container"  style="width: 100%; height: calc(100% - 64px)">
+  <mat-sidenav #sidenav class="menu-items" mode="side" [opened]="isScreenLarge | async">
+    <div class="container">
+    <mat-nav-list style="display: flex; flex-direction: column; align-items: center;">
+      
+      <button mat-button routerLink="/pets" [ngStyle]="{'color': isSelected('/pets') ? '#042440' : ''}">
+          <mat-icon  [ngStyle]="{'color': isSelected('/pets') ? '#042440' : ''}">pets</mat-icon>
+          Pets
+        </button>
+      <button mat-button routerLink="/appointment" [ngStyle]="{'color': isSelected('/appointment') ? '#042440' : ''}">
+          <mat-icon [ngStyle]="{'color': isSelected('/appointment') ? '#042440' : ''}">event</mat-icon>
+          Asppointment
+      </button>
+      <button mat-button routerLink="/profile" [ngStyle]="{'color': isSelected('/profile') ? '#042440' : ''}">
+          <mat-icon [ngStyle]="{'color': isSelected('/profile') ? '#042440' : ''}">person</mat-icon>
+          Profile
+      </button>
+      <button mat-button routerLink="/change-password" [ngStyle]="{'color': isSelected('/change-password') ? '#042440' : ''}">
+          <mat-icon [ngStyle]="{'color': isSelected('/change-password') ? '#042440' : ''}">settings_input_component</mat-icon>
+          Change Password
+        </button>
+
+    </mat-nav-list>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content">
+      <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
