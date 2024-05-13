@@ -21,20 +21,20 @@
     <div class="container">
     <mat-nav-list style="display: flex; flex-direction: column; align-items: center;">
       
-      <button mat-button routerLink="/pets" [ngStyle]="{'color': isSelected('/pets') ? '#042440' : ''}">
-          <mat-icon  [ngStyle]="{'color': isSelected('/pets') ? '#042440' : ''}">pets</mat-icon>
+      <button mat-button routerLink="/home/pets" [ngStyle]="{'color': isSelected('/home/pets') ? '#042440' : ''}">
+          <mat-icon  [ngStyle]="{'color': isSelected('/home/pets') ? '#042440' : ''}">pets</mat-icon>
           Pets
         </button>
-      <button mat-button routerLink="/appointment" [ngStyle]="{'color': isSelected('/appointment') ? '#042440' : ''}">
-          <mat-icon [ngStyle]="{'color': isSelected('/appointment') ? '#042440' : ''}">event</mat-icon>
+      <button mat-button routerLink="/home/appointment" [ngStyle]="{'color': isSelected('/home/appointment') ? '#042440' : ''}">
+          <mat-icon [ngStyle]="{'color': isSelected('/home/appointment') ? '#042440' : ''}">event</mat-icon>
           Asppointment
       </button>
-      <button mat-button routerLink="/profile" [ngStyle]="{'color': isSelected('/profile') ? '#042440' : ''}">
-          <mat-icon [ngStyle]="{'color': isSelected('/profile') ? '#042440' : ''}">person</mat-icon>
+      <button mat-button routerLink="/home/profile" [ngStyle]="{'color': isSelected('/home/profile') ? '#042440' : ''}">
+          <mat-icon [ngStyle]="{'color': isSelected('/home/profile') ? '#042440' : ''}">person</mat-icon>
           Profile
       </button>
-      <button mat-button routerLink="/change-password" [ngStyle]="{'color': isSelected('/change-password') ? '#042440' : ''}">
-          <mat-icon [ngStyle]="{'color': isSelected('/change-password') ? '#042440' : ''}">settings_input_component</mat-icon>
+      <button mat-button routerLink="/home/change-password" [ngStyle]="{'color': isSelected('/home/change-password') ? '#042440' : ''}">
+          <mat-icon [ngStyle]="{'color': isSelected('/home/change-password') ? '#042440' : ''}">settings_input_component</mat-icon>
           Change Password
         </button>
 
