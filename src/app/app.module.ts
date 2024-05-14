@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthComponent } from './auth/auth/auth.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
+import { CreateAppointmentComponent } from './components/create-appointment/create-appointment.component';
 
 
 
@@ -25,7 +26,8 @@ import { RegistrationComponent } from './auth/registration/registration.componen
     ChangePasswordComponent,
     HomeComponent,
     AuthComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    CreateAppointmentComponent
   ],
   imports: [
     BrowserModule,

@@ -37,16 +37,44 @@
       "pet": 1
     }
   ],
-  "comments": [
+  "veterinarians": [
     {
       "id": 1,
-      "text": "a comment about post 1",
-      "postId": "1"
+      "name": "Oscar Ramos",
+      "availability": "L Mi V",
+      "email": "omarramos@gmail.com",
+      "phone": "989787454",
+      "photoUrl": "",
+      "clinicId": "1"
     },
     {
       "id": 2,
-      "text": "another comment about post 1",
-      "postId": "1"
+      "name": "Julia Muñoz",
+      "availability": "Ma J S",
+      "email": "juliamunnoz@gmail.com",
+      "phone": "989787000",
+      "photoUrl": "",
+      "clinicId": "1"
+    }
+  ],
+  "clinics": [
+    {
+      "id": 1,
+      "name": "Dulces Patitas",
+      "rating": 4.5,
+      "address": "Av. de los Patriotas 184, San Miguel 15087",
+      "phone": "999999999",
+      "email": "www.dulcesPatitas.com",
+      "photoUrl": ""
+    },
+    {
+      "id": 2,
+      "name": "Lima Vet",
+      "rating": 4.8,
+      "address": "Av. de los Palomares 1, San M 150484",
+      "phone": "999999099",
+      "email": "www.limaVet.com",
+      "photoUrl": ""
     }
   ],
   "profile": {

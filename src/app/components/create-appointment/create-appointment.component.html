@@ -1,0 +1,34 @@
+<div class="clinic-content">
+  <mat-card class="clinic-set column1">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-form-field class="mat-form-field" appearance="outline">
+          <input matInput placeholder="Name of clinic">
+          <mat-label>
+            <mat-icon matSuffix>search</mat-icon>
+            Name of clinic
+          </mat-label>
+        </mat-form-field>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <section class="clean-card" *ngFor="let clinic of clinics">
+        <h3>{{clinic.name}}</h3>
+        <label class="dec-text">Rating:</label><label>{{clinic.rating}}</label><br>
+        <label class="dec-text">Address:</label><label>{{clinic.address}}</label><br>
+        <label class="dec-text">Phone Number:</label><label>{{clinic.phone}}</label><br>
+        <label class="dec-text">Social media:</label><label>{{clinic.email}}</label><br>
+        <hr class="solid">
+      </section>
+
+    </mat-card-content>
+  </mat-card>
+
+  <div class="column1">
+
+    <p>Mapa aquí</p>
+
+
+  </div>
+</div>
