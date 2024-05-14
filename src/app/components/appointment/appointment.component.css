@@ -1,0 +1,53 @@
+.appointment-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  height: calc(100vh - 130px);
+  grid-gap: 1.5rem;
+  font-size: 1.5rem;
+
+  .appointment-set {
+    background: #ECF8F9;
+  }
+}
+
+.mat-form-field {
+  width: 320px;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  height: 55px;
+
+  & mat-label {
+    color: #042440;
+    font-size: large;
+  }
+
+  .mdc-text-field--outlined .mdc-notched-outline__leading,
+  .mdc-text-field--outlined .mdc-notched-outline__notch,
+  .mdc-text-field--outlined .mdc-notched-outline__trailing {
+    border-color: #22BBBB !important;
+  }
+}
+
+.label-button {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row-reverse;
+
+  .btn {
+    background: #2BBCC5;
+  }
+
+  & h1 {
+    margin: 0.5rem;
+  }
+}
+
+.clean-card {
+  font-size: 1rem;
+
+  .dec-text {
+    color: #2BBCC5;
+    font-weight: bold;
+    margin: 0.5rem;
+  }
+}
