@@ -45,7 +45,7 @@
       "email": "omarramos@gmail.com",
       "phone": "989787454",
       "photoUrl": "",
-      "clinicId": "1"
+      "clinicId": 1
     },
     {
       "id": 2,
@@ -54,7 +54,7 @@
       "email": "juliamunnoz@gmail.com",
       "phone": "989787000",
       "photoUrl": "",
-      "clinicId": "1"
+      "clinicId": 1
     }
   ],
   "clinics": [

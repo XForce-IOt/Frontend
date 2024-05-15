@@ -9,6 +9,7 @@ import {ClinicService} from "../../services/clinic.service";
   styleUrls: ['./create-appointment.component.css']
 })
 export class CreateAppointmentComponent {
+  searchText: any;
   public clinics: Clinic[];
   constructor(public clinicService: ClinicService) {
     this.clinics = []

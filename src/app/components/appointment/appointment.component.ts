@@ -8,7 +8,9 @@ import {AppointmentService} from "../../services/appointment.service";
   styleUrls: ['./appointment.component.css']
 })
 export class AppointmentComponent {
+  searchText: any;
   public appointments: Appointment[];
+
   constructor(public appointmentService: AppointmentService) {
     this.appointments = [];
   }
@@ -22,4 +24,6 @@ export class AppointmentComponent {
   ngOnInit(): void{
     this.getAppointments();
   }
+
+
 }

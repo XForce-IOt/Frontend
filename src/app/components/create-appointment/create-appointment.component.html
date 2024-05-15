@@ -3,7 +3,7 @@
     <mat-card-header>
       <mat-card-title>
         <mat-form-field class="mat-form-field" appearance="outline">
-          <input matInput placeholder="Name of clinic">
+          <input matInput placeholder="Name of clinic" type="text" name="search" [(ngModel)]="searchText">
           <mat-label>
             <mat-icon matSuffix>search</mat-icon>
             Name of clinic
@@ -13,7 +13,7 @@
     </mat-card-header>
 
     <mat-card-content>
-      <section class="clean-card" *ngFor="let clinic of clinics">
+      <section class="clean-card" *ngFor="let clinic of clinics | filter:searchText">
         <h3>{{clinic.name}}</h3>
         <label class="dec-text">Rating:</label><label>{{clinic.rating}}</label><br>
         <label class="dec-text">Address:</label><label>{{clinic.address}}</label><br>

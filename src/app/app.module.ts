@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthComponent } from './auth/auth/auth.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { CreateAppointmentComponent } from './components/create-appointment/create-appointment.component';
+import { FilterPipe } from './filter.pipe';
 
 
 
@@ -27,14 +28,15 @@ import { CreateAppointmentComponent } from './components/create-appointment/crea
     HomeComponent,
     AuthComponent,
     RegistrationComponent,
-    CreateAppointmentComponent
+    CreateAppointmentComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,7 +3,7 @@
     <mat-card-header>
       <mat-card-title>
         <mat-form-field class="mat-form-field" appearance="outline">
-          <input matInput placeholder="Fecha o nombre de mascota">
+          <input matInput placeholder="Fecha o nombre de mascota" type="text" name="search" [(ngModel)]="searchText">
           <mat-label>
             <mat-icon matSuffix>search</mat-icon>
             Date or name of pet
@@ -13,7 +13,7 @@
     </mat-card-header>
 
     <mat-card-content>
-      <section class="clean-card" *ngFor="let appointment of appointments">
+      <section class="clean-card" *ngFor="let appointment of appointments | filter:searchText">
         <h3>{{appointment.title}}</h3>
         <label class="dec-text">Date:</label><label>{{appointment.date}}</label><br>
         <label class="dec-text">Time:</label><label>{{appointment.hour}}</label><br>
