@@ -58,4 +58,9 @@ export class VeterinarianService {
     return this.http.get(this.resourcePath(), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
+
+  /*getVeterinarianByClinicId(clinicId: number): Observable<any>  {
+    return this.http.get(`${this.resourcePath()}?clinic=${clinicId}`, this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
+  }*/
 }

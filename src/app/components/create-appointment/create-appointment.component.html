@@ -13,7 +13,7 @@
     </mat-card-header>
 
     <mat-card-content>
-      <section class="clean-card" *ngFor="let clinic of clinics | filter:searchText">
+      <section class="clean-card" *ngFor="let clinic of clinics | filter:searchText"  (click)="onSelected(clinic.id)">
         <h3>{{clinic.name}}</h3>
         <label class="dec-text">Rating:</label><label>{{clinic.rating}}</label><br>
         <label class="dec-text">Address:</label><label>{{clinic.address}}</label><br>
@@ -25,10 +25,29 @@
     </mat-card-content>
   </mat-card>
 
-  <div class="column1">
-
+  <div class="column1"> <!--Recuerda que esto se esconde-->
     <p>Mapa aquí</p>
 
-
   </div>
+
+  <mat-card class="clinic-set column2">
+    <mat-card-header>
+      <mat-card-title>
+        Veterinarians available
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <section class="clean-card" *ngFor="let vet of veterinariansByClinic">
+        <h3>{{vet.name}}</h3>
+        <label class="dec-text">Availability:</label><label>{{vet.availability}}</label><br>
+        <label class="dec-text">ClinicId:</label><label>{{vet.clinicId}}</label><br>
+        <label class="dec-text">Phone Number:</label><label>{{vet.phone}}</label><br>
+        <label class="dec-text">Social media:</label><label>{{vet.email}}</label><br>
+        <hr class="solid">
+      </section>
+
+    </mat-card-content>
+  </mat-card>
+
 </div>

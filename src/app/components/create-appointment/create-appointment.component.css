@@ -1,7 +1,6 @@
 .clinic-content {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  height: calc(100vh - 130px);
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1.5rem;
   font-size: 1.5rem;
 
