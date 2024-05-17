@@ -15,6 +15,7 @@ import { AuthComponent } from './auth/auth/auth.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { CreateAppointmentComponent } from './components/create-appointment/create-appointment.component';
 import { FilterPipe } from './filter.pipe';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 
 
@@ -37,6 +38,7 @@ import { FilterPipe } from './filter.pipe';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
+    NgApexchartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
