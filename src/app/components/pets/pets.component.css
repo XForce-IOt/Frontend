@@ -56,3 +56,36 @@ mat-card {
   font-weight: bold;
   font-size: 20px;
 }
+
+.first-column, .second-column, .third-column {
+  flex: 1;
+}
+
+.first-column {
+  margin-right: 8px;
+}
+
+.second-column {
+  margin-left: -300px;
+}
+
+.third-column{
+  margin-left: -145px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+#chart {
+  max-width: 650px;
+  height: auto; 
+  margin: 20px auto;
+}
+
+.custom-card {
+  max-width: 400px; /* Ajusta este valor según tus necesidades */
+  height: auto; /* Ajusta este valor según tus necesidades */
+}
