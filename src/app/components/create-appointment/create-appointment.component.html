@@ -26,8 +26,13 @@
   </mat-card>
 
   <div class="column1"> <!--Recuerda que esto se esconde-->
-    <p>Mapa aquí</p>
-
+    <google-map [center]="center" [zoom]="zoom" height="400px" width="100%">
+      <ng-container *ngIf="markers.length > 0">
+        <map-marker *ngFor="let marker of markers"
+                    [position]="marker.position"
+                    [title]="marker.title ?? 'Sin título'"></map-marker>
+      </ng-container>
+    </google-map>
   </div>
 
   <mat-card class="clinic-set column2">

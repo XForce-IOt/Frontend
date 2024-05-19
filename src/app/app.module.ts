@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from "@angular/common";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +17,7 @@ import { RegistrationComponent } from './auth/registration/registration.componen
 import { CreateAppointmentComponent } from './components/create-appointment/create-appointment.component';
 import { FilterPipe } from './filter.pipe';
 import { NgApexchartsModule } from 'ng-apexcharts';
-
+import { GoogleMapsModule } from "@angular/google-maps";
 
 
 @NgModule({
@@ -38,7 +39,9 @@ import { NgApexchartsModule } from 'ng-apexcharts';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    CommonModule,
+    GoogleMapsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
