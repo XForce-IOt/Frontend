@@ -4,7 +4,7 @@
   grid-gap: 1.5rem;
   font-size: 1.5rem;
 
-  .clinic-set {
+  .set {
     background: #ECF8F9;
   }
 }
@@ -35,4 +35,13 @@
     font-weight: bold;
     margin: 0.5rem;
   }
+}
+
+.btnout {
+  background: #84ECEC;
+  border-width: 2px;
+}
+.btn{
+  background: #2BBCC5;
+  color: #FFFFFF;
 }
