@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {Clinic} from "../../models/clinic.model";
 import { Subscription } from 'rxjs';
-import {Router} from "@angular/router";
 import {ClinicService} from "../../services/clinic.service";
 import {Veterinarian} from "../../models/veterinarian.model";
 import {VeterinarianService} from "../../services/veterinarian.service";
@@ -24,6 +23,7 @@ interface MarkerOptions {
 })
 export class CreateAppointmentComponent {
   searchText: any;
+  selectedDate: Date;
   public clinics: Clinic[];
   public veterinariansByClinic: Veterinarian[];
   public center: LatLngLiteral = {lat: -12.046374, lng: -77.042793}; // Ejemplo: Coordenadas de Lima, Perú
@@ -38,6 +38,7 @@ export class CreateAppointmentComponent {
   ) {
     this.clinics = [];
     this.veterinariansByClinic = [];
+    this.selectedDate = new Date();
   }
 
   private getClinics(): void{

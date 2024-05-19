@@ -14,7 +14,7 @@
 
     <mat-card-content>
       <section class="clean-card" *ngFor="let clinic of clinics | filter:searchText">
-        <h3>{{clinic.name}}</h3>
+        <h3 class="title-card-text">{{clinic.name}}</h3>
         <label class="dec-text">Rating:</label><label>{{clinic.rating}}</label><br>
         <label class="dec-text">Address:</label><label>{{clinic.address}}</label><br>
         <label class="dec-text">Phone Number:</label><label>{{clinic.phone}}</label><br>
@@ -45,7 +45,7 @@
 
     <mat-card-content>
       <section class="clean-card" *ngFor="let vet of veterinariansByClinic">
-        <h3>{{vet.name}} <br>
+        <h3 class="title-card-text">{{vet.name}} <br>
           <button mat-flat-button class="btn">Select</button>
         </h3>
         <label class="dec-text">Availability:</label><label>{{vet.availability}}</label><br>
@@ -59,6 +59,18 @@
   </mat-card>
 
   <mat-card class="set column1">
-    ejlvsnk.rbe
+    <div class="form-date-picker">
+      <igx-date-picker #datePicker name="date-picker" [(ngModel)]="selectedDate">
+        <label igxLabel>Date</label>
+      </igx-date-picker>
+    </div>
+    <div class="form-time-picker">
+      <igx-time-picker name="time-picker" [(ngModel)]="selectedDate" [disabled]="datePicker.value ? false : true">
+        <label igxLabel>Time</label>
+      </igx-time-picker>
+    </div>
+    <p class="text">
+      Selected date: {{ selectedDate? selectedDate.toLocaleString() : null }}
+    </p>
   </mat-card>
 </div>

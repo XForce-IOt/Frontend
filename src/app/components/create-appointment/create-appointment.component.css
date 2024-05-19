@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1.5rem;
   font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
 
   .set {
     background: #ECF8F9;
@@ -35,6 +36,10 @@
     font-weight: bold;
     margin: 0.5rem;
   }
+  .title-card-text{
+    font-size: 1.5rem;
+    font-weight: normal;
+  }
 }
 
 .btnout {
@@ -44,4 +49,9 @@
 .btn{
   background: #2BBCC5;
   color: #FFFFFF;
+}
+
+.text {
+  font-size: 1rem;
+  font-weight: normal;
 }
