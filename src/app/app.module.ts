@@ -21,6 +21,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { HammerModule } from '@angular/platform-browser';
 import { IgxDatePickerModule, IgxTimePickerModule } from 'igniteui-angular';
+import { FullCalendarModule } from "@fullcalendar/angular";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { IgxDatePickerModule, IgxTimePickerModule } from 'igniteui-angular';
     GoogleMapsModule,
     HammerModule,
     IgxDatePickerModule,
-    IgxTimePickerModule
+    IgxTimePickerModule,
+    FullCalendarModule
   ],
   providers: [provideNativeDateAdapter()],
   bootstrap: [AppComponent]

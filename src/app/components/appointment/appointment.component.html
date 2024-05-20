@@ -32,7 +32,10 @@
       <p>Add Appointment</p>
 
     </div>
-    <p>Calendar aquí</p>
+    <div class="appointment-content">
+      <!-- Asegúrate de que el calendario solo se renderiza si calendarOptions está definido -->
+      <full-calendar *ngIf="calendarOptions" [options]="calendarOptions"></full-calendar>
+    </div>
     <!--Add calendar-->
 
   </div>
