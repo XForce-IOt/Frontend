@@ -22,6 +22,7 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 import { HammerModule } from '@angular/platform-browser';
 import { IgxDatePickerModule, IgxTimePickerModule } from 'igniteui-angular';
 import { FullCalendarModule } from "@fullcalendar/angular";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -36,20 +37,21 @@ import { FullCalendarModule } from "@fullcalendar/angular";
     CreateAppointmentComponent,
     FilterPipe
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    HttpClientModule,
-    NgApexchartsModule,
-    CommonModule,
-    GoogleMapsModule,
-    HammerModule,
-    IgxDatePickerModule,
-    IgxTimePickerModule,
-    FullCalendarModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        HttpClientModule,
+        NgApexchartsModule,
+        CommonModule,
+        GoogleMapsModule,
+        HammerModule,
+        IgxDatePickerModule,
+        IgxTimePickerModule,
+        FullCalendarModule,
+        ReactiveFormsModule
+    ],
   providers: [provideNativeDateAdapter()],
   bootstrap: [AppComponent]
 })

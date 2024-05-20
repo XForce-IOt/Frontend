@@ -35,6 +35,15 @@
       "description": "Perrito con dolor",
       "vet": 1,
       "pet": 1
+    },
+    {
+      "title": "Titulo",
+      "date": "20",
+      "hour": "18",
+      "description": "...",
+      "vet": 2,
+      "pet": 3,
+      "id": 5
     }
   ],
   "veterinarians": [

@@ -5,6 +5,11 @@ import {ClinicService} from "../../services/clinic.service";
 import {Veterinarian} from "../../models/veterinarian.model";
 import {VeterinarianService} from "../../services/veterinarian.service";
 import { GeocodeService } from "../../services/geocode.service";
+import {Appointment} from "../../models/appointment.model";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Pet} from "../../models/pet.model";
+import {PetService} from "../../services/pet.service";
+import {AppointmentService} from "../../services/appointment.service";
 
 interface LatLngLiteral {
   lat: number;
@@ -22,30 +27,83 @@ interface MarkerOptions {
   styleUrls: ['./create-appointment.component.css']
 })
 export class CreateAppointmentComponent {
-  searchText: any;
-  selectedDate: Date;
+  //searchText: any;
+  //selectedDate: Date;
+  selectedVeterinarian: Veterinarian | null = null;
+  selectedPet: Pet | null = null;
+
   public clinics: Clinic[];
   public veterinariansByClinic: Veterinarian[];
+  public pets: Pet[];
+
   public center: LatLngLiteral = {lat: -12.046374, lng: -77.042793}; // Ejemplo: Coordenadas de Lima, Perú
   public zoom = 12;
   public markers: MarkerOptions[] = []; // Array para marcadores
   private subscriptions: Subscription = new Subscription();
+  public appointmentForm: FormGroup;
+  //public formErrors: any = {};
 
   constructor(
     public clinicService: ClinicService,
     public veterinarianService: VeterinarianService,
-    public geocodeService: GeocodeService
+    public geocodeService: GeocodeService,
+    public petService: PetService,
+    public appointmentService: AppointmentService,
+    private fb: FormBuilder
+
   ) {
     this.clinics = [];
     this.veterinariansByClinic = [];
-    this.selectedDate = new Date();
+    //this.selectedDate = new Date();
+    this.pets = [];
+
+    this.appointmentForm = this.fb.group({
+      searchText: [''],
+      selectedDate: [new Date(), Validators.required],
+      title: ['Titulo'],
+      date: ['Fecha'],
+      hour: ['Hora'],
+      description: ['...'],
+      vet: ['', Validators.required],
+      pet: ['', Validators.required]
+    });
+
+    //this.appointmentForm.valueChanges.subscribe(() => this.onValueChanged());
+    //this.onValueChanged(); // Reset validation messages
   }
+
+  /*private onValueChanged() {
+    if (!this.appointmentForm) {
+      return;
+    }
+    const form = this.appointmentForm;
+    this.formErrors = {};
+    for (const field in form.controls) {
+      if (form.controls.hasOwnProperty(field)) {
+        const control = form.get(field);
+        if (control && !control.valid) {
+          this.formErrors[field] = control.errors;
+        }
+      }
+    }
+  }*/
 
   private getClinics(): void{
     this.clinicService.getAll().subscribe((response: any) => {
       this.clinics = response;
       this.updateMarkers();
     })
+  }
+
+  private  getPets(): void{
+    this.petService.getPets().subscribe(
+      (response: any)=>{
+      this.pets = response;
+    },
+      (error: any) => {
+        console.error('Error fetching pets:', error);
+      }
+    );
   }
 
   private updateMarkers(): void {
@@ -83,8 +141,49 @@ export class CreateAppointmentComponent {
     this.getVeterinariansByClinic(clinicId);
   }
 
+  onPetSelected(event: any): void {
+    this.selectedPet = event.value;
+    this.appointmentForm.patchValue({ pet: event.value });
+  }
+
+  selectVeterinarian(veterinarian: Veterinarian): void {
+    this.selectedVeterinarian = veterinarian;
+    this.appointmentForm.patchValue({ vet: veterinarian});
+  }
+
+  createAppointment(){
+    if (this.appointmentForm.valid && this.selectedVeterinarian && this.selectedPet){
+      const appointment: Appointment = {
+        title: this.appointmentForm.value.title,
+        date: (this.appointmentForm.value.selectedDate.getDate()).toString(),
+        hour: (this.appointmentForm.value.selectedDate.getHours()).toString(),
+        description: this.appointmentForm.value.description,
+        vet: this.appointmentForm.value.vet.id,
+        pet: this.appointmentForm.value.pet.id,
+      };
+      console.log('Appointment Data:', appointment);
+
+      this.appointmentService.create(appointment).subscribe(
+        (response: Appointment)=>{
+          console.log('Appointment created successfully:', response);
+        },
+        (error: any) => {
+          console.error('Error creating appointment:', error);
+        }
+      );
+    } else console.log('Algo esta mal', this.appointmentForm.valid, this.selectedVeterinarian, this.selectedPet);
+  }
+
+  private subscribeToFormChanges(): void {
+    this.appointmentForm.valueChanges.subscribe(values => {
+      console.log('Form changes:', values);
+    });
+  }
+
   ngOnInit(): void{
     this.getClinics();
+    this.getPets();
+    this.subscribeToFormChanges();
   }
 
 }

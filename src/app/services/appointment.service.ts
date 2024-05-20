@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { Observable, catchError, retry, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
+import {Appointment} from "../models/appointment.model";
 
 @Injectable({
   providedIn: 'root'
@@ -35,10 +36,11 @@ export class AppointmentService {
   }
 
   // Create Resource
-  create(item: any) {
-    return this.http.post(this.resourcePath(),
+  create(appointment: Appointment): Observable<Appointment> {
+    /*return this.http.post(this.resourcePath(),
       JSON.stringify(item), this.httpOptions)
-      .pipe(retry(2), catchError(this.handleError));
+      .pipe(retry(2), catchError(this.handleError));*/
+    return this.http.post<Appointment>(this.resourcePath(), appointment);
   }
 
   delete(id: any) {
