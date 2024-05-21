@@ -89,6 +89,24 @@
       "vet": 2,
       "pet": 2,
       "id": 10
+    },
+    {
+      "title": "New Appointment",
+      "date": "21-5-2024",
+      "hour": "23:0",
+      "description": "My pet needs a revision.",
+      "vet": 1,
+      "pet": 1,
+      "id": 11
+    },
+    {
+      "title": "Example Appointment",
+      "date": "18-5-2024",
+      "hour": "15:0",
+      "description": "Mi pet ...",
+      "vet": 1,
+      "pet": 4,
+      "id": 12
     }
   ],
   "veterinarians": [

@@ -58,6 +58,7 @@ export class CreateAppointmentComponent {
     this.appointmentForm = this.fb.group({
       searchText: [''],
       selectedDate: [new Date(), Validators.required],
+      time: [new Date()],
       title: [''],
       description: [''],
       vet: ['', Validators.required],
@@ -135,7 +136,7 @@ export class CreateAppointmentComponent {
         //date: (this.appointmentForm.value.selectedDate.getDate()).toString(),
         date: `${this.appointmentForm.value.selectedDate.getDate()}-${this.appointmentForm.value.selectedDate.getMonth()+1}-${this.appointmentForm.value.selectedDate.getFullYear()}`,
         //hour: (this.appointmentForm.value.selectedDate.getHours()).toString(),
-        hour: `${this.appointmentForm.value.selectedDate.getHours()}:${this.appointmentForm.value.selectedDate.getMinutes()}`,
+        hour: `${this.appointmentForm.value.time.getHours()}:${this.appointmentForm.value.time.getMinutes()}`,
         description: this.appointmentForm.value.description,
         vet: this.appointmentForm.value.vet.id,
         pet: this.appointmentForm.value.pet.id,
