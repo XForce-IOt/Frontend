@@ -27,8 +27,7 @@ interface MarkerOptions {
   styleUrls: ['./create-appointment.component.css']
 })
 export class CreateAppointmentComponent {
-  //searchText: any;
-  //selectedDate: Date;
+
   selectedVeterinarian: Veterinarian | null = null;
   selectedPet: Pet | null = null;
 
@@ -54,39 +53,17 @@ export class CreateAppointmentComponent {
   ) {
     this.clinics = [];
     this.veterinariansByClinic = [];
-    //this.selectedDate = new Date();
     this.pets = [];
 
     this.appointmentForm = this.fb.group({
       searchText: [''],
       selectedDate: [new Date(), Validators.required],
-      title: ['Titulo'],
-      date: ['Fecha'],
-      hour: ['Hora'],
-      description: ['...'],
+      title: [''],
+      description: [''],
       vet: ['', Validators.required],
       pet: ['', Validators.required]
     });
-
-    //this.appointmentForm.valueChanges.subscribe(() => this.onValueChanged());
-    //this.onValueChanged(); // Reset validation messages
   }
-
-  /*private onValueChanged() {
-    if (!this.appointmentForm) {
-      return;
-    }
-    const form = this.appointmentForm;
-    this.formErrors = {};
-    for (const field in form.controls) {
-      if (form.controls.hasOwnProperty(field)) {
-        const control = form.get(field);
-        if (control && !control.valid) {
-          this.formErrors[field] = control.errors;
-        }
-      }
-    }
-  }*/
 
   private getClinics(): void{
     this.clinicService.getAll().subscribe((response: any) => {
@@ -155,8 +132,10 @@ export class CreateAppointmentComponent {
     if (this.appointmentForm.valid && this.selectedVeterinarian && this.selectedPet){
       const appointment: Appointment = {
         title: this.appointmentForm.value.title,
-        date: (this.appointmentForm.value.selectedDate.getDate()).toString(),
-        hour: (this.appointmentForm.value.selectedDate.getHours()).toString(),
+        //date: (this.appointmentForm.value.selectedDate.getDate()).toString(),
+        date: `${this.appointmentForm.value.selectedDate.getDate()}-${this.appointmentForm.value.selectedDate.getMonth()+1}-${this.appointmentForm.value.selectedDate.getFullYear()}`,
+        //hour: (this.appointmentForm.value.selectedDate.getHours()).toString(),
+        hour: `${this.appointmentForm.value.selectedDate.getHours()}:${this.appointmentForm.value.selectedDate.getMinutes()}`,
         description: this.appointmentForm.value.description,
         vet: this.appointmentForm.value.vet.id,
         pet: this.appointmentForm.value.pet.id,

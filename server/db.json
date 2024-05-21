@@ -37,13 +37,58 @@
       "pet": 1
     },
     {
-      "title": "Titulo",
-      "date": "20",
-      "hour": "18",
-      "description": "...",
+      "title": "Pet haircut",
+      "date": "20-05-2024",
+      "hour": "18:00",
+      "description": "My dog just need a haircut",
       "vet": 2,
       "pet": 3,
       "id": 5
+    },
+    {
+      "title": "Examination",
+      "date": "21-05-2024",
+      "hour": "12:00",
+      "description": "I don't know, it's not eating.",
+      "vet": 1,
+      "pet": 3,
+      "id": 6
+    },
+    {
+      "title": "Routine appointment",
+      "date": "21-5-2024",
+      "hour": "14:00",
+      "description": "Need a vaccine",
+      "vet": 1,
+      "pet": 3,
+      "id": 7
+    },
+    {
+      "title": "Bath",
+      "date": "21-5-2024",
+      "hour": "14:54",
+      "description": "My dog need a bath.",
+      "vet": 1,
+      "pet": 3,
+      "id": 8
+    },
+    {
+      "title": "Bath",
+      "date": "21-5-2024",
+      "hour": "15:30",
+      "description": "Luna needs a bath.",
+      "vet": 2,
+      "pet": 4,
+      "id": 9
+    },
+    {
+      "title": "Routine review",
+      "date": "21-5-2024",
+      "hour": "13:30",
+      "description": "Going to the monthly review",
+      "vet": 2,
+      "pet": 2,
+      "id": 10
     }
   ],
   "veterinarians": [

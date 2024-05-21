@@ -37,9 +37,6 @@ export class AppointmentService {
 
   // Create Resource
   create(appointment: Appointment): Observable<Appointment> {
-    /*return this.http.post(this.resourcePath(),
-      JSON.stringify(item), this.httpOptions)
-      .pipe(retry(2), catchError(this.handleError));*/
     return this.http.post<Appointment>(this.resourcePath(), appointment);
   }
 
