@@ -134,6 +134,7 @@ export class PetsComponent implements OnInit {
   ngOnInit(): void {
     this.getPets();
     this.getNextAppointments();
+    this.prepareChartData(this.pets);
   }
 
   getPets(): void {
@@ -165,6 +166,25 @@ export class PetsComponent implements OnInit {
   }
   checkAppointments(petId: number): boolean{
     return this.filterAppointments.some(appointment => appointment.pet === petId);
+  }
+
+  prepareChartData(pets: any[]): void {
+    //Datos para el grafico de peso (primer gráfico)
+    const weightSeries = pets.map(pet => pet.weight);
+    const categories1 = pets.map(pet => pet.categories1);
+
+    //Datos para el gráfico de frecuencia cardíaca (segundo gráfico)
+    const beatsPerMinuteSeries = pets[0].beatsPerMinute; 
+    const categories2 = pets[0].categories2; 
+
+    
+    //Configuración para el primer gráfico (peso)
+    this.chartOptions.series = [{ name: "Weight (kg)", data: weightSeries }];
+    this.chartOptions.xaxis!.categories = categories1;
+
+    //Configuración para el segundo gráfico (frecuencia cardíaca)
+    this.secondchartOptions.series = [{ name: "Beats per minute", data: beatsPerMinuteSeries }];
+    this.secondchartOptions.xaxis!.categories = categories2;
   }
 
 }
