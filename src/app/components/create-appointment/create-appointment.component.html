@@ -32,7 +32,7 @@
         <ng-container *ngIf="markers.length > 0">
           <map-marker *ngFor="let marker of markers"
                       [position]="marker.position"
-                      [title]="marker.title ?? 'Sin título'"></map-marker>
+                      [title]="marker.title || 'Sin título'"></map-marker>
         </ng-container>
       </google-map>
     </div>
