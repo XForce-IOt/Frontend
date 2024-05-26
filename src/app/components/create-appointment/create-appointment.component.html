@@ -30,9 +30,8 @@
     <div class="column1 set"> <!--Recuerda que esto se esconde-->
       <google-map [center]="center" [zoom]="zoom" height="400px" width="100%">
         <ng-container *ngIf="markers.length > 0">
-          <map-marker *ngFor="let marker of markers"
-                      [position]="marker.position"
-                      [title]="marker.title || 'Sin título'"></map-marker>
+          <map-marker *ngFor="let marker of markers" [position]="marker.position"
+            [title]="marker.title || 'Sin título'"></map-marker>
         </ng-container>
       </google-map>
     </div>
@@ -77,8 +76,10 @@
         </igx-time-picker>
       </div>
       <p class="text">
-        Selected date: {{ appointmentForm.get('selectedDate')?.value? (appointmentForm.get('selectedDate')?.value).toDateString() : null }}<br>
-        Selected date: {{ appointmentForm.get('time')?.value? (appointmentForm.get('time')?.value).toTimeString() : null }}
+        Selected date: {{ appointmentForm.get('selectedDate')?.value?
+        (appointmentForm.get('selectedDate')?.value).toDateString() : null }}<br>
+        Selected date: {{ appointmentForm.get('time')?.value? (appointmentForm.get('time')?.value).toTimeString() : null
+        }}
       </p>
 
       <mat-card-content>
