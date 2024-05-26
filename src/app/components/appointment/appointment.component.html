@@ -14,7 +14,7 @@
 
     <mat-card-content>
       <section class="clean-card" *ngFor="let appointment of appointments | filter:searchText">
-        <h3>{{appointment.title}}</h3>
+        <h3 class="title-card-text">{{appointment.title}}</h3>
         <label class="dec-text">Date:</label><label>{{appointment.date}}</label><br>
         <label class="dec-text">Time:</label><label>{{appointment.hour}}</label><br>
         <label class="dec-text">Reason:</label><label>{{appointment.description}}</label><br>
@@ -29,10 +29,13 @@
       <button routerLink="create-appointment" mat-fab color="primary" aria-label="Example icon button with a delete icon" class="btn">
         <mat-icon>add</mat-icon>
       </button>
-      <h1>Add Appointment</h1>
+      <p>Add Appointment</p>
 
     </div>
-    <p>Calendar aquí</p>
+    <div class="appointment-set">
+      <!-- Asegúrate de que el calendario solo se renderiza si calendarOptions está definido -->
+      <full-calendar *ngIf="calendarOptions" [options]="calendarOptions"></full-calendar>
+    </div>
     <!--Add calendar-->
 
   </div>

@@ -1,53 +1,111 @@
 <div class="clinic-content">
-  <mat-card class="clinic-set column1">
-    <mat-card-header>
-      <mat-card-title>
-        <mat-form-field class="mat-form-field" appearance="outline">
-          <input matInput placeholder="Name of clinic" type="text" name="search" [(ngModel)]="searchText">
-          <mat-label>
-            <mat-icon matSuffix>search</mat-icon>
-            Name of clinic
-          </mat-label>
+  <ng-container [formGroup]="appointmentForm">
+    <mat-card class="set column1">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-form-field class="mat-form-field" appearance="outline">
+            <input matInput placeholder="Name of clinic" type="text" name="search" formControlName="searchText">
+            <mat-label>
+              <mat-icon matSuffix>search</mat-icon>
+              Name of clinic
+            </mat-label>
+          </mat-form-field>
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <section class="clean-card" *ngFor="let clinic of clinics | filter: !appointmentForm.get('searchText')?.value">
+          <h3 class="title-card-text">{{clinic.name}}</h3>
+          <label class="dec-text">Rating:</label><label>{{clinic.rating}}</label><br>
+          <label class="dec-text">Address:</label><label>{{clinic.address}}</label><br>
+          <label class="dec-text">Phone Number:</label><label>{{clinic.phone}}</label><br>
+          <label class="dec-text">Social media:</label><label>{{clinic.email}}</label><br>
+          <button (click)="onSelected(clinic.id)" mat-stroked-button class="btnout">Schedule</button>
+          <hr class="solid">
+        </section>
+
+      </mat-card-content>
+    </mat-card>
+
+    <div class="column1 set"> <!--Recuerda que esto se esconde-->
+      <google-map [center]="center" [zoom]="zoom" height="400px" width="100%">
+        <ng-container *ngIf="markers.length > 0">
+          <map-marker *ngFor="let marker of markers"
+                      [position]="marker.position"
+                      [title]="marker.title ?? 'Sin título'"></map-marker>
+        </ng-container>
+      </google-map>
+    </div>
+
+    <mat-card class="set column2">
+      <mat-card-header>
+        <mat-card-title>
+          Veterinarians available
+        </mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <section class="clean-card" *ngFor="let vet of veterinariansByClinic">
+          <h3 class="title-card-text">{{vet.name}} <br>
+            <button (click)="selectVeterinarian(vet)" mat-flat-button class="btn">Select</button>
+          </h3>
+          <label class="dec-text">Availability:</label><label>{{vet.availability}}</label><br>
+          <label class="dec-text">ClinicId:</label><label>{{vet.clinicId}}</label><br>
+          <label class="dec-text">Phone Number:</label><label>{{vet.phone}}</label><br>
+          <label class="dec-text">Social media:</label><label>{{vet.email}}</label><br>
+          <hr class="solid">
+        </section>
+
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="set column1">
+      <mat-card-header>
+        <mat-card-title>
+          Complete Appointment
+        </mat-card-title>
+      </mat-card-header>
+
+      <div class="form-date-picker">
+        <igx-date-picker #datePicker formControlName="selectedDate" [inputFormat]="'dd-MM-yyyy'">
+          <label igxLabel>Date</label>
+        </igx-date-picker>
+      </div>
+      <div class="form-time-picker">
+        <igx-time-picker formControlName="time" [disabled]="!appointmentForm.get('selectedDate')?.value">
+          <label igxLabel>Time</label>
+        </igx-time-picker>
+      </div>
+      <p class="text">
+        Selected date: {{ appointmentForm.get('selectedDate')?.value? (appointmentForm.get('selectedDate')?.value).toDateString() : null }}<br>
+        Selected date: {{ appointmentForm.get('time')?.value? (appointmentForm.get('time')?.value).toTimeString() : null }}
+      </p>
+
+      <mat-card-content>
+        <mat-form-field appearance="outline">
+          <mat-label>Pet</mat-label>
+          <mat-select formControlName="pet" (selectionChange)="onPetSelected($event)">
+            <mat-option *ngFor="let pet of pets" [value]="pet">{{pet.name}}</mat-option>
+          </mat-select>
         </mat-form-field>
-      </mat-card-title>
-    </mat-card-header>
 
-    <mat-card-content>
-      <section class="clean-card" *ngFor="let clinic of clinics | filter:searchText"  (click)="onSelected(clinic.id)">
-        <h3>{{clinic.name}}</h3>
-        <label class="dec-text">Rating:</label><label>{{clinic.rating}}</label><br>
-        <label class="dec-text">Address:</label><label>{{clinic.address}}</label><br>
-        <label class="dec-text">Phone Number:</label><label>{{clinic.phone}}</label><br>
-        <label class="dec-text">Social media:</label><label>{{clinic.email}}</label><br>
-        <hr class="solid">
-      </section>
+        <mat-form-field class="example-full-width">
+          <mat-label>Set Tittle appointment</mat-label>
+          <input matInput placeholder="Ex. Appointment" value="New Appointment" formControlName="title">
+        </mat-form-field>
 
-    </mat-card-content>
-  </mat-card>
+        <mat-form-field class="example-full-width">
+          <mat-label>Enter reason</mat-label>
+          <textarea matInput placeholder="Mi pet has..." formControlName="description"></textarea>
+        </mat-form-field>
 
-  <div class="column1"> <!--Recuerda que esto se esconde-->
-    <p>Mapa aquí</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button class="btn" (click)="createAppointment()">Schedule</button>
+      </mat-card-actions>
+    </mat-card>
 
-  </div>
 
-  <mat-card class="clinic-set column2">
-    <mat-card-header>
-      <mat-card-title>
-        Veterinarians available
-      </mat-card-title>
-    </mat-card-header>
-
-    <mat-card-content>
-      <section class="clean-card" *ngFor="let vet of veterinariansByClinic">
-        <h3>{{vet.name}}</h3>
-        <label class="dec-text">Availability:</label><label>{{vet.availability}}</label><br>
-        <label class="dec-text">ClinicId:</label><label>{{vet.clinicId}}</label><br>
-        <label class="dec-text">Phone Number:</label><label>{{vet.phone}}</label><br>
-        <label class="dec-text">Social media:</label><label>{{vet.email}}</label><br>
-        <hr class="solid">
-      </section>
-
-    </mat-card-content>
-  </mat-card>
+  </ng-container>
 
 </div>

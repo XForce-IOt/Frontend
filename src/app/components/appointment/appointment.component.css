@@ -50,4 +50,7 @@
     font-weight: bold;
     margin: 0.5rem;
   }
+  .title-card-text{
+    font-size: 1.5rem;
+  }
 }
