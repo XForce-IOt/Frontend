@@ -13,6 +13,8 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthComponent } from './auth/auth/auth.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditPetComponent } from './components/edit-pet/edit-pet.component';
 
 
 
@@ -25,14 +27,17 @@ import { RegistrationComponent } from './auth/registration/registration.componen
     ChangePasswordComponent,
     HomeComponent,
     AuthComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    EditPetComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,44 @@
+span{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+.circle-image{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+.formulario {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    height: auto;
+  }
+  .form-data{
+    width: 100%;
+    height: 62px;
+  }
+
+  form {
+    background-color: #E3E6EC;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .buttonSave{
+    background-color: #2BBCC5;
+    color: #FFFF;
+    width: 150px;
+  }
+  
+  @media (min-width: 768px) {
+    form {
+      width: 50%;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    form {
+      width: 90%;
+    }
+  }

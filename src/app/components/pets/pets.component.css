@@ -1,7 +1,5 @@
-.container {
-  position: relative;
-}
-.EditPet {
+
+.buttonEdit {
   position: absolute;
   top: 5px;
   right: 20px;
@@ -15,10 +13,6 @@
   padding-top: 15px;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
-}
-.buttonEdit {
-  background-color: #2BBCC5; /* Cambiar color de fondo del botón */
-  color: white;
 }
 mat-card {
   max-width: 250px;
