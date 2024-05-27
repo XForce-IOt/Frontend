@@ -31,14 +31,14 @@ export type ChartOptions = {
   styleUrls: ['./pets.component.css']
 })
 export class PetsComponent implements OnInit {
-  pets: any[]=[];
-  appointments: any[]=[];
-  filterAppointments: any[]=[];
+  pets: any[] = [];
+  appointments: any[] = [];
+  filterAppointments: any[] = [];
   @ViewChild("chart") chart!: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
   public secondchartOptions: Partial<ChartOptions>;
 
-  constructor(private PetsService: PetService, private appointmentService: AppointmentService){
+  constructor(private PetsService: PetService, private appointmentService: AppointmentService) {
     this.chartOptions = {
       series: [
         {
@@ -146,25 +146,25 @@ export class PetsComponent implements OnInit {
     );
   }
 
-  getNextAppointments(){
+  getNextAppointments() {
     const ahora = new Date();
     this.appointmentService.getAll().subscribe(
-        (data) => {
-          this.appointments = data;
-          this.appointments.forEach(appointment => {
-            const [day, month, year] = appointment.date.split('-');
-            const [hour, minute] = appointment.hour.split(':');
-            // Crear una nueva fecha con el formato adecuado
-            const fechaCita = new Date(parseInt(year), parseInt(month) - 1, parseInt(day), parseInt(hour), parseInt(minute));
-            if (fechaCita > ahora) {
-              this.filterAppointments.push(appointment);
-            }
-          });
-          console.log(this.filterAppointments);
-        }
-      );
+      (data) => {
+        this.appointments = data;
+        this.appointments.forEach(appointment => {
+          const [day, month, year] = appointment.date.split('-');
+          const [hour, minute] = appointment.hour.split(':');
+          // Crear una nueva fecha con el formato adecuado
+          const fechaCita = new Date(parseInt(year), parseInt(month) - 1, parseInt(day), parseInt(hour), parseInt(minute));
+          if (fechaCita > ahora) {
+            this.filterAppointments.push(appointment);
+          }
+        });
+        console.log(this.filterAppointments);
+      }
+    );
   }
-  checkAppointments(petId: number): boolean{
+  checkAppointments(petId: number): boolean {
     return this.filterAppointments.some(appointment => appointment.pet === petId);
   }
 
@@ -174,10 +174,10 @@ export class PetsComponent implements OnInit {
     const categories1 = pets.map(pet => pet.categories1);
 
     //Datos para el gráfico de frecuencia cardíaca (segundo gráfico)
-    const beatsPerMinuteSeries = pets[0].beatsPerMinute; 
-    const categories2 = pets[0].categories2; 
+    const beatsPerMinuteSeries = pets[0].beatsPerMinute;
+    const categories2 = pets[0].categories2;
 
-    
+
     //Configuración para el primer gráfico (peso)
     this.chartOptions.series = [{ name: "Weight (kg)", data: weightSeries }];
     this.chartOptions.xaxis!.categories = categories1;
