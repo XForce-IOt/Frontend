@@ -1,4 +1,10 @@
 
+.container{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 5px;
+  height: 700px;
+}
 .buttonEdit {
   position: absolute;
   top: 5px;
@@ -15,8 +21,9 @@
   font-weight: bold;
 }
 mat-card {
-  max-width: 250px;
-  margin: 20px;
+  max-width: 300px;
+  max-height: 380px;
+  margin: 10px 0px 0px 20px;
   background-color: #F5FFFF;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
 }
@@ -49,37 +56,4 @@ mat-card {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   font-size: 20px;
-}
-
-.first-column, .second-column, .third-column {
-  flex: 1;
-}
-
-.first-column {
-  margin-right: 8px;
-}
-
-.second-column {
-  margin-left: -300px;
-}
-
-.third-column{
-  margin-left: -145px;
-}
-
-.card-container {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
-#chart {
-  max-width: 650px;
-  height: auto; 
-  margin: 20px auto;
-}
-
-.custom-card {
-  max-width: 400px; /* Ajusta este valor según tus necesidades */
-  height: auto; /* Ajusta este valor según tus necesidades */
 }
