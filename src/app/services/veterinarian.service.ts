@@ -2,14 +2,13 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { Observable, catchError, retry, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
-import {Appointment} from "../models/appointment.model";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AppointmentService {
+export class VeterinarianService {
   basePath: string = `${environment.baseURL}`;
-  resourceEndpoint: string = '/appointments';
+  resourceEndpoint: string = '/veterinarians';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -36,8 +35,10 @@ export class AppointmentService {
   }
 
   // Create Resource
-  create(appointment: Appointment): Observable<Appointment> {
-    return this.http.post<Appointment>(this.resourcePath(), appointment);
+  create(item: any) {
+    return this.http.post(this.resourcePath(),
+      JSON.stringify(item), this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
   }
 
   delete(id: any) {
@@ -58,14 +59,8 @@ export class AppointmentService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  getAppointmentsById(id: any): Observable<any> {
-    return this.http
-      .get(`${this.resourcePath()}/${id}`)
+  /*getVeterinarianByClinicId(clinicId: number): Observable<any>  {
+    return this.http.get(`${this.resourcePath()}?clinic=${clinicId}`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
-  }
-
-  getAppointmentsByPetId(petId: number): Observable<any> {
-    return this.http.get(`${this.resourcePath()}?pet=${petId}`)
-      .pipe(retry(2), catchError(this.handleError));
-  }
+  }*/
 }

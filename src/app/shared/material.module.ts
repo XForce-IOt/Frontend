@@ -43,9 +43,11 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
+import {MatFormFieldModule} from "@angular/material/form-field";
 import {OverlayModule} from '@angular/cdk/overlay';
 import {CdkMenuModule} from '@angular/cdk/menu';
 import {DialogModule} from '@angular/cdk/dialog';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   exports: [
@@ -93,10 +95,12 @@ import {DialogModule} from '@angular/cdk/dialog';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
+    MatFormFieldModule,
     OverlayModule,
     PortalModule,
     ScrollingModule,
     DialogModule,
+    FormsModule,
   ]
 })
 export class MaterialModule {}

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditPetComponent } from './components/edit-pet/edit-pet.component';
 
 
+import { CreateAppointmentComponent } from './components/create-appointment/create-appointment.component';
+import { FilterPipe } from './filter.pipe';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { provideNativeDateAdapter } from '@angular/material/core';
+import { HammerModule } from '@angular/platform-browser';
+import { IgxDatePickerModule, IgxTimePickerModule } from 'igniteui-angular';
+import { FullCalendarModule } from "@fullcalendar/angular";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -42,4 +52,5 @@ import { EditPetComponent } from './components/edit-pet/edit-pet.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

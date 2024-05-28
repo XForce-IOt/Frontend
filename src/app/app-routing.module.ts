@@ -8,21 +8,25 @@ import { AuthComponent } from './auth/auth/auth.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { HomeComponent } from './components/home/home.component';
 import { EditPetComponent } from './components/edit-pet/edit-pet.component';
+import {CreateAppointmentComponent} from "./components/create-appointment/create-appointment.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: AuthComponent, pathMatch: 'full' },
   { path: 'registration', component: RegistrationComponent, pathMatch: 'full' },
-  { path: 'home', component: HomeComponent, 
+  { path: 'home', component: HomeComponent,
     children: [
       { path: 'pets', component: PetsComponent, pathMatch: 'full' },
       { path: 'pet/edit/:id', component: EditPetComponent, pathMatch: 'full'},
       { path: 'profile', component: ProfileComponent, pathMatch: 'full' },
       { path: 'change-password', component: ChangePasswordComponent, pathMatch: 'full' },
-      { path: 'appointment', component: AppointmentComponent, pathMatch: 'full' }
+      { path: 'appointment', component: AppointmentComponent, pathMatch: 'full' },
+      { path: 'appointment', children:[
+          {path: 'create-appointment', component: CreateAppointmentComponent, pathMatch: 'full' },
+        ]}
     ]
   },
-  
+
 ];
 
 @NgModule({

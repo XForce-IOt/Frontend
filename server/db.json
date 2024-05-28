@@ -35,18 +35,118 @@
       "description": "Perrito con dolor",
       "vet": 1,
       "pet": 1
+    },
+    {
+      "title": "Pet haircut",
+      "date": "20-05-2024",
+      "hour": "18:00",
+      "description": "My dog just need a haircut",
+      "vet": 2,
+      "pet": 3,
+      "id": 5
+    },
+    {
+      "title": "Examination",
+      "date": "21-05-2024",
+      "hour": "12:00",
+      "description": "I don't know, it's not eating.",
+      "vet": 1,
+      "pet": 3,
+      "id": 6
+    },
+    {
+      "title": "Routine appointment",
+      "date": "21-5-2024",
+      "hour": "14:00",
+      "description": "Need a vaccine",
+      "vet": 1,
+      "pet": 3,
+      "id": 7
+    },
+    {
+      "title": "Bath",
+      "date": "21-5-2024",
+      "hour": "14:54",
+      "description": "My dog need a bath.",
+      "vet": 1,
+      "pet": 3,
+      "id": 8
+    },
+    {
+      "title": "Bath",
+      "date": "21-5-2024",
+      "hour": "15:30",
+      "description": "Luna needs a bath.",
+      "vet": 2,
+      "pet": 4,
+      "id": 9
+    },
+    {
+      "title": "Routine review",
+      "date": "21-5-2024",
+      "hour": "13:30",
+      "description": "Going to the monthly review",
+      "vet": 2,
+      "pet": 2,
+      "id": 10
+    },
+    {
+      "title": "New Appointment",
+      "date": "21-5-2024",
+      "hour": "23:0",
+      "description": "My pet needs a revision.",
+      "vet": 1,
+      "pet": 1,
+      "id": 11
+    },
+    {
+      "title": "Example Appointment",
+      "date": "18-5-2024",
+      "hour": "15:0",
+      "description": "Mi pet ...",
+      "vet": 1,
+      "pet": 4,
+      "id": 12
     }
   ],
-  "comments": [
+  "veterinarians": [
     {
       "id": 1,
-      "text": "a comment about post 1",
-      "postId": "1"
+      "name": "Oscar Ramos",
+      "availability": "L Mi V",
+      "email": "omarramos@gmail.com",
+      "phone": "989787454",
+      "photoUrl": "",
+      "clinicId": 1
     },
     {
       "id": 2,
-      "text": "another comment about post 1",
-      "postId": "1"
+      "name": "Julia Muñoz",
+      "availability": "Ma J S",
+      "email": "juliamunnoz@gmail.com",
+      "phone": "989787000",
+      "photoUrl": "",
+      "clinicId": 1
+    }
+  ],
+  "clinics": [
+    {
+      "id": 1,
+      "name": "Dulces Patitas",
+      "rating": 4.5,
+      "address": "Av Antonio José de Sucre 810, Magdalena del Mar 15001",
+      "phone": "999999999",
+      "email": "www.dulcesPatitas.com",
+      "photoUrl": ""
+    },
+    {
+      "id": 2,
+      "name": "Lima Vet",
+      "rating": 4.8,
+      "address": "Av Antonio José de Sucre 688, Pueblo Libre 15084",
+      "phone": "999999099",
+      "email": "www.limaVet.com",
+      "photoUrl": ""
     }
   ],
   "profile": {
@@ -61,7 +161,11 @@
       "sex": "male",
       "size": "medium",
       "perimeter": 50,
-      "image": "https://latinanoticias.pe/wp-content/uploads/2024/04/vaguito.jpg"
+      "image": "https://latinanoticias.pe/wp-content/uploads/2024/04/vaguito.jpg",
+      "weight": [45, 43, 46, 51, 49, 53, 50, 52, 51],
+      "categories1": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
+      "beatsPerMinute": [68, 72, 76, 76, 96, 100, 90, 80, 77],
+      "categories2": ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     },
     {
       "id": 2,
@@ -71,7 +175,11 @@
       "sex": "female",
       "size": "medium",
       "perimeter": 40,
-      "image": "https://www.purina.es/sites/default/files/styles/square_medium_440x440/public/2024-02/sitesdefaultfilesstylessquare_medium_440x440public2022-07Dobermann.jpg?itok=ORram7mF"
+      "image": "https://www.purina.es/sites/default/files/styles/square_medium_440x440/public/2024-02/sitesdefaultfilesstylessquare_medium_440x440public2022-07Dobermann.jpg?itok=ORram7mF",
+      "weight": [45, 43, 46, 51, 49, 53, 50, 52, 51],
+      "categories1": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
+      "beatsPerMinute": [68, 72, 76, 76, 96, 100, 90, 80, 77],
+      "categories2": ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     },
     {
       "id": 3,
@@ -81,7 +189,11 @@
       "sex": "male",
       "size": "large",
       "perimeter": 55,
-      "image": "https://www.aon.es/personales/seguro-perro-gato/wp-content/uploads/sites/2/2021/04/bichon-maltes.jpg"
+      "image": "https://www.aon.es/personales/seguro-perro-gato/wp-content/uploads/sites/2/2021/04/bichon-maltes.jpg",
+      "weight": [45, 43, 46, 51, 49, 53, 50, 52, 51],
+      "categories1": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
+      "beatsPerMinute": [68, 72, 76, 76, 96, 100, 90, 80, 77],
+      "categories2": ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     },
     {
       "id": 4,
@@ -91,7 +203,11 @@
       "sex": "female",
       "size": "small",
       "perimeter": 45,
-      "image": "https://content.cuerpomente.com/medio/2023/06/08/perro-en-un-prado_bc5b1a31_230608141116_1280x720.jpg"
+      "image": "https://content.cuerpomente.com/medio/2023/06/08/perro-en-un-prado_bc5b1a31_230608141116_1280x720.jpg",
+      "weight": [45, 43, 46, 51, 49, 53, 50, 52, 51],
+      "categories1": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
+      "beatsPerMinute": [68, 72, 76, 76, 96, 100, 90, 80, 77],
+      "categories2": ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
     }
   ]
 }
