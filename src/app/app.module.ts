@@ -23,6 +23,7 @@ import { HammerModule } from '@angular/platform-browser';
 import { IgxDatePickerModule, IgxTimePickerModule } from 'igniteui-angular';
 import { FullCalendarModule } from "@fullcalendar/angular";
 import { FilterPipe } from './filter.pipe';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { FilterPipe } from './filter.pipe';
     IgxTimePickerModule,
     FullCalendarModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatCardModule
     
   ],
   providers: [provideNativeDateAdapter()],
