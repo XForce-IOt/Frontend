@@ -9,27 +9,32 @@
             <mat-card-content>
                 <mat-form-field appearance="outline" class="custom-mat-form-field">
                     <mat-label>Nombre</mat-label>
-                    <input matInput type="text" required>
+                    <input type="text" matInput [formControl]="name" placeholder="Name" required>
+                    <mat-error *ngIf="name.invalid">{{ getErrorMessageName() }}</mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline" class="custom-mat-form-field">
                     <mat-label>Apellidos</mat-label>
-                    <input matInput type="text" required>
+                    <input type="text" matInput [formControl]="lastname" placeholder="Lastname" required>
+                    <mat-error *ngIf="lastname.invalid">{{ getErrorMessageName() }}</mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline" class="custom-mat-form-field">
                     <mat-label>Correo electrónico</mat-label>
-                    <input matInput type="email" required>
+                    <input type="text" matInput [formControl]="email" placeholder="Email" required>
+                <mat-error *ngIf="email.invalid">{{ getErrorMessageName() }}</mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline" class="custom-mat-form-field">
                     <mat-label>Contraseña</mat-label>
-                    <input matInput type="password" required>
+                    <input type="password" matInput [formControl]="password" placeholder="Password" required>
+                <mat-error *ngIf="password.invalid">{{ getErrorMessagePassword() }}</mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline" class="custom-mat-form-field">
                     <mat-label>Celular</mat-label>
-                    <input matInput type="number" required>
+                    <input type="text" matInput [formControl]="phone" placeholder="Phone" required>
+                <mat-error *ngIf="phone.invalid">{{ getErrorMessageName() }}</mat-error>
                 </mat-form-field>
 
                 <p>Elige el tipo de usuario con el que te identificas</p>
@@ -54,7 +59,7 @@
                 </div>
 
                 <div class="button-center">
-                    <button mat-raised-button class="submit-button">Crear Cuenta</button>
+                    <button mat-raised-button class="submit-button" (click)="submit()">Crear Cuenta</button>
                 </div>
 
                 <div class="line"></div>
