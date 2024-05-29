@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay  } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +19,7 @@ export class HomeComponent implements OnInit {
     );
 
   constructor(
+    private authService: AuthService,
     private breakpointObserver: BreakpointObserver,
     private router: Router
   ) {}
@@ -27,6 +29,10 @@ export class HomeComponent implements OnInit {
 
   isSelected(path: string): boolean {
     return this.router.url === path;
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 
 }

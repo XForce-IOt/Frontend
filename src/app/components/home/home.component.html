@@ -37,6 +37,10 @@
           <mat-icon [ngStyle]="{'color': isSelected('/home/change-password') ? '#042440' : ''}">settings_input_component</mat-icon>
           Change Password
         </button>
+        <button mat-button routerLink="/login" [ngStyle]="{'color': isSelected('/login') ? '#042440' : ''}">
+          <mat-icon [ngStyle]="{'color': isSelected('/login') ? '#042440' : ''}">exit_to_app</mat-icon>
+          Log Out
+        </button>
 
     </mat-nav-list>
     </div>
