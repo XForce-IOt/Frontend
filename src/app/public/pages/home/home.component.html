@@ -2,9 +2,9 @@
   <button class="button-content" mat-icon-button *ngIf="!(isScreenLarge | async)" (click)="sidenav.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
-  
-  <img src="../../../favicon.ico" alt="PetHealth" class="logo" style="width: 50px; height: 45px">
-  
+
+  <img src="../../../../favicon.ico" alt="PetHealth" class="logo" style="width: 50px; height: 45px">
+
   <span class="name">PetHealth</span>
   <span class="example-spacer"></span>
   <button mat-icon-button class="example-icon" aria-label="icon-button notification">
@@ -20,7 +20,7 @@
   <mat-sidenav #sidenav class="menu-items" mode="side" [opened]="isScreenLarge | async">
     <div class="container">
     <mat-nav-list style="display: flex; flex-direction: column; align-items: center;">
-      
+
       <button mat-button routerLink="/home/pets" [ngStyle]="{'color': isSelected('/home/pets') ? '#042440' : ''}">
           <mat-icon  [ngStyle]="{'color': isSelected('/home/pets') ? '#042440' : ''}">pets</mat-icon>
           Pets

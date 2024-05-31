@@ -1,18 +1,18 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Rut",
       "lastname": "Jar",
       "address": "",
       "phone": "999999999",
       "email": "j@mail.com",
-      "password": "123"
+      "password": "1234"
     }
   ],
   "appointments": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Appointment 1",
       "date": "02-05-2024",
       "hour": "14:00",
@@ -21,7 +21,7 @@
       "pet": 4
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Appointment 2",
       "date": "01-06-2024",
       "hour": "16:00",
@@ -30,7 +30,7 @@
       "pet": 3
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Appointment 3",
       "date": "30-04-2024",
       "hour": "18:00",
@@ -39,7 +39,7 @@
       "pet": 2
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Appointment 4",
       "date": "29-05-2024",
       "hour": "20:00",
@@ -54,7 +54,7 @@
       "description": "My dog just need a haircut",
       "vet": 2,
       "pet": 3,
-      "id": 5
+      "id": "5"
     },
     {
       "title": "Examination",
@@ -63,7 +63,7 @@
       "description": "I don't know, it's not eating.",
       "vet": 1,
       "pet": 3,
-      "id": 6
+      "id": "6"
     },
     {
       "title": "Routine appointment",
@@ -72,7 +72,7 @@
       "description": "Need a vaccine",
       "vet": 1,
       "pet": 3,
-      "id": 7
+      "id": "7"
     },
     {
       "title": "Bath",
@@ -81,7 +81,7 @@
       "description": "My dog need a bath.",
       "vet": 1,
       "pet": 3,
-      "id": 8
+      "id": "8"
     },
     {
       "title": "Bath",
@@ -90,7 +90,7 @@
       "description": "Luna needs a bath.",
       "vet": 2,
       "pet": 4,
-      "id": 9
+      "id": "9"
     },
     {
       "title": "Routine review",
@@ -99,7 +99,7 @@
       "description": "Going to the monthly review",
       "vet": 2,
       "pet": 2,
-      "id": 10
+      "id": "10"
     },
     {
       "title": "New Appointment",
@@ -108,7 +108,7 @@
       "description": "My pet needs a revision.",
       "vet": 1,
       "pet": 1,
-      "id": 11
+      "id": "11"
     },
     {
       "title": "Example Appointment",
@@ -117,12 +117,12 @@
       "description": "Mi pet ...",
       "vet": 1,
       "pet": 4,
-      "id": 12
+      "id": "12"
     }
   ],
   "veterinarians": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Oscar Ramos",
       "availability": "L Mi V",
       "email": "omarramos@gmail.com",
@@ -131,7 +131,7 @@
       "clinicId": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Julia Muñoz",
       "availability": "Ma J S",
       "email": "juliamunnoz@gmail.com",
@@ -142,7 +142,7 @@
   ],
   "clinics": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Dulces Patitas",
       "rating": 4.5,
       "address": "Av Antonio José de Sucre 810, Magdalena del Mar 15001",
@@ -151,7 +151,7 @@
       "photoUrl": ""
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Lima Vet",
       "rating": 4.8,
       "address": "Av Antonio José de Sucre 688, Pueblo Libre 15084",
@@ -165,7 +165,7 @@
   },
   "pets": [
     {
-      "id": 1,
+      "id": "1",
       "name": "vaguito",
       "specie": "criollo",
       "age": "36",
@@ -219,7 +219,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "marilyn",
       "specie": "doberman",
       "age": "18",
@@ -273,7 +273,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "chato",
       "specie": "criollo",
       "age": "12",
@@ -327,7 +327,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "luna",
       "specie": "criollo",
       "age": "24",
