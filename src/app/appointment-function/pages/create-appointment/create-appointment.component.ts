@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import {Clinic} from "../../domain/appointment/entities/clinic.model";
+import {Clinic} from "../../../account-management/model/clinic.model";
 import { Subscription } from 'rxjs';
-import {ClinicService} from "../../domain/appointment/services/clinic.service";
-import {Veterinarian} from "../../domain/appointment/entities/veterinarian.model";
-import {VeterinarianService} from "../../domain/appointment/services/veterinarian.service";
-import { GeocodeService } from "../../shared/services/geocode.service";
-import {Appointment} from "../../domain/appointment/entities/appointment.model";
+import {ClinicService} from "../../../account-management/services/clinic.service";
+import {Veterinarian} from "../../../account-management/model/veterinarian.model";
+import {VeterinarianService} from "../../../account-management/services/veterinarian.service";
+import { GeocodeService } from "../../../shared/services/geocode.service";
+import {Appointment} from "../../model/appointment.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Pet} from "../../domain/pets/entities/pet.model";
-import {PetService} from "../../domain/pets/services/pet.service";
-import {AppointmentService} from "../../domain/appointment/services/appointment.service";
+import {Pet} from "../../../collar-function/model/pet.model";
+import {PetService} from "../../../collar-function/services/pet.service";
+import {AppointmentService} from "../../services/appointment.service";
 
 interface LatLngLiteral {
   lat: number;

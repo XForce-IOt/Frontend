@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from 'src/app/domain/profile/entities/user.model';
+import { User } from 'src/app/account-management/model/user.model';
 import { Router } from '@angular/router';
 
 @Injectable({
