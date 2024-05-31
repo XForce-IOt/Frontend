@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../shared/services/auth.service';
 import { FormControl, Validators } from '@angular/forms';
-import { User } from 'src/app/models/user.model';
+import { User } from 'src/app/domain/profile/entities/user.model';
 import { HttpClient } from '@angular/common/http';
-import { ProfileService } from 'src/app/services/profile.service';
+import { ProfileService } from 'src/app/domain/profile/services/profile.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -16,7 +16,7 @@ export class ChangePasswordComponent implements OnInit{
   user_now: any = {};
   //user_now!: User | null;
 
-  constructor(private auth: AuthService, private http: HttpClient, private profileService: ProfileService, private snackBar: MatSnackBar) { 
+  constructor(private auth: AuthService, private http: HttpClient, private profileService: ProfileService, private snackBar: MatSnackBar) {
     this.user_now = this.auth.getUser()
   }
 
@@ -34,7 +34,7 @@ export class ChangePasswordComponent implements OnInit{
 
   ngOnInit(): void {
     this.user_now = this.auth.getUser();
-  
+
     // Inicializar los controles del formulario con los valores del usuario actual
     if (this.user_now) {
       this.name.setValue(this.user_now.name);

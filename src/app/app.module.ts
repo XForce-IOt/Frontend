@@ -5,17 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
-import { PetsComponent } from './components/pets/pets.component';
-import { AppointmentComponent } from './components/appointment/appointment.component';
-import { ProfileComponent } from './components/profile/profile.component';
-import { ChangePasswordComponent } from './components/change-password/change-password.component';
-import { HomeComponent } from './components/home/home.component';
+import { PetsComponent } from './presentation/pets/pets.component';
+import { AppointmentComponent } from './presentation/appointment/appointment.component';
+import { ProfileComponent } from './presentation/profile/profile.component';
+import { ChangePasswordComponent } from './presentation/change-password/change-password.component';
+import { HomeComponent } from './presentation/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthComponent } from './auth/auth/auth.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EditPetComponent } from './components/edit-pet/edit-pet.component';
-import { CreateAppointmentComponent } from './components/create-appointment/create-appointment.component';
+import { EditPetComponent } from './presentation/edit-pet/edit-pet.component';
+import { CreateAppointmentComponent } from './presentation/create-appointment/create-appointment.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { provideNativeDateAdapter } from '@angular/material/core';
@@ -55,7 +55,7 @@ import { MatCardModule } from '@angular/material/card';
     ReactiveFormsModule,
     FormsModule,
     MatCardModule
-    
+
   ],
   providers: [provideNativeDateAdapter()],
   bootstrap: [AppComponent]

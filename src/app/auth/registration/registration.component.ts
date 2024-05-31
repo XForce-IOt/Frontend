@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
-import { ProfileService } from '../../services/profile.service';
-import {User} from "../../models/user.model";
+import { ProfileService } from '../../domain/profile/services/profile.service';
+import {User} from "../../domain/profile/entities/user.model";
 
 @Component({
   selector: 'app-registration',
@@ -41,7 +41,7 @@ export class RegistrationComponent {
       this.password.markAsTouched();
       return;
     }
-  
+
     const newItem = {
       name: nameValue,
       lastname: lastnameValue,
@@ -50,7 +50,7 @@ export class RegistrationComponent {
       email: emailValue,
       password: passwordValue,
     }
-  
+
     this.profileService.createItem(newItem).subscribe(
       res => {
         console.log("Usuario agregado exitosamente");
@@ -94,7 +94,7 @@ export class RegistrationComponent {
   }
 
   getErrorMessageRePassword() {
-  
+
     return '';
   }
 

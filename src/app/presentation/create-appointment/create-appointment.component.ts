@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import {Clinic} from "../../models/clinic.model";
+import {Clinic} from "../../domain/appointment/entities/clinic.model";
 import { Subscription } from 'rxjs';
-import {ClinicService} from "../../services/clinic.service";
-import {Veterinarian} from "../../models/veterinarian.model";
-import {VeterinarianService} from "../../services/veterinarian.service";
-import { GeocodeService } from "../../services/geocode.service";
-import {Appointment} from "../../models/appointment.model";
+import {ClinicService} from "../../domain/appointment/services/clinic.service";
+import {Veterinarian} from "../../domain/appointment/entities/veterinarian.model";
+import {VeterinarianService} from "../../domain/appointment/services/veterinarian.service";
+import { GeocodeService } from "../../shared/services/geocode.service";
+import {Appointment} from "../../domain/appointment/entities/appointment.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Pet} from "../../models/pet.model";
-import {PetService} from "../../services/pet.service";
-import {AppointmentService} from "../../services/appointment.service";
+import {Pet} from "../../domain/pets/entities/pet.model";
+import {PetService} from "../../domain/pets/services/pet.service";
+import {AppointmentService} from "../../domain/appointment/services/appointment.service";
 
 interface LatLngLiteral {
   lat: number;

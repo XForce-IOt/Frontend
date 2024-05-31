@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { count } from 'rxjs';
-import { Appointment } from 'src/app/models/appointment.model';
-import { AppointmentService } from 'src/app/services/appointment.service';
-import { PetService } from 'src/app/services/pet.service';
+import { Appointment } from 'src/app/domain/appointment/entities/appointment.model';
+import { AppointmentService } from 'src/app/domain/appointment/services/appointment.service';
+import { PetService } from 'src/app/domain/pets/services/pet.service';
 
 import {
   ChartComponent,

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PetsComponent } from './components/pets/pets.component';
-import { ProfileComponent } from './components/profile/profile.component';
-import { ChangePasswordComponent } from './components/change-password/change-password.component';
-import { AppointmentComponent } from './components/appointment/appointment.component';
+import { PetsComponent } from './presentation/pets/pets.component';
+import { ProfileComponent } from './presentation/profile/profile.component';
+import { ChangePasswordComponent } from './presentation/change-password/change-password.component';
+import { AppointmentComponent } from './presentation/appointment/appointment.component';
 import { AuthComponent } from './auth/auth/auth.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
-import { HomeComponent } from './components/home/home.component';
-import { EditPetComponent } from './components/edit-pet/edit-pet.component';
-import {CreateAppointmentComponent} from "./components/create-appointment/create-appointment.component";
+import { HomeComponent } from './presentation/home/home.component';
+import { EditPetComponent } from './presentation/edit-pet/edit-pet.component';
+import {CreateAppointmentComponent} from "./presentation/create-appointment/create-appointment.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },

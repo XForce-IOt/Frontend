@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Pet } from 'src/app/models/pet.model';
-import { PetService } from 'src/app/services/pet.service';
+import { Pet } from 'src/app/domain/pets/entities/pet.model';
+import { PetService } from 'src/app/domain/pets/services/pet.service';
 
 @Component({
   selector: 'app-edit-pet',
@@ -21,13 +21,13 @@ export class EditPetComponent {
   ) {}
 
   ngOnInit(): void{
-    
+
 
     const url = window.location.href;
     const partesURL = url.split('/');
     const id = partesURL[partesURL.length - 1];
 
-    this.generateReactiveForm(); 
+    this.generateReactiveForm();
     console.log(id);
 
     this.petService.getPetById(id).subscribe((data)=>{
@@ -79,7 +79,7 @@ export class EditPetComponent {
           this.router.navigate(['/home/pets'])
         ),
         (error)=>(console.log(error))
-        
+
       )
     }
   }

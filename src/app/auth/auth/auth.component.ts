@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
-import { ProfileService } from 'src/app/services/profile.service';
-import { User } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { ProfileService } from 'src/app/domain/profile/services/profile.service';
+import { User } from 'src/app/domain/profile/entities/user.model';
 
 @Component({
   selector: 'app-auth',
@@ -41,7 +41,7 @@ export class AuthComponent {
         if (userExists) {
 
           const user = data.find(item => item.email === emailValue && item.password === passwordValue) as User;
-    
+
           this.authService.setUser(user); // Almacenar el usuario en el AuthService
 
           this.router.navigateByUrl('/home/pets');

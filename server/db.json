@@ -1,6 +1,14 @@
 {
-  "users":[
-    
+  "users": [
+    {
+      "id": 1,
+      "name": "Rut",
+      "lastname": "Jar",
+      "address": "",
+      "phone": "999999999",
+      "email": "j@mail.com",
+      "password": "123"
+    }
   ],
   "appointments": [
     {
@@ -165,10 +173,50 @@
       "size": "medium",
       "perimeter": 50,
       "image": "https://latinanoticias.pe/wp-content/uploads/2024/04/vaguito.jpg",
-      "weight": [45, 43, 46, 51, 49, 53, 50, 52, 51],
-      "categories1": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
-      "beatsPerMinute": [68, 72, 76, 76, 96, 100, 90, 80, 77],
-      "categories2": ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+      "weight": [
+        45,
+        43,
+        46,
+        51,
+        49,
+        53,
+        50,
+        52,
+        51
+      ],
+      "categories1": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep"
+      ],
+      "beatsPerMinute": [
+        68,
+        72,
+        76,
+        76,
+        96,
+        100,
+        90,
+        80,
+        77
+      ],
+      "categories2": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
     },
     {
       "id": 2,
@@ -179,10 +227,50 @@
       "size": "medium",
       "perimeter": 40,
       "image": "https://www.purina.es/sites/default/files/styles/square_medium_440x440/public/2024-02/sitesdefaultfilesstylessquare_medium_440x440public2022-07Dobermann.jpg?itok=ORram7mF",
-      "weight": [45, 43, 46, 51, 49, 53, 50, 52, 51],
-      "categories1": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
-      "beatsPerMinute": [68, 72, 76, 76, 96, 100, 90, 80, 77],
-      "categories2": ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+      "weight": [
+        45,
+        43,
+        46,
+        51,
+        49,
+        53,
+        50,
+        52,
+        51
+      ],
+      "categories1": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep"
+      ],
+      "beatsPerMinute": [
+        68,
+        72,
+        76,
+        76,
+        96,
+        100,
+        90,
+        80,
+        77
+      ],
+      "categories2": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
     },
     {
       "id": 3,
@@ -193,10 +281,50 @@
       "size": "large",
       "perimeter": 55,
       "image": "https://www.aon.es/personales/seguro-perro-gato/wp-content/uploads/sites/2/2021/04/bichon-maltes.jpg",
-      "weight": [45, 43, 46, 51, 49, 53, 50, 52, 51],
-      "categories1": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
-      "beatsPerMinute": [68, 72, 76, 76, 96, 100, 90, 80, 77],
-      "categories2": ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+      "weight": [
+        45,
+        43,
+        46,
+        51,
+        49,
+        53,
+        50,
+        52,
+        51
+      ],
+      "categories1": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep"
+      ],
+      "beatsPerMinute": [
+        68,
+        72,
+        76,
+        76,
+        96,
+        100,
+        90,
+        80,
+        77
+      ],
+      "categories2": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
     },
     {
       "id": 4,
@@ -207,10 +335,50 @@
       "size": "small",
       "perimeter": 45,
       "image": "https://content.cuerpomente.com/medio/2023/06/08/perro-en-un-prado_bc5b1a31_230608141116_1280x720.jpg",
-      "weight": [45, 43, 46, 51, 49, 53, 50, 52, 51],
-      "categories1": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
-      "beatsPerMinute": [68, 72, 76, 76, 96, 100, 90, 80, 77],
-      "categories2": ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+      "weight": [
+        45,
+        43,
+        46,
+        51,
+        49,
+        53,
+        50,
+        52,
+        51
+      ],
+      "categories1": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep"
+      ],
+      "beatsPerMinute": [
+        68,
+        72,
+        76,
+        76,
+        96,
+        100,
+        90,
+        80,
+        77
+      ],
+      "categories2": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ]
     }
   ]
 }
