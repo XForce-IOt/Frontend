@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import {Appointment} from "../../model/appointment.model";
-import {AppointmentService} from "../../services/appointment.service";
+import {Appointment} from "../../domain/appointment/entities/appointment.model";
+import {AppointmentService} from "../../domain/appointment/services/appointment.service";
 
 @Component({
   selector: 'app-appointment',

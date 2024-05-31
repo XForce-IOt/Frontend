@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Pet } from 'src/app/collar-function/model/pet.model';
-import { PetService } from 'src/app/collar-function/services/pet.service';
+import { Pet } from 'src/app/domain/pets/entities/pet.model';
+import { PetService } from 'src/app/domain/pets/services/pet.service';
 
 @Component({
   selector: 'app-edit-pet',

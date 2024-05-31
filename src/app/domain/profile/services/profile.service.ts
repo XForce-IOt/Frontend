@@ -4,7 +4,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { map, switchMap } from 'rxjs/operators';
 
-import {User} from "src/app/account-management/model/user.model";
+import {User} from "src/app/domain/profile/entities/user.model";
 
 @Injectable({
   providedIn: 'root'

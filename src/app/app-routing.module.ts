@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PetsComponent } from './collar-function/pages/pets/pets.component';
-import { ProfileComponent } from './account-management/pages/profile/profile.component';
-import { ChangePasswordComponent } from './account-management/pages/change-password/change-password.component';
-import { AppointmentComponent } from './appointment-function/pages/appointment/appointment.component';
-import { AuthComponent } from './account-management/pages/auth/auth.component';
-import { RegistrationComponent } from './account-management/pages/registration/registration.component';
-import { HomeComponent } from './public/pages/home/home.component';
-import { EditPetComponent } from './collar-function/pages/edit-pet/edit-pet.component';
-import {CreateAppointmentComponent} from "./appointment-function/pages/create-appointment/create-appointment.component";
+import { PetsComponent } from './presentation/pets/pets.component';
+import { ProfileComponent } from './presentation/profile/profile.component';
+import { ChangePasswordComponent } from './presentation/change-password/change-password.component';
+import { AppointmentComponent } from './presentation/appointment/appointment.component';
+import { AuthComponent } from './auth/auth/auth.component';
+import { RegistrationComponent } from './auth/registration/registration.component';
+import { HomeComponent } from './presentation/home/home.component';
+import { EditPetComponent } from './presentation/edit-pet/edit-pet.component';
+import {CreateAppointmentComponent} from "./presentation/create-appointment/create-appointment.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },

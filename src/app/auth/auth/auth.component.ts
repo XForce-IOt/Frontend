@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { ProfileService } from 'src/app/account-management/services/profile.service';
-import { User } from 'src/app/account-management/model/user.model';
+import { ProfileService } from 'src/app/domain/profile/services/profile.service';
+import { User } from 'src/app/domain/profile/entities/user.model';
 
 @Component({
   selector: 'app-auth',
