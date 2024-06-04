@@ -10,6 +10,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Pet} from "../../../collar-function/model/pet.model";
 import {PetService} from "../../../collar-function/services/pet.service";
 import {AppointmentService} from "../../services/appointment.service";
+import {veterinarian} from "@igniteui/material-icons-extended";
 
 interface LatLngLiteral {
   lat: number;
@@ -107,7 +108,7 @@ export class CreateAppointmentComponent {
 
   private getVeterinariansByClinic(clinicId: number){
     this.veterinarianService.getAll().subscribe((response: any) => {
-      this.veterinariansByClinic = response.filter((veterinarian: any) => veterinarian.clinicId === clinicId);
+      this.veterinariansByClinic = response.filter((veterinarian: any) => veterinarian.clinicId == clinicId);
     },
       (error: any) => {
         console.error('Error fetching veterinarians by Id:', error);
@@ -165,5 +166,7 @@ export class CreateAppointmentComponent {
     this.getPets();
     this.subscribeToFormChanges();
   }
+
+
 
 }
