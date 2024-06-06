@@ -11,6 +11,11 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  // extraer el nombre del usuario del localStorage
+  get userName(): string {
+    const user = this.authService.getUser();
+    return user ? user.name : '';
+  }
 
   isScreenLarge: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Large)
     .pipe(
