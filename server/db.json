@@ -8,6 +8,15 @@
       "phone": "999999999",
       "email": "j@mail.com",
       "password": "1234"
+    },
+    {
+      "id": "2",
+      "name": "Fredy",
+      "lastname": "Almeyda",
+      "address": "",
+      "phone": "999999999",
+      "email": "f@mail.com",
+      "password": "1234"
     }
   ],
   "appointments": [
@@ -165,7 +174,6 @@
   },
   "pets": [
     {
-      "id": "1",
       "name": "vaguito",
       "specie": "criollo",
       "age": "36",
@@ -173,50 +181,7 @@
       "size": "medium",
       "perimeter": 50,
       "image": "https://latinanoticias.pe/wp-content/uploads/2024/04/vaguito.jpg",
-      "weight": [
-        45,
-        43,
-        46,
-        51,
-        49,
-        53,
-        50,
-        52,
-        51
-      ],
-      "categories1": [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep"
-      ],
-      "beatsPerMinute": [
-        68,
-        72,
-        76,
-        76,
-        96,
-        100,
-        90,
-        80,
-        77
-      ],
-      "categories2": [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9"
-      ]
+      "id": "1"
     },
     {
       "id": "2",
