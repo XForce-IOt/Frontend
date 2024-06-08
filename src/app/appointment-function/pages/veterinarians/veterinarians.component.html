@@ -1,0 +1,20 @@
+<div class="container-cards">
+    <div class="example-card" *ngFor="let vet of veterinarians">
+        <div class="card-image">
+            <div class="image"><img style="width: 200px; height: 150px;" [src]="vet.photoUrl"></div>
+        </div>
+        <div class="card-data">
+            <h2>{{vet.name}}</h2>
+            <p> Availability:
+                {{vet.availability}}<br>
+                Contacts<br>
+                Email: {{vet.email}}<br>
+                Phone: {{vet.phone}}</p>
+        </div>
+        <div class="card-event">
+            <div class="button-select">
+                <button (click)="goToAppointment(vet.id)">SELECT</button>
+            </div>
+        </div>
+    </div>
+</div>

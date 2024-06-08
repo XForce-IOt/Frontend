@@ -1,0 +1,54 @@
+.example-card {
+    border-radius: 0px 12px 12px 0px;
+    max-width: 800px;
+    height: 180px;
+    margin: 10px 0px 0px 20px;
+    background-color: #F5FFFF;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
+    display: flex;
+  }
+  .card-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
+  }
+  .card-image img{
+    object-fit: cover; /* La imagen se ajustará dentro del contenedor sin deformarse ni recortarse */
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .card-data{
+    flex: 3;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    font-family: "Work Sans", sans-serif;
+  }
+  .card-event{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .button-select{
+    width: 100px;
+    display: flex;
+    justify-content: center;
+  }
+  .button-select button{
+    background-color: #84ECEC;
+    color: #042440;
+    width: 250px;
+    height: 160px;
+    border-radius: 0px 12px 12px 0px;
+    border-color: #a9b1bf;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .button-select button:hover{
+    box-shadow: 0px 00px 10px 0px rgba(0,0,0,0.25);
+  }
