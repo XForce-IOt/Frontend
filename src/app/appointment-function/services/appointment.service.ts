@@ -9,7 +9,6 @@ import {Appointment} from "../model/appointment.model";
 })
 export class AppointmentService {
   basePath: string = `${environment.baseURL}`;
-  resourceEndpoint: string = '/appointments';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -31,41 +30,37 @@ export class AppointmentService {
     return throwError(() => new Error('Something happened with request, please try again later.'));
   }
 
-  private resourcePath(): string {
-    return `${this.basePath}${this.resourceEndpoint}`;
-  }
-
   // Create Resource
-  create(appointment: Appointment): Observable<Appointment> {
-    return this.http.post<Appointment>(this.resourcePath(), appointment);
+  create(clinicId:any, vetId: any, appointment: Appointment): Observable<Appointment> {
+    return this.http.post<Appointment>(`${this.basePath}/clinics/${clinicId}/veterinarians/${vetId}/appointments`, appointment);
   }
 
-  delete(id: any) {
-    return this.http.delete(`${this.resourcePath()}/${id}`, this.httpOptions)
+  delete(clinicId:any, vetId: any, id: any) {
+    return this.http.delete(`${this.basePath}/clinics/${clinicId}/veterinarians/${vetId}/appointments/${id}`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   // Update Resource
-  update(id: any, item: any) {
-    return this.http.put(`${this.resourcePath()}/${id}`,
+  update(clinicId:any, vetId: any, id: any, item: any) {
+    return this.http.put(`${this.basePath}/clinics/${clinicId}/veterinarians/${vetId}/appointments/${id}`,
       JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   // Get All Resources
-  getAll(): Observable<any>  {
-    return this.http.get(this.resourcePath(), this.httpOptions)
+  getAll(clinicId:any, vetId: any): Observable<any>  {
+    return this.http.get(`${this.basePath}/clinics/${clinicId}/veterinarians/${vetId}/appointments`, this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  getAppointmentsById(id: any): Observable<any> {
+  getAppointmentsById(vetId: any, id: any): Observable<any> {
     return this.http
-      .get(`${this.resourcePath()}/${id}`)
+      .get(`${this.basePath}/${vetId}/appointments/${id}`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  getAppointmentsByPetId(petId: number): Observable<any> {
-    return this.http.get(`${this.resourcePath()}?pet=${petId}`)
+  getAppointmentsByPetId(petOwnerId: any,petId: any): Observable<any> {
+    return this.http.get(`${this.basePath}/pet-owners/${petOwnerId}/pets/${petId}/appointments`)
       .pipe(retry(2), catchError(this.handleError));
   }
 }
