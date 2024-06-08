@@ -178,4 +178,6 @@ export class CreateAppointmentComponent {
     this.userId = this.authService.getUserId();
   }
 
+
+
 }
