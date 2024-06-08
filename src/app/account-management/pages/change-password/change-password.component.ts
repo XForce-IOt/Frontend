@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../shared/services/auth.service';
 import { FormControl, Validators } from '@angular/forms';
-import { User } from 'src/app/account-management/model/user.model';
 import { HttpClient } from '@angular/common/http';
 import { ProfileService } from 'src/app/account-management/services/profile.service';
 import { MatSnackBar } from '@angular/material/snack-bar';

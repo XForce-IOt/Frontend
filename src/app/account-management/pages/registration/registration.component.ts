@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 import { ProfileService } from '../../services/profile.service';
-import {User} from "../../model/user.model";
 
 @Component({
   selector: 'app-registration',
