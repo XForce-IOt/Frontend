@@ -24,6 +24,8 @@ import { IgxDatePickerModule, IgxTimePickerModule } from 'igniteui-angular';
 import { FullCalendarModule } from "@fullcalendar/angular";
 import { FilterPipe } from './filter.pipe';
 import { MatCardModule } from '@angular/material/card';
+import { VeterinariansComponent } from './appointment-function/pages/veterinarians/veterinarians.component';
+import { ClinicsComponent } from './appointment-function/pages/clinics/clinics.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { MatCardModule } from '@angular/material/card';
     RegistrationComponent,
     EditPetComponent,
     CreateAppointmentComponent,
+    VeterinariansComponent,
+    ClinicsComponent,
     FilterPipe
   ],
   imports: [
