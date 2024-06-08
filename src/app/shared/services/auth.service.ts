@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from 'src/app/account-management/model/user.model';
+import { PetOwner } from 'src/app/account-management/model/pet-owner.model';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -10,19 +10,22 @@ import { Router } from '@angular/router';
 
     constructor(private router: Router) { }
 
-    setUser(user: User) {
+    setUser(user: PetOwner) {
       localStorage.setItem(this.currentUserKey, JSON.stringify(user)); // Almacenar el usuario en localStorage
     }
 
-    getUser(): User | null {
+    getUser(): PetOwner | null {
       const userJson = localStorage.getItem(this.currentUserKey);
       if (userJson) {
-        return JSON.parse(userJson) as User;
+        return JSON.parse(userJson) as PetOwner;
       }
       return null;
     }
 
-
+    getUserId(): number | null {
+      const user = this.getUser();
+      return user ? user.id : null;
+    }
 
     logout() {
       localStorage.removeItem(this.currentUserKey); // Eliminar el usuario del localStorage
