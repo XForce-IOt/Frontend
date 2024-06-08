@@ -3,6 +3,7 @@ import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import {Appointment} from "../../model/appointment.model";
 import {AppointmentService} from "../../services/appointment.service";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-appointment',
@@ -13,13 +14,15 @@ export class AppointmentComponent {
   searchText: any;
   public appointments: Appointment[];
   public calendarOptions?: CalendarOptions;
+  clinicId: any | null = null;
+  vetId: any | null = null;
 
-  constructor(public appointmentService: AppointmentService) {
+  constructor(public appointmentService: AppointmentService, private route:ActivatedRoute) {
     this.appointments = [];
   }
 
   private getAppointments(): void {
-    this.appointmentService.getAll().subscribe({
+    this.appointmentService.getAll(this.clinicId,this.vetId).subscribe({
       next: (response: Appointment[]) => {
         this.appointments = response;
         this.setupCalendarOptions();
@@ -56,6 +59,8 @@ export class AppointmentComponent {
   }
 
   ngOnInit(): void{
+    this.clinicId = this.route.snapshot.paramMap.get('clinicId');
+    this.vetId = this.route.snapshot.paramMap.get('vetId');
     this.getAppointments();
   }
 
