@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Pet } from 'src/app/collar-function/model/pet.model';
 import { PetService } from 'src/app/collar-function/services/pet.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-edit-pet',
@@ -13,16 +14,18 @@ export class EditPetComponent {
   petForm!: FormGroup;
   petView!: Pet;
   imageUrl!: string;
+  userId: number | null = null;
 
   constructor(
     private formBuilder: FormBuilder,
     private petService: PetService,
     private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void{
 
-
+    this.userId = this.authService.getUserId();
     const url = window.location.href;
     const partesURL = url.split('/');
     const id = partesURL[partesURL.length - 1];
@@ -30,7 +33,7 @@ export class EditPetComponent {
     this.generateReactiveForm();
     console.log(id);
 
-    this.petService.getPetById(id).subscribe((data)=>{
+    this.petService.getPetById(this.userId, id).subscribe((data)=>{
         this.petView = data;
         this.petForm.patchValue({
           name: this.petView.name,
@@ -73,7 +76,7 @@ export class EditPetComponent {
         image: this.petForm.value.image,
         id: this.petView.id,
       }
-      this.petService.updatePet(this.petView?.id,pet).subscribe(
+      this.petService.updatePet(this.userId, this.petView?.id, pet).subscribe(
         (data)=>(
           console.log(data),
           this.router.navigate(['/home/pets'])
