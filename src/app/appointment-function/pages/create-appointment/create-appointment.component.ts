@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
-import {Clinic} from "../../../account-management/model/clinic.model";
+import { Clinic } from '../../model/clinic.model';
 import { Subscription } from 'rxjs';
-import {ClinicService} from "../../../account-management/services/clinic.service";
-import {Veterinarian} from "../../../account-management/model/veterinarian.model";
-import {VeterinarianService} from "../../../account-management/services/veterinarian.service";
+import { ClinicService } from '../../services/clinic.service';
+import { Veterinarian } from '../../model/veterinarian.model';
+import { VeterinarianService } from '../../services/veterinarian.service';
 import { GeocodeService } from "../../../shared/services/geocode.service";
-import {Appointment} from "../../model/appointment.model";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Pet} from "../../../collar-function/model/pet.model";
-import {PetService} from "../../../collar-function/services/pet.service";
-import {AppointmentService} from "../../services/appointment.service";
+import { Appointment} from "../../model/appointment.model";
+import { FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { Pet} from "../../../collar-function/model/pet.model";
+import { PetService} from "../../../collar-function/services/pet.service";
+import { AppointmentService} from "../../services/appointment.service";
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { ActivatedRoute } from '@angular/router';
 
 interface LatLngLiteral {
   lat: number;
@@ -30,10 +32,13 @@ export class CreateAppointmentComponent {
 
   selectedVeterinarian: Veterinarian | null = null;
   selectedPet: Pet | null = null;
+  clinicId: any | null = null;
+  vetId: any | null = null;
 
   public clinics: Clinic[];
   public veterinariansByClinic: Veterinarian[];
   public pets: Pet[];
+  public userId: number | null = null;
 
   public center: LatLngLiteral = {lat: -12.046374, lng: -77.042793}; // Ejemplo: Coordenadas de Lima, Perú
   public zoom = 12;
@@ -48,7 +53,9 @@ export class CreateAppointmentComponent {
     public geocodeService: GeocodeService,
     public petService: PetService,
     public appointmentService: AppointmentService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private route: ActivatedRoute,
 
   ) {
     this.clinics = [];
@@ -73,8 +80,8 @@ export class CreateAppointmentComponent {
     })
   }
 
-  private  getPets(): void{
-    this.petService.getPets().subscribe(
+  private getPets(): void{
+    this.petService.getPets(this.userId).subscribe(
       (response: any)=>{
       this.pets = response;
     },
@@ -106,8 +113,10 @@ export class CreateAppointmentComponent {
   }
 
   private getVeterinariansByClinic(clinicId: number){
-    this.veterinarianService.getAll().subscribe((response: any) => {
-      this.veterinariansByClinic = response.filter((veterinarian: any) => veterinarian.clinicId === clinicId);
+    this.veterinarianService.getAll(clinicId).subscribe((response: any) => {
+      console.log(clinicId)
+      this.veterinariansByClinic = response.filter((veterinarian: any) => veterinarian.clinicId == clinicId);
+      console.log(this.veterinariansByClinic)
     },
       (error: any) => {
         console.error('Error fetching veterinarians by Id:', error);
@@ -143,7 +152,7 @@ export class CreateAppointmentComponent {
       };
       console.log('Appointment Data:', appointment);
 
-      this.appointmentService.create(appointment).subscribe(
+      this.appointmentService.create(this.clinicId,this.vetId,appointment).subscribe(
         (response: Appointment)=>{
           console.log('Appointment created successfully:', response);
         },
@@ -161,9 +170,12 @@ export class CreateAppointmentComponent {
   }
 
   ngOnInit(): void{
+    this.clinicId = this.route.snapshot.paramMap.get('clinicId');
+    this.vetId = this.route.snapshot.paramMap.get('vetId');
     this.getClinics();
     this.getPets();
     this.subscribeToFormChanges();
+    this.userId = this.authService.getUserId();
   }
 
 }
