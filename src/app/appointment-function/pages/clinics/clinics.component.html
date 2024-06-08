@@ -1,0 +1,21 @@
+<div class="container-cards">
+    <mat-card class="example-card" *ngFor="let clinic of clinics">
+        <mat-card-header>
+            <img mat-card-avatar [src]="clinic.photoUrl"
+                alt="Photo of a Shiba Inu">
+            <mat-card-title>{{clinic.name}}</mat-card-title>
+            <mat-card-subtitle>Veterinarian</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{clinic.address}}</p>
+            <p>Contacts<br>
+                Email: {{clinic.email}}<br>
+                Phone: {{clinic.phone}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <div class="button-select">
+                <button (click)="goToVeterinarians(clinic.id)">SELECT</button>
+            </div>
+        </mat-card-actions>
+    </mat-card>
+</div>
