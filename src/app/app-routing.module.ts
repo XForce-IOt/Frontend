@@ -9,6 +9,8 @@ import { RegistrationComponent } from './account-management/pages/registration/r
 import { HomeComponent } from './public/pages/home/home.component';
 import { EditPetComponent } from './collar-function/pages/edit-pet/edit-pet.component';
 import {CreateAppointmentComponent} from "./appointment-function/pages/create-appointment/create-appointment.component";
+import { ClinicsComponent } from './appointment-function/pages/clinics/clinics.component';
+import { VeterinariansComponent } from './appointment-function/pages/veterinarians/veterinarians.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -20,8 +22,10 @@ const routes: Routes = [
       { path: 'pet/edit/:id', component: EditPetComponent, pathMatch: 'full'},
       { path: 'profile', component: ProfileComponent, pathMatch: 'full' },
       { path: 'change-password', component: ChangePasswordComponent, pathMatch: 'full' },
-      { path: 'appointment', component: AppointmentComponent, pathMatch: 'full' },
-      { path: 'appointment', children:[
+      { path: 'clinics', component: ClinicsComponent, pathMatch:'full'},
+      { path: 'clinics/:clinicId/veterinarians', component: VeterinariansComponent, pathMatch:'full'},
+      { path: 'clinics/:clinicId/veterinarians/:vetId/appointment', component: AppointmentComponent, pathMatch: 'full' },
+      { path: 'clinics/:clinicId/veterinarians/:vetId/appointment', children:[
           {path: 'create-appointment', component: CreateAppointmentComponent, pathMatch: 'full' },
         ]}
     ]
