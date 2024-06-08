@@ -1,7 +1,9 @@
 <div>
   <mat-tab-group class="data-pet" mat-stretch-tabs="false" mat-align-tabs="start">
-    <mat-tab  *ngFor="let pet of pets" label="{{ pet.name }}">
+    <mat-tab class="tab-pets" *ngFor="let pet of pets" label="{{ pet.name }}" (selectedTabChange)="getNextAppointments(pet.id)"
+      (selectedTabChange)="onTabChange($event)">
       <div class="container">
+
         <mat-card>
           <mat-card-header>
             <div class="imagePet">
@@ -20,62 +22,62 @@
             Perímetro: {{ pet.perimeter }} metros
           </mat-card-content>
         </mat-card>
-  
-            <mat-card>
-              <mat-card-header>
-                <div class="appointment-info">
-                  <h2>Scheduled Appointments</h2>
-                </div>
-              </mat-card-header>
-              <ng-container *ngIf="checkAppointments(pet.id); else noCitas">
-                <div *ngFor="let appointment of filterAppointments">
-                  <mat-card-content *ngIf="appointment.pet == pet.id">
-                      <h3>{{ appointment.title }}</h3>
-                      <p><strong>Fecha:</strong> {{ appointment.date }}</p>
-                      <p><strong>Hora:</strong> {{ appointment.hour }}</p>
-                      <p><strong>Descripción:</strong> {{ appointment.description }}</p>
-                  </mat-card-content>
-                </div>
+
+        <mat-card>
+          <mat-card-header>
+            <div class="appointment-info">
+              <h2>Scheduled Appointments</h2>
+            </div>
+          </mat-card-header>
+          <ng-container *ngIf="checkAppointments(pet.id); else noCitas">
+            <div *ngFor="let appointment of filterAppointments">
+              <mat-card-content *ngIf="appointment.pet == pet.id">
+                <h3>{{ appointment.title }}</h3>
+                <p><strong>Fecha:</strong> {{ appointment.date }}</p>
+                <p><strong>Hora:</strong> {{ appointment.hour }}</p>
+                <p><strong>Descripción:</strong> {{ appointment.description }}</p>
+              </mat-card-content>
+            </div>
+          </ng-container>
+          <ng-template #noCitas>
+            <mat-card-content>
+              <p>No hay citas programadas</p>
+            </mat-card-content>
+          </ng-template>
+        </mat-card>
+
+        <mat-card>
+          <mat-card-content>
+            <div id="chart">
+              <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!" [xaxis]="chartOptions.xaxis!"
+                [dataLabels]="chartOptions.dataLabels!" [grid]="chartOptions.grid!" [stroke]="chartOptions.stroke!"
+                [title]="chartOptions.title!"></apx-chart>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card>
+          <mat-card-content>
+            <div id="chart2">
+              <apx-chart [series]="secondchartOptions.series!" [chart]="secondchartOptions.chart!"
+                [xaxis]="secondchartOptions.xaxis!" [dataLabels]="secondchartOptions.dataLabels!"
+                [grid]="secondchartOptions.grid!" [stroke]="secondchartOptions.stroke!"
+                [title]="secondchartOptions.title!"></apx-chart>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card>
+          <div class="column1 set"> <!--Recuerda que esto se esconde-->
+            <google-map [center]="center" [zoom]="16" height="380px" width="100%">
+              <ng-container *ngIf="markers.length > 0">
+                <map-marker *ngFor="let marker of markers" [position]="marker.position"
+                  [title]="marker.title || 'Sin título'"></map-marker>
               </ng-container>
-              <ng-template #noCitas>
-                <mat-card-content>
-                  <p>No hay citas programadas</p>
-                </mat-card-content>
-              </ng-template>
-      
-            </mat-card>
-  
-            <mat-card>
-              <mat-card-content>
-                <div id="chart">
-                  <apx-chart
-                    [series]="chartOptions.series!"
-                    [chart]="chartOptions.chart!"
-                    [xaxis]="chartOptions.xaxis!"
-                    [dataLabels]="chartOptions.dataLabels!"
-                    [grid]="chartOptions.grid!"
-                    [stroke]="chartOptions.stroke!"
-                    [title]="chartOptions.title!"
-                  ></apx-chart>
-                </div>
-              </mat-card-content>
-            </mat-card>
-  
-            <mat-card>
-              <mat-card-content>
-                <div id="chart2">
-                  <apx-chart
-                    [series]="secondchartOptions.series!"
-                    [chart]="secondchartOptions.chart!"
-                    [xaxis]="secondchartOptions.xaxis!"
-                    [dataLabels]="secondchartOptions.dataLabels!"
-                    [grid]="secondchartOptions.grid!"
-                    [stroke]="secondchartOptions.stroke!"
-                    [title]="secondchartOptions.title!"
-                  ></apx-chart>
-                </div>
-              </mat-card-content>
-            </mat-card>
+            </google-map>
+          </div>
+        </mat-card>
+
       </div>
     </mat-tab>
   </mat-tab-group>

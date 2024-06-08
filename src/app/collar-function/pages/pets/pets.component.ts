@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { count } from 'rxjs';
-import { Appointment } from 'src/app/appointment-function/model/appointment.model';
+
 import { AppointmentService } from 'src/app/appointment-function/services/appointment.service';
 import { PetService } from 'src/app/collar-function/services/pet.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 import {
   ChartComponent,
@@ -14,6 +14,7 @@ import {
   ApexStroke,
   ApexGrid
 } from "ng-apexcharts";
+import { SensorData } from '../../model/sensor-data.model';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -25,40 +26,46 @@ export type ChartOptions = {
   title: ApexTitleSubtitle;
 };
 
+interface LatLngLiteral {
+  lat: number;
+  lng: number;
+}
+
+interface MarkerOptions {
+  position: LatLngLiteral;
+  title: string;
+}
+
 @Component({
   selector: 'app-pets',
   templateUrl: './pets.component.html',
   styleUrls: ['./pets.component.css']
 })
 export class PetsComponent implements OnInit {
+  userId:number | null = null;
   pets: any[] = [];
   appointments: any[] = [];
   filterAppointments: any[] = [];
   @ViewChild("chart") chart!: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
   public secondchartOptions: Partial<ChartOptions>;
+  public center: LatLngLiteral = {lat: -12.046374, lng: -77.042793};
+  public markers: MarkerOptions[] = [];
 
-  constructor(private PetsService: PetService, private appointmentService: AppointmentService) {
+  constructor(private PetsService: PetService, private appointmentService: AppointmentService, private authService: AuthService) {
+  
     this.chartOptions = {
       series: [
-        {
-          name: "Weight (kg)",
-          data: [45, 43, 46, 51, 49, 53, 50, 52, 51]
-        }
+        { name: "Temperature (°)",
+          data: [] }
       ],
       chart: {
         height: 350,
         type: "line",
-        zoom: {
-          enabled: false
-        }
+        zoom: { enabled: false}
       },
-      dataLabels: {
-        enabled: false
-      },
-      stroke: {
-        curve: "straight"
-      },
+      dataLabels: { enabled: false },
+      stroke: { curve: "straight" },
       title: {
         text: "Peso (kg)",
         align: "left"
@@ -69,41 +76,21 @@ export class PetsComponent implements OnInit {
           opacity: 0.5
         }
       },
-      xaxis: {
-        categories: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep"
-        ]
-      }
+      xaxis: { categories: [] }
     };
 
     this.secondchartOptions = {
       series: [
-        {
-          name: "Beats per minute",
-          data: [68, 72, 76, 76, 96, 100, 90, 80, 77]
-        }
+        { name: "Beats per minute",
+          data: [] }
       ],
       chart: {
         height: 350,
         type: "line",
-        zoom: {
-          enabled: false
-        }
+        zoom: { enabled: false }
       },
-      dataLabels: {
-        enabled: false
-      },
-      stroke: {
-        curve: "straight"
-      },
+      dataLabels: { enabled: false },
+      stroke: { curve: "straight" },
       title: {
         text: "Frecuencia cardiaca",
         align: "left"
@@ -114,41 +101,33 @@ export class PetsComponent implements OnInit {
           opacity: 0.5
         }
       },
-      xaxis: {
-        categories: [
-          "1",
-          "2",
-          "3",
-          "4",
-          "5",
-          "6",
-          "7",
-          "8",
-          "9"
-        ]
-      }
+      xaxis: { categories: [] }
     };
   }
 
 
   ngOnInit(): void {
+    this.userId = this.authService.getUserId();
     this.getPets();
-    this.getNextAppointments();
-    this.prepareChartData(this.pets);
+    //this.getNextAppointments();
+    //this.prepareChartData(this.pets);
   }
 
   getPets(): void {
-    this.PetsService.getPets().subscribe(
+    this.PetsService.getPets(this.userId).subscribe(
       (pets) => {
         this.pets = pets;
         console.log(this.pets);
+        if(this.pets.length > 0){
+          this.prepareChartData(this.pets[0])
+        }
       }
     );
   }
 
-  getNextAppointments() {
+  getNextAppointments(petId:any) {
     const ahora = new Date();
-    this.appointmentService.getAll().subscribe(
+    this.appointmentService.getAppointmentsByPetId(this.userId,petId).subscribe(
       (data) => {
         this.appointments = data;
         this.appointments.forEach(appointment => {
@@ -168,14 +147,27 @@ export class PetsComponent implements OnInit {
     return this.filterAppointments.some(appointment => appointment.pet === petId);
   }
 
-  prepareChartData(pets: any[]): void {
-    //Datos para el grafico de peso (primer gráfico)
-    const weightSeries = pets.map(pet => pet.weight);
-    const categories1 = pets.map(pet => pet.categories1);
+  prepareChartData(pets: any): void {
+    this.PetsService.getPetMetrics(pets.id).subscribe((metrics: SensorData[]) =>{
+      const temperatureSeries = metrics.map(m => m.temperature);
+      const categories1 = metrics.map(m => new Date(m.createdAt).toLocaleDateString());
+
+      const heartRateSeries = metrics.map(m => m.pulse);
+      const categories2 = metrics.map(m => new Date(m.createdAt).toLocaleDateString());
+
+      this.chartOptions.series = [{ name: "Temperature (°)", data: temperatureSeries }];
+      this.chartOptions.xaxis!.categories = categories1;
+
+      this.secondchartOptions.series = [{ name: "Beats per minute", data: heartRateSeries }];
+      this.secondchartOptions.xaxis!.categories = categories2;
+    })
+    /*//Datos para el grafico de peso (primer gráfico)
+    const weightSeries = pets.weight;
+    const categories1 = pets.categories1;
 
     //Datos para el gráfico de frecuencia cardíaca (segundo gráfico)
-    const beatsPerMinuteSeries = pets[0].beatsPerMinute;
-    const categories2 = pets[0].categories2;
+    const beatsPerMinuteSeries = pets.beatsPerMinute;
+    const categories2 = pets.categories2;
 
 
     //Configuración para el primer gráfico (peso)
@@ -184,7 +176,14 @@ export class PetsComponent implements OnInit {
 
     //Configuración para el segundo gráfico (frecuencia cardíaca)
     this.secondchartOptions.series = [{ name: "Beats per minute", data: beatsPerMinuteSeries }];
-    this.secondchartOptions.xaxis!.categories = categories2;
+    this.secondchartOptions.xaxis!.categories = categories2;*/
+  }
+
+  onTabChange(event: any): void {
+    const selectedIndex = event.index;
+    if (this.pets[selectedIndex]) {
+      this.prepareChartData(this.pets[selectedIndex]);
+    }
   }
 
 }
