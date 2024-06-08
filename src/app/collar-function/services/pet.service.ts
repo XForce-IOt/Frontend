@@ -2,12 +2,13 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { Observable, catchError, retry, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
+import { SensorData } from '../model/sensor-data.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PetService {
-  private baseUrl:string = environment.baseURL;
+  private baseUrl:string = `${environment.baseURL}/pet-owners`;
 
   constructor(private http:HttpClient) { }
 
@@ -32,19 +33,22 @@ export class PetService {
     );
   }
 
-  getPets(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/pets`);
+  getPets(petOwnerId: any): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${petOwnerId}/pets`);
   }
 
-  getPetById(id: any): Observable<any> {
+  getPetById(petOwnerId: any, petId: any): Observable<any> {
     return this.http
-      .get(`${this.baseUrl}/pets/${id}`)
+      .get(`${this.baseUrl}/${petOwnerId}/pets/${petId}`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  updatePet(id: any, item: any) {
+  updatePet(petOwnerId: any, petId: any, item: any) {
     return this.http
-      .put(`${this.baseUrl}/pets/${id}`, JSON.stringify(item), this.httpOptions)
+      .put(`${this.baseUrl}/${petOwnerId}/pets/${petId}`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
+  }
+  getPetMetrics(petId: number): Observable<SensorData[]> {
+    return this.http.get<SensorData[]>(`${this.baseUrl}/${petId}/sensorData`);
   }
 }
