@@ -4,14 +4,15 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { map, switchMap } from 'rxjs/operators';
 
-import {User} from "src/app/account-management/model/user.model";
+import { PetOwner } from '../model/pet-owner.model';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService {
 
-  private baseUrl = "http://localhost:3000/users"; // URL to web api
+  private baseUrl:string = `${environment.baseURL}/pet-owners`; // URL to web api
   constructor( private http: HttpClient) { }
 
   httpOptions = {
@@ -35,15 +36,15 @@ export class ProfileService {
     );
   }
 
-  getList(): Observable<User[]> {
+  getList(): Observable<PetOwner[]> {
     return this.http
-      .get<User[]>(this.baseUrl)
+      .get<PetOwner[]>(this.baseUrl)
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  createItem(item: any): Observable<User> {
+  createItem(item: any): Observable<PetOwner> {
     return this.http
-      .post<User>(this.baseUrl, JSON.stringify(item), this.httpOptions)
+      .post<PetOwner>(this.baseUrl, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
@@ -52,9 +53,9 @@ export class ProfileService {
   }
 
   //actualizar usuario
-  updateItem(item: any): Observable<User> {
+  updateItem(item: any): Observable<PetOwner> {
     return this.http
-      .put<User>(this.baseUrl + '/' + item.id, JSON.stringify(item), this.httpOptions)
+      .put<PetOwner>(this.baseUrl + '/' + item.id, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
