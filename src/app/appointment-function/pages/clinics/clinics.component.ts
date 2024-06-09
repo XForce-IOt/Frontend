@@ -25,6 +25,8 @@ export class ClinicsComponent implements OnInit {
     )
   }
   goToVeterinarians(clinicId: number):void{
-    this.router.navigate(['/home/clinics', clinicId,'veterinarians']);
+    console.log(clinicId);
+    this.router.navigate(['/home/appointment/clinics', clinicId,'veterinarians']);
+    
   }
 }

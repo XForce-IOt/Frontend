@@ -7,14 +7,13 @@
             <mat-card-subtitle>Veterinarian</mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-            <p>{{clinic.address}}</p>
+            <p>{{clinic.socialMedia}}</p>
             <p>Contacts<br>
-                Email: {{clinic.email}}<br>
-                Phone: {{clinic.phone}}</p>
+                Phone: {{clinic.number}}</p>
         </mat-card-content>
         <mat-card-actions>
             <div class="button-select">
-                <button (click)="goToVeterinarians(clinic.id)">SELECT</button>
+                <button (click)="goToVeterinarians(clinic.clinicId)">SELECT</button>
             </div>
         </mat-card-actions>
     </mat-card>

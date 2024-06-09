@@ -4,16 +4,16 @@
             <div class="image"><img style="width: 200px; height: 150px;" [src]="vet.photoUrl"></div>
         </div>
         <div class="card-data">
-            <h2>{{vet.name}}</h2>
+            <h2>{{vet.fullName}}</h2>
             <p> Availability:
-                {{vet.availability}}<br>
+                {{vet.specialization}}<br>
                 Contacts<br>
-                Email: {{vet.email}}<br>
+                Email: {{vet.contactInfo}}<br>
                 Phone: {{vet.phone}}</p>
         </div>
         <div class="card-event">
             <div class="button-select">
-                <button (click)="goToAppointment(vet.id)">SELECT</button>
+                <button (click)="goToAppointment(vet.veterinarianId)">SELECT</button>
             </div>
         </div>
     </div>

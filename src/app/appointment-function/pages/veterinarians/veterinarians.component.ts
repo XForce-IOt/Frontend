@@ -32,7 +32,7 @@ export class VeterinariansComponent implements OnInit {
     }
 
     goToAppointment(vetId: number): void{
-      this.router.navigate(['/home/clinics', this.clinicId,'veterinarians',vetId,'appointment']);
+      this.router.navigate(['/home/appointment/clinics', this.clinicId,'veterinarians',vetId,'create-appointment']);
     }
 
 }
