@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment.development';
 })
 export class ProfileService {
 
-  private baseUrl:string = `${environment.baseURL}/pet-owners`; // URL to web api
+  private baseUrl:string = environment.baseURL; // URL to web api
   constructor( private http: HttpClient) { }
 
   httpOptions = {
@@ -38,24 +38,24 @@ export class ProfileService {
 
   getList(): Observable<PetOwner[]> {
     return this.http
-      .get<PetOwner[]>(this.baseUrl)
+      .get<PetOwner[]>(`${this.baseUrl}/pet-owners`)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   createItem(item: any): Observable<PetOwner> {
     return this.http
-      .post<PetOwner>(this.baseUrl, JSON.stringify(item), this.httpOptions)
+      .post<PetOwner>(`${this.baseUrl}/pet-owners`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 
   getUsers(): Observable<any> {
-    return this.http.get<any>(this.baseUrl);
+    return this.http.get<any>(`${this.baseUrl}/pet-owners`);
   }
 
   //actualizar usuario
-  updateItem(item: any): Observable<PetOwner> {
+  updateItem(item: any): Observable<any> {
     return this.http
-      .put<PetOwner>(this.baseUrl + '/' + item.id, JSON.stringify(item), this.httpOptions)
+      .put(`${this.baseUrl}/pet-owners/${item.id}`, JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
 

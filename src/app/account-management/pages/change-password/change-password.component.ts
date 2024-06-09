@@ -83,11 +83,12 @@ export class ChangePasswordComponent implements OnInit{
     const updatedItem = {
       id: this.user_now.id,
       name: nameValue,
-      lastname: lastnameValue,
+      lastName: lastnameValue,
       address: addressValue,
       phone: phoneValue,
       email: emailValue,
-      password: newPasswordValue
+      password: newPasswordValue,
+      image:this.user_now.image
     }
 
     this.profileService.updateItem(updatedItem).subscribe(

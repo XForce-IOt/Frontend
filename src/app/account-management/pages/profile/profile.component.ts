@@ -19,7 +19,7 @@ export class ProfileComponent implements OnInit{
   }
 
   name = new FormControl('', [Validators.required]);
-  lastname = new FormControl('', [Validators.required]);
+  lastName = new FormControl('', [Validators.required]);
   address = new FormControl('', [Validators.required]);
   phone = new FormControl('', [Validators.required]);
   email = new FormControl('', [Validators.required]);
@@ -34,48 +34,51 @@ export class ProfileComponent implements OnInit{
     // Inicializar los controles del formulario con los valores del usuario actual
     if (this.user_now) {
       this.name.setValue(this.user_now.name);
-      this.lastname.setValue(this.user_now.lastname);
+      this.lastName.setValue(this.user_now.lastName);
       this.address.setValue(this.user_now.address);
       this.phone.setValue(this.user_now.phone);
       this.email.setValue(this.user_now.email);
-      this.password.setValue(this.user_now.password);
+      //this.password.setValue(this.user_now.password);
     }
   }
 
   updateProfile() {
     const nameValue = this.name.value;
-    const lastnameValue = this.lastname.value;
+    const lastnameValue = this.lastName.value;
     const addressValue = this.address.value;
     const phoneValue = this.phone.value;
     const emailValue = this.email.value;
-    const passwordValue = this.password.value;
+    //const passwordValue = this.password.value;
 
     if (this.name.invalid || this.email.invalid) {
       // Al menos uno de los campos es inválido, mostrar mensajes de error
       this.name.markAsTouched();
-      this.lastname.markAsTouched();
+      this.lastName.markAsTouched();
       this.address.markAsTouched();
       this.phone.markAsTouched();
       this.email.markAsTouched();
-      this.password.markAsTouched();
+      //this.password.markAsTouched();
       return;
     }
 
     const updatedItem = {
-      id: this.user_now.id,
+      //id: this.user_now.id,
       name: nameValue,
-      lastname: lastnameValue,
+      lastName: lastnameValue,
       address: addressValue,
       phone: phoneValue,
       email: emailValue,
-      password: passwordValue,
+      password: this.user_now.password,
+      image: this.user_now.image
     }
 
     this.profileService.updateItem(updatedItem).subscribe(
-      res => {
+      (res) => {
+        console.log(this.user_now.id)
+        console.log(updatedItem)
         console.log("Usuario actualizado exitosamente");
       },
-      error => {
+      (error) => {
         console.log("Ocurrió un error al actualizar el usuario");
         console.log(error);
       }
