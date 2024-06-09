@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class EditPetComponent {
   petForm!: FormGroup;
-  petView!: Pet;
+  petView!: any;
   imageUrl!: string;
   userId: number | null = null;
 
@@ -66,7 +66,7 @@ export class EditPetComponent {
     if(this.petForm.invalid){
       console.log('Formulario invalido');
     } else {
-      const pet: Pet = {
+      const pet: any = {
         name: this.petForm.value.name,
         specie: this.petForm.value.specie,
         age: this.petForm.value.age,
@@ -74,9 +74,11 @@ export class EditPetComponent {
         size: this.petForm.value.size,
         perimeter: this.petForm.value.perimeter,
         image: this.petForm.value.image,
-        id: this.petView.id,
+        petId: this.petView.id,
+        petOwnerId:this.petView.id
+
       }
-      this.petService.updatePet(this.userId, this.petView?.id, pet).subscribe(
+      this.petService.updatePet(this.userId, this.petView.id, pet).subscribe(
         (data)=>(
           console.log(data),
           this.router.navigate(['/home/pets'])

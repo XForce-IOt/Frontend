@@ -43,9 +43,9 @@ export class PetService {
       .pipe(retry(2), catchError(this.handleError));
   }
 
-  updatePet(petOwnerId: any, petId: any, item: any) {
+  updatePet(petOwnerId: any, petId: any, item: any): Observable<any> {
     return this.http
-      .put(`${this.baseUrl}/${petOwnerId}/pets/${petId}`, JSON.stringify(item), this.httpOptions)
+      .put(`${this.baseUrl}/${petOwnerId}/pets/${petId}`,JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
   getPetMetrics(petId: number): Observable<SensorData[]> {
