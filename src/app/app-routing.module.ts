@@ -22,11 +22,11 @@ const routes: Routes = [
       { path: 'pet/edit/:id', component: EditPetComponent, pathMatch: 'full'},
       { path: 'profile', component: ProfileComponent, pathMatch: 'full' },
       { path: 'change-password', component: ChangePasswordComponent, pathMatch: 'full' },
-      { path: 'clinics', component: ClinicsComponent, pathMatch:'full'},
-      { path: 'clinics/:clinicId/veterinarians', component: VeterinariansComponent, pathMatch:'full'},
-      { path: 'clinics/:clinicId/veterinarians/:vetId/appointment', component: AppointmentComponent, pathMatch: 'full' },
-      { path: 'clinics/:clinicId/veterinarians/:vetId/appointment', children:[
-          {path: 'create-appointment', component: CreateAppointmentComponent, pathMatch: 'full' },
+      { path: 'appointment', component: AppointmentComponent, pathMatch: 'full' },
+      { path: 'appointment', children:[
+        { path: 'clinics', component: ClinicsComponent, pathMatch:'full'},
+        { path: 'clinics/:clinicId/veterinarians', component: VeterinariansComponent, pathMatch:'full'},
+        { path: 'clinics/:clinicId/veterinarians/:vetId/create-appointment', component: CreateAppointmentComponent, pathMatch: 'full' }
         ]}
     ]
   },
