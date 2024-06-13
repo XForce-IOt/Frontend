@@ -14,7 +14,6 @@ import { VeterinariansComponent } from './appointment-function/pages/veterinaria
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: '**', redirectTo: 'login' },
   { path: 'login', component: AuthComponent, pathMatch: 'full' },
   { path: 'registration', component: RegistrationComponent, pathMatch: 'full' },
   { path: 'home', component: HomeComponent,
