@@ -1,7 +1,7 @@
 export interface PetOwner {
     id: number;
     name: string;
-    lastname: string;
+    lastName: string;
     address: string;
     phone: string;
     email: string;
