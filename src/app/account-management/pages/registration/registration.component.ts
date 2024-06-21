@@ -14,7 +14,7 @@ export class RegistrationComponent {
   constructor( private profileService: ProfileService, private router: Router) { }
 
   name = new FormControl('', [Validators.required]);
-  lastname = new FormControl('', [Validators.required]);
+  lastName = new FormControl('', [Validators.required]);
   address = new FormControl('', [Validators.required]);
   phone = new FormControl('', [Validators.required]);
   email = new FormControl('', [Validators.required]);
@@ -26,7 +26,7 @@ export class RegistrationComponent {
 
   async submit() {
     const nameValue = this.name.value;
-    const lastnameValue = this.lastname.value;
+    const lastNameValue = this.lastName.value;
     const addressValue = this.address.value;
     const phoneValue = this.phone.value;
     const emailValue = this.email.value;
@@ -36,7 +36,7 @@ export class RegistrationComponent {
     if (this.name.invalid || this.email.invalid || this.password.invalid) {
       // Al menos uno de los campos es inválido, mostrar mensajes de error
       this.name.markAsTouched();
-      this.lastname.markAsTouched();
+      this.lastName.markAsTouched();
       this.address.markAsTouched();
       this.phone.markAsTouched();
       this.email.markAsTouched();
@@ -55,7 +55,7 @@ export class RegistrationComponent {
 
     const newItem = {
       name: nameValue,
-      lastname: lastnameValue,
+      lastName: lastNameValue,
       address: addressValue,
       phone: phoneValue,
       email: emailValue,
@@ -68,7 +68,7 @@ export class RegistrationComponent {
         console.log("Usuario agregado exitosamente");
         this.router.navigate(['/login']);
         this.name.reset();
-        this.lastname.reset();
+        this.lastName.reset();
         this.address.reset();
         this.phone.reset();
         this.email.reset();
