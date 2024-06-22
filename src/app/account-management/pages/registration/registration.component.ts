@@ -15,7 +15,7 @@ export class RegistrationComponent {
 
   name = new FormControl('', [Validators.required]);
   lastName = new FormControl('', [Validators.required]);
-  address = new FormControl('', [Validators.required]);
+  address = new FormControl('Sin dirección registrada');
   phone = new FormControl('', [Validators.required]);
   email = new FormControl('', [Validators.required]);
   password = new FormControl('', [Validators.required]);
