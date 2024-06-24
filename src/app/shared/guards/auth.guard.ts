@@ -1,7 +1,6 @@
-// src/app/shared/guards/auth.guard.ts
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 
 @Injectable({
@@ -18,7 +17,9 @@ export class AuthGuard implements CanActivate {
         if (user) {
             return true;
         } else {
-            this.router.navigate(['/login']);
+            setTimeout(() => {
+                this.router.navigate(['/access-denied']);
+            }, 5000);  // Espera 5 segundos antes de redirigir
             return false;
         }
     }
