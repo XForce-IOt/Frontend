@@ -16,37 +16,40 @@
   </button>
 </mat-toolbar>
 
-<mat-sidenav-container class="sidenav-container"  style="width: 100%; height: calc(100% - 64px)">
+<mat-sidenav-container class="sidenav-container" style="width: 100%; height: calc(100% - 64px)">
   <mat-sidenav #sidenav class="menu-items" mode="side" [opened]="isScreenLarge | async">
     <div class="container">
-    <mat-nav-list style="display: flex; flex-direction: column; align-items: center;">
+      <mat-nav-list style="display: flex; flex-direction: column; align-items: center;">
 
-      <button mat-button routerLink="/home/pets" [ngStyle]="{'color': isSelected('/home/pets') ? '#042440' : ''}">
-          <mat-icon  [ngStyle]="{'color': isSelected('/home/pets') ? '#042440' : ''}">pets</mat-icon>
+        <button mat-button routerLink="/home/pets" [ngStyle]="{'color': isSelected('/home/pets') ? '#042440' : ''}">
+          <mat-icon [ngStyle]="{'color': isSelected('/home/pets') ? '#042440' : ''}">pets</mat-icon>
           Pets
         </button>
-      <button mat-button routerLink="/home/appointment" [ngStyle]="{'color': isSelected('/home/appointment') ? '#042440' : ''}">
+        <button mat-button routerLink="/home/appointment"
+          [ngStyle]="{'color': isSelected('/home/appointment') ? '#042440' : ''}">
           <mat-icon [ngStyle]="{'color': isSelected('/home/appointment') ? '#042440' : ''}">event</mat-icon>
           Asppointment
-      </button>
-      <button mat-button routerLink="/home/profile" [ngStyle]="{'color': isSelected('/home/profile') ? '#042440' : ''}">
+        </button>
+        <button mat-button routerLink="/home/profile"
+          [ngStyle]="{'color': isSelected('/home/profile') ? '#042440' : ''}">
           <mat-icon [ngStyle]="{'color': isSelected('/home/profile') ? '#042440' : ''}">person</mat-icon>
           Profile
-      </button>
-      <button mat-button routerLink="/home/change-password" [ngStyle]="{'color': isSelected('/home/change-password') ? '#042440' : ''}">
-          <mat-icon [ngStyle]="{'color': isSelected('/home/change-password') ? '#042440' : ''}">settings_input_component</mat-icon>
+        </button>
+        <button mat-button routerLink="/home/change-password"
+          [ngStyle]="{'color': isSelected('/home/change-password') ? '#042440' : ''}">
+          <mat-icon
+            [ngStyle]="{'color': isSelected('/home/change-password') ? '#042440' : ''}">settings_input_component</mat-icon>
           Change Password
         </button>
-        <button mat-button routerLink="/login" [ngStyle]="{'color': isSelected('/login') ? '#042440' : ''}">
+        <button mat-button (click)="logout()" [ngStyle]="{'color': isSelected('/login') ? '#042440' : ''}">
           <mat-icon [ngStyle]="{'color': isSelected('/login') ? '#042440' : ''}">exit_to_app</mat-icon>
           Log Out
         </button>
-
-    </mat-nav-list>
+      </mat-nav-list>
     </div>
   </mat-sidenav>
 
   <mat-sidenav-content class="content">
-      <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
