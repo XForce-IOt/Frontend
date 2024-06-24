@@ -8,29 +8,34 @@ import { AuthComponent } from './account-management/pages/auth/auth.component';
 import { RegistrationComponent } from './account-management/pages/registration/registration.component';
 import { HomeComponent } from './public/pages/home/home.component';
 import { EditPetComponent } from './collar-function/pages/edit-pet/edit-pet.component';
-import {CreateAppointmentComponent} from "./appointment-function/pages/create-appointment/create-appointment.component";
+import { CreateAppointmentComponent } from "./appointment-function/pages/create-appointment/create-appointment.component";
 import { ClinicsComponent } from './appointment-function/pages/clinics/clinics.component';
 import { VeterinariansComponent } from './appointment-function/pages/veterinarians/veterinarians.component';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { AccessDeniedComponent } from './shared/components/access-denied/access-denied.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: AuthComponent, pathMatch: 'full' },
-  { path: 'registration', component: RegistrationComponent, pathMatch: 'full' },
-  { path: 'home', component: HomeComponent,
-    children: [
-      { path: 'pets', component: PetsComponent, pathMatch: 'full' },
-      { path: 'pet/edit/:id', component: EditPetComponent, pathMatch: 'full'},
-      { path: 'profile', component: ProfileComponent, pathMatch: 'full' },
-      { path: 'change-password', component: ChangePasswordComponent, pathMatch: 'full' },
-      { path: 'appointment', component: AppointmentComponent, pathMatch: 'full' },
-      { path: 'appointment', children:[
-        { path: 'clinics', component: ClinicsComponent, pathMatch:'full'},
-        { path: 'clinics/:clinicId/veterinarians', component: VeterinariansComponent, pathMatch:'full'},
-        { path: 'clinics/:clinicId/veterinarians/:vetId/create-appointment', component: CreateAppointmentComponent, pathMatch: 'full' }
-        ]}
+  { path: 'login', component: AuthComponent },
+  { path: 'registration', component: RegistrationComponent },
+  { path: 'access-denied', component: AccessDeniedComponent },
+  {
+    path: 'home', component: HomeComponent, canActivate: [AuthGuard], children: [
+      { path: 'pets', component: PetsComponent },
+      { path: 'pet/edit/:id', component: EditPetComponent },
+      { path: 'profile', component: ProfileComponent },
+      { path: 'change-password', component: ChangePasswordComponent },
+      {
+        path: 'appointment', component: AppointmentComponent, children: [
+          { path: 'clinics', component: ClinicsComponent },
+          { path: 'clinics/:clinicId/veterinarians', component: VeterinariansComponent },
+          { path: 'clinics/:clinicId/veterinarians/:vetId/create-appointment', component: CreateAppointmentComponent }
+        ]
+      }
     ]
   },
-
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
