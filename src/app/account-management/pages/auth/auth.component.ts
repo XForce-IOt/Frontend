@@ -4,6 +4,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { ProfileService } from 'src/app/account-management/services/profile.service';
 import { PetOwner } from '../../model/pet-owner.model';
+import * as CryptoJS from 'crypto-js';  // Asegúrate de que CryptoJS está correctamente importado
 
 @Component({
   selector: 'app-auth',
@@ -17,10 +18,9 @@ export class AuthComponent {
   email = new FormControl('', [Validators.required]);
   password = new FormControl('', [Validators.required]);
 
-
   login() {
     const emailValue = this.email.value;
-    const passwordValue = this.password.value;
+    const passwordValue = this.password.value || '';  // Proporciona un valor predeterminado para evitar null
 
     if (this.email.invalid || this.password.invalid) {
       // Al menos uno de los campos es inválido, mostrar mensajes de error
@@ -29,21 +29,16 @@ export class AuthComponent {
       return;
     }
 
-    const newItem = {
-      email: emailValue,
-      password: passwordValue
-    }
+    // Hash the password before comparing
+    const hashedPassword = CryptoJS.SHA256(passwordValue).toString(CryptoJS.enc.Hex);
 
     this.profileService.getList().subscribe(
       data => {
-        const userExists = data.some(item => item.email === emailValue && item.password === passwordValue);
+        const userExists = data.some(item => item.email === emailValue && item.password === hashedPassword);
 
         if (userExists) {
-
-          const user = data.find(item => item.email === emailValue && item.password === passwordValue) as PetOwner;
-
+          const user = data.find(item => item.email === emailValue && item.password === hashedPassword) as PetOwner;
           this.authService.setUser(user); // Almacenar el usuario en el AuthService
-
           this.router.navigateByUrl('/home/pets');
         } else {
           alert('Usuario o contraseña incorrectos');
@@ -56,16 +51,12 @@ export class AuthComponent {
     );
   }
 
-  //login(){
-  //  this.router.navigateByUrl('/home/pets');
-  //}
-
-  register(){
+  register() {
     this.router.navigateByUrl('/registration');
   }
 
   getErrorMessageEmail() {
-    if(this.email.hasError('required')) {
+    if (this.email.hasError('required')) {
       return 'Debes ingresar un valor';
     }
 
@@ -73,7 +64,7 @@ export class AuthComponent {
   }
 
   getErrorMessagePassword() {
-    if(this.password.hasError('required')) {
+    if (this.password.hasError('required')) {
       return 'Debes ingresar un valor';
     }
 

@@ -10,17 +10,18 @@
                 <mat-form-field appearance="outline" class="custom-mat-form-field">
                     <mat-label>Correo electrónico</mat-label>
                     <input type="email" matInput [formControl]="email" placeholder="Email" required>
-                                <mat-error *ngIf="email.invalid">
-                                  {{getErrorMessageEmail()}}
-                                </mat-error>
+                    <mat-error *ngIf="email.invalid">
+                        {{getErrorMessageEmail()}}
+                    </mat-error>
                 </mat-form-field>
 
                 <mat-form-field appearance="outline" class="custom-mat-form-field">
                     <mat-label>Contraseña</mat-label>
-                    <input type="password" style="color: #FFEAEA;" matInput [formControl]="password" placeholder="Password" required>
-                                <mat-error *ngIf="password.invalid">
-                                  {{getErrorMessagePassword()}}
-                                </mat-error>
+                    <input type="password" style="color: #FFEAEA;" matInput [formControl]="password"
+                        placeholder="Password" required>
+                    <mat-error *ngIf="password.invalid">
+                        {{getErrorMessagePassword()}}
+                    </mat-error>
                 </mat-form-field>
 
                 <div class="button-center">
