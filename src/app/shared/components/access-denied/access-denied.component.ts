@@ -10,9 +10,9 @@ export class AccessDeniedComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     setTimeout(() => {
       this.router.navigate(['/login']);
-    }, 5000); // 5000 ms = 5 segundos
+    }, 5000);  // Redirige al login después de 5 segundos
   }
 }
