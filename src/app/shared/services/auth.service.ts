@@ -3,33 +3,32 @@ import { PetOwner } from 'src/app/account-management/model/pet-owner.model';
 import { Router } from '@angular/router';
 
 @Injectable({
-    providedIn: 'root'
-  })
-  export class AuthService {
-    private currentUserKey = 'currentUser'; // Clave para el almacenamiento en localStorage
+  providedIn: 'root'
+})
+export class AuthService {
+  private currentUserKey = 'currentUser'; // Clave para el almacenamiento en localStorage
 
-    constructor(private router: Router) { }
+  constructor(private router: Router) { }
 
-    setUser(user: PetOwner) {
-      localStorage.setItem(this.currentUserKey, JSON.stringify(user)); // Almacenar el usuario en localStorage
-    }
-
-    getUser(): PetOwner | null {
-      const userJson = localStorage.getItem(this.currentUserKey);
-      if (userJson) {
-        return JSON.parse(userJson) as PetOwner;
-      }
-      return null;
-    }
-
-    getUserId(): number | null {
-      const user = this.getUser();
-      return user ? user.id : null;
-    }
-
-    logout() {
-      localStorage.removeItem(this.currentUserKey); // Eliminar el usuario del localStorage
-      // Otros pasos necesarios para el logout, como redireccionar o limpiar datos adicionales
-      this.router.navigate(['/login']);
-    }
+  setUser(user: PetOwner) {
+    localStorage.setItem(this.currentUserKey, JSON.stringify(user)); // Almacenar el usuario en localStorage
   }
+
+  getUser(): PetOwner | null {
+    const userJson = localStorage.getItem(this.currentUserKey);
+    if (userJson) {
+      return JSON.parse(userJson) as PetOwner;
+    }
+    return null;
+  }
+
+  getUserId(): number | null {
+    const user = this.getUser();
+    return user ? user.id : null;
+  }
+
+  logout() {
+    localStorage.removeItem('currentUser');  //clave donde se almacena el usuario
+    this.router.navigate(['/login']);  // Redirigir al usuario al login después de cerrar sesión
+  }
+}
