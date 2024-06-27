@@ -1,9 +1,8 @@
 export interface Appointment {
     id?: number;
     title: string;
-    date: string;
-    hour: string;
+    initialStatus: string;
+    dateTime: string;
     description: string;
-    vet: number,
-    pet: number
+    petId: number
 }
