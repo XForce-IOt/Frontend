@@ -56,7 +56,7 @@ export class PetsComponent implements OnInit {
   
     this.chartOptions = {
       series: [
-        { name: "Temperature (°)",
+        { name: "Temperature",
           data: [] }
       ],
       chart: {
@@ -67,7 +67,7 @@ export class PetsComponent implements OnInit {
       dataLabels: { enabled: false },
       stroke: { curve: "straight" },
       title: {
-        text: "Peso (kg)",
+        text: "Temperature",
         align: "left"
       },
       grid: {
