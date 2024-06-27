@@ -50,6 +50,7 @@
     font-size: large;
   }
   .form-login mat-card-content .custom-mat-form-field input {
+    color: white;
     padding: 0;
   }
   .form-login mat-card-content .custom-mat-form-field .mdc-text-field--outlined .mdc-notched-outline__leading, .form-login mat-card-content .custom-mat-form-field .mdc-text-field--outlined .mdc-notched-outline__notch, .form-login mat-card-content .custom-mat-form-field .mdc-text-field--outlined .mdc-notched-outline__trailing {
