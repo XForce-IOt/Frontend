@@ -11,7 +11,7 @@ import { Pet} from "../../../collar-function/model/pet.model";
 import { PetService} from "../../../collar-function/services/pet.service";
 import { AppointmentService} from "../../services/appointment.service";
 import { AuthService } from 'src/app/shared/services/auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 interface LatLngLiteral {
   lat: number;
@@ -34,11 +34,11 @@ export class CreateAppointmentComponent {
   selectedPet: Pet | null = null;
   clinicId: any | null = null;
   vetId: any | null = null;
+  petOwnerId: any | null = null;
 
   public clinics: Clinic[];
   public veterinariansByClinic: Veterinarian[];
   public pets: Pet[];
-  public userId: number | null = null;
 
   public center: LatLngLiteral = {lat: -12.046374, lng: -77.042793}; // Ejemplo: Coordenadas de Lima, Perú
   public zoom = 12;
@@ -56,11 +56,14 @@ export class CreateAppointmentComponent {
     private fb: FormBuilder,
     private authService: AuthService,
     private route: ActivatedRoute,
+    private router: Router
+
 
   ) {
     this.clinics = [];
     this.veterinariansByClinic = [];
     this.pets = [];
+    this.petOwnerId = this.authService.getUserId();
 
     this.appointmentForm = this.fb.group({
       searchText: [''],
@@ -81,9 +84,10 @@ export class CreateAppointmentComponent {
   }
 
   private getPets(): void{
-    this.petService.getPets(this.userId).subscribe(
+    this.petService.getPets(this.petOwnerId).subscribe(
       (response: any)=>{
       this.pets = response;
+      console.log(this.pets)
     },
       (error: any) => {
         console.error('Error fetching pets:', error);
@@ -139,20 +143,20 @@ export class CreateAppointmentComponent {
   }
 
   createAppointment(){
-    if (this.appointmentForm.valid && this.selectedVeterinarian && this.selectedPet){
       const appointment: Appointment = {
+        petId: this.appointmentForm.value.pet.id,
         title: this.appointmentForm.value.title,
         //date: (this.appointmentForm.value.selectedDate.getDate()).toString(),
-        date: `${this.appointmentForm.value.selectedDate.getDate()}-${this.appointmentForm.value.selectedDate.getMonth()+1}-${this.appointmentForm.value.selectedDate.getFullYear()}`,
+        dateTime: `${this.appointmentForm.value.selectedDate.getDate()}-${this.appointmentForm.value.selectedDate.getMonth()+1}-
+        ${this.appointmentForm.value.selectedDate.getFullYear()}  ${this.appointmentForm.value.time.getHours()}:${this.appointmentForm.value.time.getMinutes()}`,
         //hour: (this.appointmentForm.value.selectedDate.getHours()).toString(),
-        hour: `${this.appointmentForm.value.time.getHours()}:${this.appointmentForm.value.time.getMinutes()}`,
+        //hour: `${this.appointmentForm.value.time.getHours()}:${this.appointmentForm.value.time.getMinutes()}`,
         description: this.appointmentForm.value.description,
-        vet: this.appointmentForm.value.vet.id,
-        pet: this.appointmentForm.value.pet.id,
+        initialStatus: "NOT_STARTED",
       };
       console.log('Appointment Data:', appointment);
 
-      this.appointmentService.create(this.clinicId,this.vetId,appointment).subscribe(
+      this.appointmentService.create(this.clinicId,this.vetId,this.petOwnerId, appointment).subscribe(
         (response: Appointment)=>{
           console.log('Appointment created successfully:', response);
         },
@@ -160,7 +164,7 @@ export class CreateAppointmentComponent {
           console.error('Error creating appointment:', error);
         }
       );
-    } else console.log('Algo esta mal', this.appointmentForm.valid, this.selectedVeterinarian, this.selectedPet);
+      this.router.navigate(['/home/appointment']);
   }
 
   private subscribeToFormChanges(): void {
@@ -175,7 +179,6 @@ export class CreateAppointmentComponent {
     this.getClinics();
     this.getPets();
     this.subscribeToFormChanges();
-    this.userId = this.authService.getUserId();
   }
 
 

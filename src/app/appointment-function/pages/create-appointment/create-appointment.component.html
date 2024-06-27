@@ -1,31 +1,5 @@
 <div class="clinic-content">
   <ng-container [formGroup]="appointmentForm">
-    <mat-card class="set column1">
-      <mat-card-header>
-        <mat-card-title>
-          <mat-form-field class="mat-form-field" appearance="outline">
-            <input matInput placeholder="Name of clinic" type="text" name="search" formControlName="searchText">
-            <mat-label>
-              <mat-icon matSuffix>search</mat-icon>
-              Name of clinic
-            </mat-label>
-          </mat-form-field>
-        </mat-card-title>
-      </mat-card-header>
-
-      <mat-card-content>
-        <section class="clean-card" *ngFor="let clinic of clinics | filter: !appointmentForm.get('searchText')?.value">
-          <h3 class="title-card-text">{{clinic.name}}</h3>
-          <label class="dec-text">Rating:</label><label>{{clinic.rating}}</label><br>
-          <label class="dec-text">Address:</label><label>{{clinic.address}}</label><br>
-          <label class="dec-text">Phone Number:</label><label>{{clinic.phone}}</label><br>
-          <label class="dec-text">Social media:</label><label>{{clinic.email}}</label><br>
-          <button (click)="onSelected(clinic.id)" mat-stroked-button class="btnout">Schedule</button>
-          <hr class="solid">
-        </section>
-
-      </mat-card-content>
-    </mat-card>
 
     <div class="column1 set"> <!--Recuerda que esto se esconde-->
       <google-map [center]="center" [zoom]="zoom" height="400px" width="100%">
@@ -36,27 +10,6 @@
       </google-map>
     </div>
 
-    <mat-card class="set column2">
-      <mat-card-header>
-        <mat-card-title>
-          Veterinarians available
-        </mat-card-title>
-      </mat-card-header>
-
-      <mat-card-content>
-        <section class="clean-card" *ngFor="let vet of veterinariansByClinic">
-          <h3 class="title-card-text">{{vet.name}} <br>
-            <button (click)="selectVeterinarian(vet)" mat-flat-button class="btn">Select</button>
-          </h3>
-          <label class="dec-text">Availability:</label><label>{{vet.availability}}</label><br>
-          <label class="dec-text">ClinicId:</label><label>{{vet.clinicId}}</label><br>
-          <label class="dec-text">Phone Number:</label><label>{{vet.phone}}</label><br>
-          <label class="dec-text">Social media:</label><label>{{vet.email}}</label><br>
-          <hr class="solid">
-        </section>
-
-      </mat-card-content>
-    </mat-card>
 
     <mat-card class="set column1">
       <mat-card-header>

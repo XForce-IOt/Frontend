@@ -4,6 +4,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import {Appointment} from "../../model/appointment.model";
 import {AppointmentService} from "../../services/appointment.service";
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-appointment',
@@ -16,13 +17,15 @@ export class AppointmentComponent {
   public calendarOptions?: CalendarOptions;
   clinicId: any | null = null;
   vetId: any | null = null;
+  petOwnerId: any | null = null;
 
-  constructor(public appointmentService: AppointmentService, private route:ActivatedRoute) {
+  constructor(public appointmentService: AppointmentService, private route:ActivatedRoute, private authService: AuthService,) {
     this.appointments = [];
+    this.petOwnerId = this.authService.getUserId();
   }
 
   private getAppointments(): void {
-    this.appointmentService.getAll(this.clinicId,this.vetId).subscribe({
+    this.appointmentService.getAppointmentsByPetOwnerId(this.petOwnerId).subscribe({
       next: (response: Appointment[]) => {
         this.appointments = response;
         this.setupCalendarOptions();
@@ -40,7 +43,8 @@ export class AppointmentComponent {
         plugins: [dayGridPlugin],
         initialView: 'dayGridMonth',
         events: this.appointments.map(appointment => {
-          const date = this.convertDate(appointment.date, appointment.hour);
+          //const date = this.convertDate(appointment.dateTime, appointment.hour);
+          const date = appointment.dateTime
           return {
             title: appointment.title,
             start: date,
