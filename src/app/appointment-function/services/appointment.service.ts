@@ -31,8 +31,8 @@ export class AppointmentService {
   }
 
   // Create Resource
-  create(clinicId:any, vetId: any, appointment: Appointment): Observable<Appointment> {
-    return this.http.post<Appointment>(`${this.basePath}/clinics/${clinicId}/veterinarians/${vetId}/appointments`, appointment);
+  create(clinicId:any, vetId: any, petOwnerId: any, appointment: Appointment): Observable<Appointment> {
+    return this.http.post<Appointment>(`${this.basePath}/clinics/${clinicId}/veterinarians/${vetId}/pet-owners/${petOwnerId}/appointments`, appointment);
   }
 
   delete(clinicId:any, vetId: any, id: any) {
@@ -62,5 +62,8 @@ export class AppointmentService {
   getAppointmentsByPetId(petOwnerId: any,petId: any): Observable<any> {
     return this.http.get(`${this.basePath}/pet-owners/${petOwnerId}/pets/${petId}/appointments`)
       .pipe(retry(2), catchError(this.handleError));
+  }
+  getAppointmentsByPetOwnerId(petOwnerId:any): Observable<any>{
+    return this.http.get(`${this.basePath}/clinics/0/veterinarians/0/pet-owners/${petOwnerId}/appointments/by-pet-owner`)
   }
 }
