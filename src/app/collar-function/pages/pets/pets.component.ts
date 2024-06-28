@@ -57,7 +57,7 @@ export class PetsComponent implements OnInit {
     const savedLanguage = localStorage.getItem('language') || 'en';
     this.translate.setDefaultLang(savedLanguage);
     this.translate.use(savedLanguage);
-    
+
     this.chartOptions = {
       series: [
         { name: "Temperature",
@@ -123,7 +123,7 @@ export class PetsComponent implements OnInit {
         this.pets = pets;
         console.log(this.pets);
         if(this.pets.length > 0){
-          this.prepareChartData(this.pets[0])
+          this.prepareChartData(this.userId, this.pets[0])
         }
       }
     );
@@ -151,8 +151,8 @@ export class PetsComponent implements OnInit {
     return this.filterAppointments.some(appointment => appointment.pet === petId);
   }
 
-  prepareChartData(pets: any): void {
-    this.PetsService.getPetMetrics(pets.id).subscribe((metrics: SensorData[]) =>{
+  prepareChartData(petOwners: any, pets: any): void {
+    this.PetsService.getPetMetrics(petOwners.id, pets.id).subscribe((metrics: SensorData[]) =>{
       const temperatureSeries = metrics.map(m => m.temperature);
       const categories1 = metrics.map(m => new Date(m.createdAt).toLocaleDateString());
 
@@ -186,8 +186,12 @@ export class PetsComponent implements OnInit {
   onTabChange(event: any): void {
     const selectedIndex = event.index;
     if (this.pets[selectedIndex]) {
-      this.prepareChartData(this.pets[selectedIndex]);
+      this.prepareChartData(this.userId, this.pets[selectedIndex]);
     }
+  }
+
+  updateSensorData(petId: any):void{
+    this.PetsService.addSensorsData(this.userId, petId);
   }
 
 }

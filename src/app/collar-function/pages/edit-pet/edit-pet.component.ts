@@ -96,4 +96,8 @@ export class EditPetComponent {
   onSubmit(){
     this.updatePetView();
   }
+
+  addSensorData():void{
+    this.petService.addSensorsData(this.userId, this.petView.id);
+  }
 }

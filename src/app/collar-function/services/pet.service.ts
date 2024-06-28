@@ -48,7 +48,12 @@ export class PetService {
       .put(`${this.baseUrl}/${petOwnerId}/pets/${petId}`,JSON.stringify(item), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));
   }
-  getPetMetrics(petId: number): Observable<SensorData[]> {
-    return this.http.get<SensorData[]>(`${this.baseUrl}/${petId}/sensorData`);
+  getPetMetrics(petOwnerId: number, petId: number): Observable<SensorData[]> {
+    return this.http.get<SensorData[]>(`${this.baseUrl}/${petOwnerId}/pets/${petId}/sensors_data`);
+  }
+
+  addSensorsData(petOwnerId: any, petId: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/${petOwnerId}/pets/${petId}/sensors_data`,JSON.stringify(null), this.httpOptions)
+      .pipe(retry(2), catchError(this.handleError));
   }
 }
