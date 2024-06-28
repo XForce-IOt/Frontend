@@ -1,0 +1,109 @@
+{
+    "LOGIN": {
+      "TITLE": "Ingresar",
+      "EMAIL_LABEL": "Correo electrónico",
+      "EMAIL_PLACEHOLDER": "Correo electrónico",
+      "PASSWORD_LABEL": "Contraseña",
+      "PASSWORD_PLACEHOLDER": "Contraseña",
+      "BUTTON": "Ingresar",
+      "OR_LOGIN_WITH": "o inicia sesión con",
+      "NO_ACCOUNT": "¿No tienes cuenta?",
+      "REGISTER": "Regístrate"
+    },
+    "SETTINGS": {
+      "TITLE": "Ajustes",
+      "CHANGE_PASSWORD": "Cambiar contraseña",
+      "CURRENT_PASSWORD_LABEL": "Contraseña Actual",
+      "CURRENT_PASSWORD_ERROR": "Contraseña actual es requerida",
+      "NEW_PASSWORD_LABEL": "Contraseña Nueva",
+      "NEW_PASSWORD_ERROR": "Nueva contraseña es requerida",
+      "CONFIRM_PASSWORD_LABEL": "Confirmar la Nueva Contraseña",
+      "CONFIRM_PASSWORD_ERROR": "Confirmación de contraseña es requerida",
+      "SAVE_BUTTON": "Guardar",
+      "NOTIFICATIONS": "Notificaciones",
+      "LANGUAGE": "Idioma"
+    },
+    "PROFILE": {
+      "NAME": "Nombre",
+      "LASTNAME": "Apellidos",
+      "ADDRESS": "Dirección",
+      "PHONE": "Celular",
+      "EMAIL": "Correo",
+      "SAVE_BUTTON": "Guardar"
+    },
+    "REGISTRATION": {
+      "TITLE": "Registrate",
+      "FIRST_NAME": "Nombre",
+      "LAST_NAME": "Apellidos",
+      "EMAIL": "Correo electrónico",
+      "PASSWORD": "Contraseña",
+      "PHONE": "Celular",
+      "USER_TYPE_PROMPT": "Elige el tipo de usuario con el que te identificas",
+      "PET_OWNER": "Dueño de mascota",
+      "VETERINARIAN": "Veterinario",
+      "CREATE_ACCOUNT": "Crear Cuenta",
+      "ALREADY_HAVE_ACCOUNT": "¿Ya tienes cuenta?",
+      "LOGIN": "Inicia sesión"
+    },
+    "APPOINTMENT": {
+      "SEARCH_PLACEHOLDER": "Fecha o nombre de mascota",
+      "DATE_LABEL": "Fecha",
+      "REASON_LABEL": "Razón",
+      "ADD_APPOINTMENT": "Agregar Cita"
+    },
+    "CLINICS": {
+      "VETERINARIAN": "Veterinario",
+      "CONTACTS": "Contactos",
+      "PHONE": "Teléfono",
+      "SELECT": "Seleccionar"
+    },
+    "CREATE_APPOINTMENT": {
+      "TITLE": "Completar Cita",
+      "DATE_LABEL": "Fecha",
+      "TIME_LABEL": "Hora",
+      "SELECTED_DATE": "Fecha seleccionada",
+      "SELECTED_TIME": "Hora seleccionada",
+      "PET_LABEL": "Mascota",
+      "TITLE_PLACEHOLDER": "Establecer título de la cita",
+      "TITLE_VALUE": "Nueva Cita",
+      "DESCRIPTION_PLACEHOLDER": "Ingresa la razón",
+      "DESCRIPTION_HINT": "Mi mascota tiene...",
+      "SCHEDULE_BUTTON": "Programar"
+    },
+    "VETERINARIANS": {
+      "AVAILABILITY": "Disponibilidad",
+      "CONTACTS": "Contactos",
+      "EMAIL": "Correo electrónico",
+      "PHONE": "Teléfono",
+      "SELECT": "Seleccionar"
+    },
+    "EDIT_PET": {
+      "PHOTO": "Foto",
+      "NAME": "Nombre",
+      "SPECIE": "Especie",
+      "AGE": "Edad",
+      "SEX": "Sexo",
+      "SIZE": "Tamaño",
+      "PERIMETER": "Perímetro permitido",
+      "SAVE_BUTTON": "Guardar"
+    },
+    "PETS": {
+      "MALE": "Macho",
+      "FEMALE": "Hembra",
+      "PERIMETER": "Perímetro",
+      "SCHEDULED_APPOINTMENTS": "Citas Programadas",
+      "NO_APPOINTMENTS": "No hay citas programadas",
+      "DATE": "Fecha",
+      "TIME": "Hora",
+      "DESCRIPTION": "Descripción"
+    },
+    "HOME": {
+      "PETS": "Mascotas",
+      "APPOINTMENT": "Cita",
+      "PROFILE": "Perfil",
+      "CHANGE_PASSWORD": "Cambiar Contraseña",
+      "LOG_OUT": "Cerrar Sesión",
+      "NOTIFICATIONS": "Notificaciones"
+    }
+}   
+  

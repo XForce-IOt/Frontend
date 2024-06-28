@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Pet } from 'src/app/collar-function/model/pet.model';
 import { PetService } from 'src/app/collar-function/services/pet.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-edit-pet',
@@ -16,12 +17,16 @@ export class EditPetComponent {
   imageUrl!: string;
   userId: number | null = null;
 
-  constructor(
+  constructor(private translate: TranslateService,
     private formBuilder: FormBuilder,
     private petService: PetService,
     private router: Router,
     private authService: AuthService
-  ) {}
+  ) {
+    const savedLanguage = localStorage.getItem('language') || 'en';
+    this.translate.setDefaultLang(savedLanguage);
+    this.translate.use(savedLanguage);
+  }
 
   ngOnInit(): void{
 

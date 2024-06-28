@@ -6,32 +6,34 @@
       </div>
       <mat-card-content>
         <mat-form-field appearance="outline" class="custom-mat-form-field">
-            <mat-label>Nombre</mat-label>
-            <input matInput type="text" required style="color: black;" [(ngModel)]="user_now.name" matInput [formControl]="name" placeholder="Name">
+          <mat-label>{{ 'PROFILE.NAME' | translate }}</mat-label>
+          <input matInput type="text" required style="color: black;" [(ngModel)]="user_now.name" [formControl]="name" [placeholder]="'PROFILE.NAME' | translate">
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="custom-mat-form-field">
-            <mat-label>Apellidos</mat-label>
-            <input matInput type="text" required style="color: black;" [(ngModel)]="user_now.lastName" matInput [formControl]="lastName" placeholder="Lastname">
+          <mat-label>{{ 'PROFILE.LASTNAME' | translate }}</mat-label>
+          <input matInput type="text" required style="color: black;" [(ngModel)]="user_now.lastName" [formControl]="lastName" [placeholder]="'PROFILE.LASTNAME' | translate">
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="custom-mat-form-field">
-            <mat-label>Dirección</mat-label>
-            <input matInput type="text" required style="color: black;" [(ngModel)]="user_now.address" matInput [formControl]="address" placeholder="Address">
+          <mat-label>{{ 'PROFILE.ADDRESS' | translate }}</mat-label>
+          <input matInput type="text" required style="color: black;" [(ngModel)]="user_now.address" [formControl]="address" [placeholder]="'PROFILE.ADDRESS' | translate">
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="custom-mat-form-field">
-            <mat-label>Celular</mat-label>
-            <input matInput type="number" required style="color: black;" [(ngModel)]="user_now.phone" matInput [formControl]="phone" placeholder="Phone">
+          <mat-label>{{ 'PROFILE.PHONE' | translate }}</mat-label>
+          <input matInput type="number" required style="color: black;" [(ngModel)]="user_now.phone" [formControl]="phone" [placeholder]="'PROFILE.PHONE' | translate">
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="custom-mat-form-field">
-            <mat-label>Correo</mat-label>
-            <input matInput type="email" required style="color: black;" [(ngModel)]="user_now.email" matInput [formControl]="email" placeholder="Email">
+          <mat-label>{{ 'PROFILE.EMAIL' | translate }}</mat-label>
+          <input matInput type="email" required style="color: black;" [(ngModel)]="user_now.email" [formControl]="email" [placeholder]="'PROFILE.EMAIL' | translate">
         </mat-form-field>
 
         <div class="button-center">
-          <button mat-raised-button class="submit-button" style="color: rgb(255, 255, 255);" (click)="updateProfile()">Guardar</button>
+          <button mat-raised-button class="submit-button" style="color: rgb(255, 255, 255);" (click)="updateProfile()">
+            {{ 'PROFILE.SAVE_BUTTON' | translate }}
+          </button>
         </div>
       </mat-card-content>
     </mat-card>

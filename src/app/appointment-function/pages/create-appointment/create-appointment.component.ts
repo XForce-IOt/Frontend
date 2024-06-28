@@ -12,6 +12,7 @@ import { PetService} from "../../../collar-function/services/pet.service";
 import { AppointmentService} from "../../services/appointment.service";
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 interface LatLngLiteral {
   lat: number;
@@ -47,7 +48,7 @@ export class CreateAppointmentComponent {
   public appointmentForm: FormGroup;
   //public formErrors: any = {};
 
-  constructor(
+  constructor(private translate: TranslateService,
     public clinicService: ClinicService,
     public veterinarianService: VeterinarianService,
     public geocodeService: GeocodeService,
@@ -64,6 +65,10 @@ export class CreateAppointmentComponent {
     this.veterinariansByClinic = [];
     this.pets = [];
     this.petOwnerId = this.authService.getUserId();
+
+    const savedLanguage = localStorage.getItem('language') || 'en';
+    this.translate.setDefaultLang(savedLanguage);
+    this.translate.use(savedLanguage);
 
     this.appointmentForm = this.fb.group({
       searchText: [''],

@@ -1,6 +1,6 @@
 <div>
   <mat-tab-group class="data-pet" mat-stretch-tabs="false" mat-align-tabs="start">
-    <mat-tab class="tab-pets" *ngFor="let pet of pets" label="{{ pet.name }}" (selectedTabChange)="getNextAppointments(pet.id)"
+    <mat-tab class="tab-pets" *ngFor="let pet of pets" [label]="pet.name" (selectedTabChange)="getNextAppointments(pet.id)"
       (selectedTabChange)="onTabChange($event)">
       <div class="container">
 
@@ -10,7 +10,7 @@
               <img [src]="pet.image" alt="Image of a {{ pet.specie }}" class="circle-image">
             </div>
             <div class="buttonEdit">
-              <button mat-icon-button routerLink="/home/pet/edit/{{pet.id}}">
+              <button mat-icon-button [routerLink]="'/home/pet/edit/' + pet.id">
                 <mat-icon>create</mat-icon>
               </button>
             </div>
@@ -18,30 +18,30 @@
           <mat-card-content class="textCard">
             <p class="namePet">{{ pet.name }}</p>
             {{ pet.specie }} - {{ pet.age }} meses <br>
-            {{ pet.sex == 'male' ? 'Macho' : 'Hembra' }} <br>
-            Perímetro: {{ pet.perimeter }} metros
+            {{ pet.sex == 'male' ? ('PETS.MALE' | translate) : ('PETS.FEMALE' | translate) }} <br>
+            {{ 'PETS.PERIMETER' | translate }}: {{ pet.perimeter }} metros
           </mat-card-content>
         </mat-card>
 
         <mat-card>
           <mat-card-header>
             <div class="appointment-info">
-              <h2>Scheduled Appointments</h2>
+              <h2>{{ 'PETS.SCHEDULED_APPOINTMENTS' | translate }}</h2>
             </div>
           </mat-card-header>
           <ng-container *ngIf="checkAppointments(pet.id); else noCitas">
             <div *ngFor="let appointment of filterAppointments">
               <mat-card-content *ngIf="appointment.pet == pet.id">
                 <h3>{{ appointment.title }}</h3>
-                <p><strong>Fecha:</strong> {{ appointment.date }}</p>
-                <p><strong>Hora:</strong> {{ appointment.hour }}</p>
-                <p><strong>Descripción:</strong> {{ appointment.description }}</p>
+                <p><strong>{{ 'PETS.DATE' | translate }}:</strong> {{ appointment.date }}</p>
+                <p><strong>{{ 'PETS.TIME' | translate }}:</strong> {{ appointment.hour }}</p>
+                <p><strong>{{ 'PETS.DESCRIPTION' | translate }}:</strong> {{ appointment.description }}</p>
               </mat-card-content>
             </div>
           </ng-container>
           <ng-template #noCitas>
             <mat-card-content>
-              <p>No hay citas programadas</p>
+              <p>{{ 'PETS.NO_APPOINTMENTS' | translate }}</p>
             </mat-card-content>
           </ng-template>
         </mat-card>
@@ -81,5 +81,4 @@
       </div>
     </mat-tab>
   </mat-tab-group>
-
 </div>

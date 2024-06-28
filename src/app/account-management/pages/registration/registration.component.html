@@ -1,77 +1,80 @@
 <div class="auth-container">
     <img src="../assets/images/patitas.jpeg" alt="patitas" class="patitas">
     <div class="content-auth">
-        <mat-card class="form-registration">
-            <mat-card-header class="login-header">
-                <mat-card-title>Registrate</mat-card-title>
-            </mat-card-header>
-
-            <mat-card-content>
-                <mat-form-field appearance="outline" class="custom-mat-form-field">
-                    <mat-label>Nombre</mat-label>
-                    <input type="text" matInput [formControl]="name" placeholder="Name" required>
-                    <mat-error *ngIf="name.invalid">{{ getErrorMessageName() }}</mat-error>
-                </mat-form-field>
-
-                <mat-form-field appearance="outline" class="custom-mat-form-field">
-                    <mat-label>Apellidos</mat-label>
-                    <input type="text" matInput [formControl]="lastName" placeholder="lastName" required>
-                    <mat-error *ngIf="lastName.invalid">{{ getErrorMessageName() }}</mat-error>
-                </mat-form-field>
-
-                <mat-form-field appearance="outline" class="custom-mat-form-field">
-                    <mat-label>Correo electrónico</mat-label>
-                    <input type="text" matInput [formControl]="email" placeholder="Email" required>
-                <mat-error *ngIf="email.invalid">{{ getErrorMessageName() }}</mat-error>
-                </mat-form-field>
-
-                <mat-form-field appearance="outline" class="custom-mat-form-field">
-                    <mat-label>Contraseña</mat-label>
-                    <input type="password" matInput [formControl]="password" placeholder="Password" required>
-                <mat-error *ngIf="password.invalid">{{ getErrorMessagePassword() }}</mat-error>
-                </mat-form-field>
-
-                <mat-form-field appearance="outline" class="custom-mat-form-field">
-                    <mat-label>Celular</mat-label>
-                    <input type="text" matInput [formControl]="phone" placeholder="Phone" required>
-                <mat-error *ngIf="phone.invalid">{{ getErrorMessageName() }}</mat-error>
-                </mat-form-field>
-
-                <p>Elige el tipo de usuario con el que te identificas</p>
-
-                <div class="button-center button-form">
-                    <div mat-raised-button class="form-button">
-                        <div>
-                            <img src="../assets/images/duenio-mascota.jpeg" alt="Dueño de mascota" class="form-image">
-                        </div>
-                        <div>
-                            <p>
-                                Dueño de mascota
-                            </p>
-                        </div>
-                    </div>
-                    <div mat-raised-button class="form-button">
-                        <img src="../assets/images/veterinario.jpeg" alt="Veterinario" class="form-image">
-                        <p>
-                            Veterinario
-                        </p>
-                    </div>
-                </div>
-
-                <div class="button-center">
-                    <button mat-raised-button class="submit-button" (click)="submit()">Crear Cuenta</button>
-                </div>
-
-                <div class="line"></div>
-
-                <div class="register-prompt">
-                    ¿Ya tienes cuenta? <a (click)="login()">Inicia sesión</a>
-                </div>
-            </mat-card-content>
-        </mat-card>
-
-        <div class="image-section">
-            <img src="../assets/images/logo.png" alt="PETHEALTH" class="logo">
-        </div>
+      <mat-card class="form-registration">
+        <mat-card-header class="login-header">
+          <mat-card-title>{{ 'REGISTRATION.TITLE' | translate }}</mat-card-title>
+        </mat-card-header>
+  
+        <mat-card-content>
+          <mat-form-field appearance="outline" class="custom-mat-form-field">
+            <mat-label>{{ 'REGISTRATION.FIRST_NAME' | translate }}</mat-label>
+            <input type="text" matInput [formControl]="name" [placeholder]="'REGISTRATION.FIRST_NAME' | translate" required>
+            <mat-error *ngIf="name.invalid">{{ getErrorMessageName() }}</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="custom-mat-form-field">
+            <mat-label>{{ 'REGISTRATION.LAST_NAME' | translate }}</mat-label>
+            <input type="text" matInput [formControl]="lastName" [placeholder]="'REGISTRATION.LAST_NAME' | translate" required>
+            <mat-error *ngIf="lastName.invalid">{{ getErrorMessageName() }}</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="custom-mat-form-field">
+            <mat-label>{{ 'REGISTRATION.EMAIL' | translate }}</mat-label>
+            <input type="text" matInput [formControl]="email" [placeholder]="'REGISTRATION.EMAIL' | translate" required>
+            <mat-error *ngIf="email.invalid">{{ getErrorMessageName() }}</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="custom-mat-form-field">
+            <mat-label>{{ 'REGISTRATION.PASSWORD' | translate }}</mat-label>
+            <input type="password" matInput [formControl]="password" [placeholder]="'REGISTRATION.PASSWORD' | translate" required>
+            <mat-error *ngIf="password.invalid">{{ getErrorMessagePassword() }}</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field appearance="outline" class="custom-mat-form-field">
+            <mat-label>{{ 'REGISTRATION.PHONE' | translate }}</mat-label>
+            <input type="text" matInput [formControl]="phone" [placeholder]="'REGISTRATION.PHONE' | translate" required>
+            <mat-error *ngIf="phone.invalid">{{ getErrorMessageName() }}</mat-error>
+          </mat-form-field>
+  
+          <p>{{ 'REGISTRATION.USER_TYPE_PROMPT' | translate }}</p>
+  
+          <div class="button-center button-form">
+            <div mat-raised-button class="form-button">
+              <div>
+                <img src="../assets/images/duenio-mascota.jpeg" alt="Dueño de mascota" class="form-image">
+              </div>
+              <div>
+                <p>
+                  {{ 'REGISTRATION.PET_OWNER' | translate }}
+                </p>
+              </div>
+            </div>
+            <div mat-raised-button class="form-button">
+              <img src="../assets/images/veterinario.jpeg" alt="Veterinario" class="form-image">
+              <p>
+                {{ 'REGISTRATION.VETERINARIAN' | translate }}
+              </p>
+            </div>
+          </div>
+  
+          <div class="button-center">
+            <button mat-raised-button class="submit-button" (click)="submit()">
+              {{ 'REGISTRATION.CREATE_ACCOUNT' | translate }}
+            </button>
+          </div>
+  
+          <div class="line"></div>
+  
+          <div class="register-prompt">
+            {{ 'REGISTRATION.ALREADY_HAVE_ACCOUNT' | translate }} <a (click)="login()">{{ 'REGISTRATION.LOGIN' | translate }}</a>
+          </div>
+        </mat-card-content>
+      </mat-card>
+  
+      <div class="image-section">
+        <img src="../assets/images/logo.png" alt="PETHEALTH" class="logo">
+      </div>
     </div>
-</div>
+  </div>
+  

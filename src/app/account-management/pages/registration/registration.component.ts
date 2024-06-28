@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormControl, Validators } from '@angular/forms';
 import { ProfileService } from '../../services/profile.service';
 import * as CryptoJS from 'crypto-js';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-registration',
@@ -11,7 +12,11 @@ import * as CryptoJS from 'crypto-js';
 })
 export class RegistrationComponent {
 
-  constructor( private profileService: ProfileService, private router: Router) { }
+  constructor(private translate: TranslateService, private profileService: ProfileService, private router: Router) {
+    const savedLanguage = localStorage.getItem('language') || 'en';
+    this.translate.setDefaultLang(savedLanguage);
+    this.translate.use(savedLanguage);
+  }
 
   name = new FormControl('', [Validators.required]);
   lastName = new FormControl('', [Validators.required]);

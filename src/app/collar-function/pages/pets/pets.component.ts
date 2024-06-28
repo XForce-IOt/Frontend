@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AppointmentService } from 'src/app/appointment-function/services/appointment.service';
 import { PetService } from 'src/app/collar-function/services/pet.service';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 import {
   ChartComponent,
@@ -52,8 +53,11 @@ export class PetsComponent implements OnInit {
   public center: LatLngLiteral = {lat: -12.046374, lng: -77.042793};
   public markers: MarkerOptions[] = [];
 
-  constructor(private PetsService: PetService, private appointmentService: AppointmentService, private authService: AuthService) {
-  
+  constructor(private translate: TranslateService, private PetsService: PetService, private appointmentService: AppointmentService, private authService: AuthService) {
+    const savedLanguage = localStorage.getItem('language') || 'en';
+    this.translate.setDefaultLang(savedLanguage);
+    this.translate.use(savedLanguage);
+    
     this.chartOptions = {
       series: [
         { name: "Temperature",

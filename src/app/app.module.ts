@@ -10,7 +10,7 @@ import { AppointmentComponent } from './appointment-function/pages/appointment/a
 import { ProfileComponent } from './account-management/pages/profile/profile.component';
 import { ChangePasswordComponent } from './account-management/pages/change-password/change-password.component';
 import { HomeComponent } from './public/pages/home/home.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AuthComponent } from './account-management/pages/auth/auth.component';
 import { RegistrationComponent } from './account-management/pages/registration/registration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -26,6 +26,14 @@ import { FilterPipe } from './filter.pipe';
 import { MatCardModule } from '@angular/material/card';
 import { VeterinariansComponent } from './appointment-function/pages/veterinarians/veterinarians.component';
 import { ClinicsComponent } from './appointment-function/pages/clinics/clinics.component';
+
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+// Factory function for the loader
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -58,7 +66,14 @@ import { ClinicsComponent } from './appointment-function/pages/clinics/clinics.c
     FullCalendarModule,
     ReactiveFormsModule,
     FormsModule,
-    MatCardModule
+    MatCardModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
 
   ],
   providers: [provideNativeDateAdapter()],

@@ -5,6 +5,7 @@ import {Appointment} from "../../model/appointment.model";
 import {AppointmentService} from "../../services/appointment.service";
 import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-appointment',
@@ -19,9 +20,12 @@ export class AppointmentComponent {
   vetId: any | null = null;
   petOwnerId: any | null = null;
 
-  constructor(public appointmentService: AppointmentService, private route:ActivatedRoute, private authService: AuthService,) {
+  constructor(private translate: TranslateService, public appointmentService: AppointmentService, private route:ActivatedRoute, private authService: AuthService,) {
     this.appointments = [];
     this.petOwnerId = this.authService.getUserId();
+    const savedLanguage = localStorage.getItem('language') || 'en';
+    this.translate.setDefaultLang(savedLanguage);
+    this.translate.use(savedLanguage);
   }
 
   private getAppointments(): void {

@@ -1,0 +1,108 @@
+{
+    "LOGIN": {
+      "TITLE": "Login",
+      "EMAIL_LABEL": "Email",
+      "EMAIL_PLACEHOLDER": "Email",
+      "PASSWORD_LABEL": "Password",
+      "PASSWORD_PLACEHOLDER": "Password",
+      "BUTTON": "Login",
+      "OR_LOGIN_WITH": "or login with",
+      "NO_ACCOUNT": "Don't have an account?",
+      "REGISTER": "Register"
+    },
+    "SETTINGS": {
+      "TITLE": "Settings",
+      "CHANGE_PASSWORD": "Change Password",
+      "CURRENT_PASSWORD_LABEL": "Current Password",
+      "CURRENT_PASSWORD_ERROR": "Current password is required",
+      "NEW_PASSWORD_LABEL": "New Password",
+      "NEW_PASSWORD_ERROR": "New password is required",
+      "CONFIRM_PASSWORD_LABEL": "Confirm New Password",
+      "CONFIRM_PASSWORD_ERROR": "Password confirmation is required",
+      "SAVE_BUTTON": "Save",
+      "NOTIFICATIONS": "Notifications",
+      "LANGUAGE": "Language"
+    },
+    "PROFILE": {
+      "NAME": "Name",
+      "LASTNAME": "Last Name",
+      "ADDRESS": "Address",
+      "PHONE": "Phone",
+      "EMAIL": "Email",
+      "SAVE_BUTTON": "Save"
+    },
+    "REGISTRATION": {
+      "TITLE": "Register",
+      "FIRST_NAME": "First Name",
+      "LAST_NAME": "Last Name",
+      "EMAIL": "Email",
+      "PASSWORD": "Password",
+      "PHONE": "Phone",
+      "USER_TYPE_PROMPT": "Choose the type of user you identify with",
+      "PET_OWNER": "Pet Owner",
+      "VETERINARIAN": "Veterinarian",
+      "CREATE_ACCOUNT": "Create Account",
+      "ALREADY_HAVE_ACCOUNT": "Already have an account?",
+      "LOGIN": "Log In"
+    },
+    "APPOINTMENT": {
+      "SEARCH_PLACEHOLDER": "Date or name of pet",
+      "DATE_LABEL": "Date",
+      "REASON_LABEL": "Reason",
+      "ADD_APPOINTMENT": "Add Appointment"
+    },
+    "CLINICS": {
+      "VETERINARIAN": "Veterinarian",
+      "CONTACTS": "Contacts",
+      "PHONE": "Phone",
+      "SELECT": "Select"
+    },
+    "CREATE_APPOINTMENT": {
+      "TITLE": "Complete Appointment",
+      "DATE_LABEL": "Date",
+      "TIME_LABEL": "Time",
+      "SELECTED_DATE": "Selected date",
+      "SELECTED_TIME": "Selected time",
+      "PET_LABEL": "Pet",
+      "TITLE_PLACEHOLDER": "Set Title appointment",
+      "TITLE_VALUE": "New Appointment",
+      "DESCRIPTION_PLACEHOLDER": "Enter reason",
+      "DESCRIPTION_HINT": "My pet has...",
+      "SCHEDULE_BUTTON": "Schedule"
+    },
+    "VETERINARIANS": {
+      "AVAILABILITY": "Availability",
+      "CONTACTS": "Contacts",
+      "EMAIL": "Email",
+      "PHONE": "Phone",
+      "SELECT": "Select"
+    },
+    "EDIT_PET": {
+      "PHOTO": "Photo",
+      "NAME": "Name",
+      "SPECIE": "Specie",
+      "AGE": "Age",
+      "SEX": "Sex",
+      "SIZE": "Size",
+      "PERIMETER": "Allowed perimeter",
+      "SAVE_BUTTON": "Save"
+    },
+    "PETS": {
+      "MALE": "Male",
+      "FEMALE": "Female",
+      "PERIMETER": "Perimeter",
+      "SCHEDULED_APPOINTMENTS": "Scheduled Appointments",
+      "NO_APPOINTMENTS": "No scheduled appointments",
+      "DATE": "Date",
+      "TIME": "Time",
+      "DESCRIPTION": "Description"
+    },
+    "HOME": {
+      "PETS": "Pets",
+      "APPOINTMENT": "Appointment",
+      "PROFILE": "Profile",
+      "CHANGE_PASSWORD": "Change Password",
+      "LOG_OUT": "Log Out",
+      "NOTIFICATIONS": "Notifications"
+    }
+}  

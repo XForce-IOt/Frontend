@@ -3,6 +3,7 @@ import { AuthService } from '../../../shared/services/auth.service';
 import { FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ProfileService } from 'src/app/account-management/services/profile.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-profile',
@@ -14,8 +15,11 @@ export class ProfileComponent implements OnInit{
   user_now: any = {};
   //user_now!: User | null;
 
-  constructor(private auth: AuthService, private http: HttpClient, private profileService: ProfileService) {
+  constructor(private translate: TranslateService, private auth: AuthService, private http: HttpClient, private profileService: ProfileService) {
     this.user_now = this.auth.getUser()
+    const savedLanguage = localStorage.getItem('language') || 'en';
+    this.translate.setDefaultLang(savedLanguage);
+    this.translate.use(savedLanguage);
   }
 
   name = new FormControl('', [Validators.required]);

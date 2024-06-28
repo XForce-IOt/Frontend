@@ -4,6 +4,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ProfileService } from 'src/app/account-management/services/profile.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-change-password',
@@ -11,12 +12,16 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./change-password.component.css']
 })
 export class ChangePasswordComponent implements OnInit{
+  currentLanguage: string;
 
   user_now: any = {};
   //user_now!: User | null;
 
-  constructor(private auth: AuthService, private http: HttpClient, private profileService: ProfileService, private snackBar: MatSnackBar) {
+  constructor(private translate: TranslateService, private auth: AuthService, private http: HttpClient, private profileService: ProfileService, private snackBar: MatSnackBar) {
     this.user_now = this.auth.getUser()
+    this.currentLanguage = localStorage.getItem('language') || 'en';
+    this.translate.setDefaultLang(this.currentLanguage);
+    this.translate.use(this.currentLanguage);
   }
 
   name = new FormControl('', [Validators.required]);
@@ -42,6 +47,12 @@ export class ChangePasswordComponent implements OnInit{
       this.phone.setValue(this.user_now.phone);
       this.email.setValue(this.user_now.email);
     }
+  }
+
+  switchLanguage(language: string) {
+    this.currentLanguage = language;
+    this.translate.use(language);
+    localStorage.setItem('language', language);
   }
 
   updatePass() {

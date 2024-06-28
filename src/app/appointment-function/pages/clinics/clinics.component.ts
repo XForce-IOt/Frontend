@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ClinicService } from 'src/app/appointment-function/services/clinic.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-clinics',
@@ -10,7 +11,11 @@ import { ClinicService } from 'src/app/appointment-function/services/clinic.serv
 export class ClinicsComponent implements OnInit {
   clinics: any[] = [];
 
-  constructor(private clinicService: ClinicService, private router: Router){}
+  constructor(private translate: TranslateService, private clinicService: ClinicService, private router: Router){
+    const savedLanguage = localStorage.getItem('language') || 'en';
+    this.translate.setDefaultLang(savedLanguage);
+    this.translate.use(savedLanguage);
+  }
 
   ngOnInit(): void{
     this.getClinics();

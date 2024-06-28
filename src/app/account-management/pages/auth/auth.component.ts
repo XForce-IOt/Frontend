@@ -6,6 +6,8 @@ import { ProfileService } from 'src/app/account-management/services/profile.serv
 import { PetOwner } from '../../model/pet-owner.model';
 import * as CryptoJS from 'crypto-js';  // Asegúrate de que CryptoJS está correctamente importado
 
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
@@ -13,7 +15,11 @@ import * as CryptoJS from 'crypto-js';  // Asegúrate de que CryptoJS está corr
 })
 export class AuthComponent {
 
-  constructor(private profileService: ProfileService, private router: Router, private authService: AuthService) { }
+  constructor(private translate: TranslateService, private profileService: ProfileService, private router: Router, private authService: AuthService) { 
+    const savedLanguage = localStorage.getItem('language') || 'en';
+    this.translate.setDefaultLang(savedLanguage);
+    this.translate.use(savedLanguage);
+  }
 
   email = new FormControl('', [Validators.required]);
   password = new FormControl('', [Validators.required]);

@@ -3,10 +3,10 @@
     <mat-card-header>
       <mat-card-title>
         <mat-form-field class="mat-form-field" appearance="outline">
-          <input matInput placeholder="Fecha o nombre de mascota" type="text" name="search" [(ngModel)]="searchText">
+          <input matInput [placeholder]="'APPOINTMENT.SEARCH_PLACEHOLDER' | translate" type="text" name="search" [(ngModel)]="searchText">
           <mat-label>
             <mat-icon matSuffix>search</mat-icon>
-            Date or name of pet
+            {{ 'APPOINTMENT.SEARCH_PLACEHOLDER' | translate }}
           </mat-label>
         </mat-form-field>
       </mat-card-title>
@@ -14,9 +14,9 @@
 
     <mat-card-content>
       <section class="clean-card" *ngFor="let appointment of appointments | filter:searchText">
-        <h3 class="title-card-text">{{appointment.title}}</h3>
-        <label class="dec-text">Date:</label><label>{{appointment.dateTime}}</label><br>
-        <label class="dec-text">Reason:</label><label>{{appointment.description}}</label><br>
+        <h3 class="title-card-text">{{ appointment.title }}</h3>
+        <label class="dec-text">{{ 'APPOINTMENT.DATE_LABEL' | translate }}:</label><label>{{ appointment.dateTime }}</label><br>
+        <label class="dec-text">{{ 'APPOINTMENT.REASON_LABEL' | translate }}:</label><label>{{ appointment.description }}</label><br>
         <hr class="solid">
       </section>
     </mat-card-content>
@@ -27,14 +27,12 @@
       <button routerLink="clinics" mat-fab color="primary" aria-label="Example icon button with a delete icon" class="btn">
         <mat-icon>add</mat-icon>
       </button>
-      <p>Add Appointment</p>
-
+      <p>{{ 'APPOINTMENT.ADD_APPOINTMENT' | translate }}</p>
     </div>
     <div class="appointment-set">
       <!-- Asegúrate de que el calendario solo se renderiza si calendarOptions está definido -->
       <full-calendar *ngIf="calendarOptions" [options]="calendarOptions"></full-calendar>
     </div>
     <!--Add calendar-->
-
   </div>
 </div>

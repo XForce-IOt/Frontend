@@ -1,25 +1,25 @@
 <div class="container-cards">
     <mat-card class="example-card" *ngFor="let clinic of clinics">
-        <mat-card-header>
-            <ng-container *ngIf="clinic.photoUrl; else defaultIcon">
-                <img mat-card-avatar class="photoClinic" [src]="clinic.photoUrl" alt="Photo of a Shiba Inu">
-              </ng-container>
-            <ng-template #defaultIcon>
-                <mat-icon mat-card-avatar class="iconClinic">person</mat-icon>
-            </ng-template>
-            
-            <mat-card-title>{{clinic.name}}</mat-card-title>
-            <mat-card-subtitle>Veterinarian</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-            <p>{{clinic.socialMedia}}</p>
-            <p>Contacts<br>
-                Phone: {{clinic.number}}</p>
-        </mat-card-content>
-        <mat-card-actions>
-            <div class="button-select">
-                <button (click)="goToVeterinarians(clinic.clinicId)">SELECT</button>
-            </div>
-        </mat-card-actions>
+      <mat-card-header>
+        <ng-container *ngIf="clinic.photoUrl; else defaultIcon">
+          <img mat-card-avatar class="photoClinic" [src]="clinic.photoUrl" alt="Photo of a Clinic">
+        </ng-container>
+        <ng-template #defaultIcon>
+          <mat-icon mat-card-avatar class="iconClinic">person</mat-icon>
+        </ng-template>
+  
+        <mat-card-title>{{ clinic.name }}</mat-card-title>
+        <mat-card-subtitle>{{ 'CLINICS.VETERINARIAN' | translate }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ clinic.socialMedia }}</p>
+        <p>{{ 'CLINICS.CONTACTS' | translate }}<br>
+          {{ 'CLINICS.PHONE' | translate }}: {{ clinic.number }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="button-select">
+          <button mat-button (click)="goToVeterinarians(clinic.clinicId)">{{ 'CLINICS.SELECT' | translate }}</button>
+        </div>
+      </mat-card-actions>
     </mat-card>
-</div>
+  </div>  

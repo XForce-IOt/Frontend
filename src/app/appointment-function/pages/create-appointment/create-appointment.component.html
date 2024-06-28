@@ -4,62 +4,58 @@
     <div class="column1 set"> <!--Recuerda que esto se esconde-->
       <google-map [center]="center" [zoom]="zoom" height="400px" width="100%">
         <ng-container *ngIf="markers.length > 0">
-          <map-marker *ngFor="let marker of markers" [position]="marker.position"
-            [title]="marker.title || 'Sin título'"></map-marker>
+          <map-marker *ngFor="let marker of markers" [position]="marker.position" [title]="marker.title || 'Sin título'"></map-marker>
         </ng-container>
       </google-map>
     </div>
 
-
     <mat-card class="set column1">
       <mat-card-header>
         <mat-card-title>
-          Complete Appointment
+          {{ 'CREATE_APPOINTMENT.TITLE' | translate }}
         </mat-card-title>
       </mat-card-header>
 
       <div class="form-date-picker">
         <igx-date-picker #datePicker formControlName="selectedDate" [inputFormat]="'dd-MM-yyyy'">
-          <label igxLabel>Date</label>
+          <label igxLabel>{{ 'CREATE_APPOINTMENT.DATE_LABEL' | translate }}</label>
         </igx-date-picker>
       </div>
       <div class="form-time-picker">
         <igx-time-picker formControlName="time" [disabled]="!appointmentForm.get('selectedDate')?.value">
-          <label igxLabel>Time</label>
+          <label igxLabel>{{ 'CREATE_APPOINTMENT.TIME_LABEL' | translate }}</label>
         </igx-time-picker>
       </div>
       <p class="text">
-        Selected date: {{ appointmentForm.get('selectedDate')?.value?
-        (appointmentForm.get('selectedDate')?.value).toDateString() : null }}<br>
-        Selected date: {{ appointmentForm.get('time')?.value? (appointmentForm.get('time')?.value).toTimeString() : null
-        }}
+        {{ 'CREATE_APPOINTMENT.SELECTED_DATE' | translate }}: {{ appointmentForm.get('selectedDate')?.value ? (appointmentForm.get('selectedDate')?.value).toDateString() : null }}<br>
+        {{ 'CREATE_APPOINTMENT.SELECTED_TIME' | translate }}: {{ appointmentForm.get('time')?.value ? (appointmentForm.get('time')?.value).toTimeString() : null }}
       </p>
 
       <mat-card-content>
         <mat-form-field appearance="outline">
-          <mat-label>Pet</mat-label>
+          <mat-label>{{ 'CREATE_APPOINTMENT.PET_LABEL' | translate }}</mat-label>
           <mat-select formControlName="pet" (selectionChange)="onPetSelected($event)">
-            <mat-option *ngFor="let pet of pets" [value]="pet">{{pet.name}}</mat-option>
+            <mat-option *ngFor="let pet of pets" [value]="pet">{{ pet.name }}</mat-option>
           </mat-select>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-          <mat-label>Set Tittle appointment</mat-label>
-          <input matInput placeholder="Ex. Appointment" value="New Appointment" formControlName="title">
+          <mat-label>{{ 'CREATE_APPOINTMENT.TITLE_PLACEHOLDER' | translate }}</mat-label>
+          <input matInput [placeholder]="'CREATE_APPOINTMENT.TITLE_PLACEHOLDER' | translate" [value]="'CREATE_APPOINTMENT.TITLE_VALUE' | translate" formControlName="title">
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
-          <mat-label>Enter reason</mat-label>
-          <textarea matInput placeholder="Mi pet has..." formControlName="description"></textarea>
+          <mat-label>{{ 'CREATE_APPOINTMENT.DESCRIPTION_PLACEHOLDER' | translate }}</mat-label>
+          <textarea matInput [placeholder]="'CREATE_APPOINTMENT.DESCRIPTION_HINT' | translate" formControlName="description"></textarea>
         </mat-form-field>
-
       </mat-card-content>
+
       <mat-card-actions>
-        <button mat-raised-button class="btn" (click)="createAppointment()">Schedule</button>
+        <button mat-raised-button class="btn" (click)="createAppointment()">
+          {{ 'CREATE_APPOINTMENT.SCHEDULE_BUTTON' | translate }}
+        </button>
       </mat-card-actions>
     </mat-card>
 
-
   </ng-container>
-
 </div>
